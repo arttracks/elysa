@@ -14,16 +14,21 @@ App.IndexRoute = Ember.Route.extend({
 App.ProvenanceRoute = Ember.Route.extend({})
 
 App.TimelineRoute = Ember.Route.extend({
+  redirect: function() {
+    this.transitionTo('period',0);
+  },
   model: function() {
     var prov = this.controllerFor('provenance').get('provenance')
-    return Ember.$.post('/get_structure', {provenance: prov}).then(function(data){
-      return data.period;
+    return new Promise(function(resolve, reject) {
+      Ember.$.post('/get_structure', {provenance: prov}).then(function(data){
+        resolve(data.period)
+      });
     });
   }
 });
 
 App.PeriodRoute = Ember.Route.extend({
   model: function(params) {
-    return this.controllerFor('timeline').objectAt(params.period_id);
+    return this.modelFor('timeline').objectAt(params.period_id);
   }
 })

@@ -20,16 +20,30 @@ a {
 
 .provenance_party:hover {
   text-decoration: none; }
-.provenance_party.problem {
+
+.unparsable {
   color: red;
   font-style: italic; }
 
-.provenance_party.selected {
+.provenance_party.active {
   font-weight: bold;
   color: #2a6496; }
 
 .extended_fields {
   display: none; }
+  .extended_fields.visible {
+    display: block; }
 
 #full_results {
   display: none; }
+
+.provenance_line {
+  text-decoration: none;
+  color: #888; }
+  .provenance_line:hover, .provenance_line:focus {
+    text-decoration: none; }
+  .provenance_line.active {
+    color: black; }
+
+#provenance_map .leaflet-container {
+  height: 250px; }

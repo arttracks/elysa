@@ -1,2 +1,46 @@
+<div class="row">
+  <dl class="dl-horizontal col-md-6">
+    <dt>Party</dt><dd>{{possibly party_certainty}}{{party}}</dd>
+    <dt>Birth</dt><dd>{{possibly birth_certainty}}{{birth}}</dd>
+    <dt>Death</dt><dd>{{possibly death_certainty}}{{death}}</dd>
+    <dt>Location</dt><dd>{{possibly location_certainty}}{{location}}</dd>
+    <dt>Stock Number</dt><dd>{{stock_number}}</dd>
+  </dl>
+  <dl class="dl-horizontal col-md-6">
+    <dt>Period Certain?</dt><dd>{{yes_no period_certainty}}</dd>
+    <dt>Acquisition Method</dt><dd>{{acquisition_method}}</dd>
+    <dt>Transfer in</dt><dd>{{acquisition_time_span}}</dd>
+    <dt>Transfer out</dt><dd>{{deacquisition_time_span}}</dd>
+    <dt>Direct Transfer?</dt><dd>{{yes_no direct_transfer}}</dd>
+  </dl>
+</div>
 
-location: {{location}}
+<div class ="row">
+  <dl class="dl-horizontal col-md-12">
+    <dt>Footnote</dt><dd>{{footnote}}</dd> 
+  </dl>
+</div>
+
+<div {{bind-attr class=":row :extended_fields showExtended:visible"}}>
+  <dl class="dl-horizontal col-md-6">
+    <dt>Party Certainty</dt><dd>{{party_certainty}}</dd>
+    <dt>Birth Certainty</dt><dd>{{birth_certainty}}</dd>
+    <dt>Death Certainty</dt><dd>{{death_certainty}}</dd>
+    <dt>Location Certainty</dt><dd>{{location_certainty}}</dd>
+    <dt>Period Certainty</dt><dd>{{period_certainty}}</dd>
+  </dl>
+  <dl class="dl-horizontal col-md-6">
+    <dt>BotB</dt><dd>{{botb}}</dd>
+    <dt>BotB Certainty</dt><dd>{{botb_certainty}}</dd>
+    <dt>BotB Precision</dt><dd>{{botb_precision}}</dd>
+    <dt>EotB</dt><dd>{{eotb}}</dd>
+    <dt>EotB Certainty</dt><dd>{{eotb_certainty}}</dd>
+    <dt>EotB Precision</dt><dd>{{eotb_precision}}</dd>
+    <dt>BotE</dt><dd>{{bote}}</dd>
+    <dt>BotE Certainty</dt><dd>{{bote_certainty}}</dd>
+    <dt>BotE Precision</dt><dd>{{bote_precision}}</dd>
+    <dt>EotE</dt><dd>{{eote}}</dd>
+    <dt>EotE Certainty</dt><dd>{{eote_certainty}}</dd>
+    <dt>EotE Precision</dt><dd>{{eote_precision}}</dd> 
+  </dl>
+</div>

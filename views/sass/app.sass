@@ -17,13 +17,25 @@ a
 .provenance_party
   &:hover
     text-decoration: none
-  &.problem
-    color: red
-    font-style: italic
-.provenance_party.selected
+.unparsable
+  color: red
+  font-style: italic
+.provenance_party.active
   font-weight: bold
   color: #2a6496
 .extended_fields
   display: none
+  &.visible
+    display: block
 #full_results
   display: none
+.provenance_line
+  text-decoration: none
+  &:hover, &:focus
+    text-decoration: none
+  color: #888
+  &.active
+    color: black
+#provenance_map
+  .leaflet-container
+    height: 250px

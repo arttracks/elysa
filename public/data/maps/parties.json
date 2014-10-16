@@ -1,0 +1,3417 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -1.90408,
+            51.53671
+          ],
+          [
+            -0.12574,
+            51.50853
+          ]
+        ]
+      },
+      "properties": {
+        "index": 0,
+        "name": "Sir Henry Charles Englefield, 7th Baronet"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            11.25318,
+            43.76803
+          ],
+          [
+            8.23975,
+            48.7606
+          ],
+          [
+            -87.90647,
+            43.0389
+          ],
+          [
+            -74.00597,
+            40.71427
+          ]
+        ]
+      },
+      "properties": {
+        "index": 1,
+        "name": "Mrs. Genia Zadok, New York"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -0.12574,
+            51.50853
+          ],
+          [
+            -0.12574,
+            51.50853
+          ]
+        ]
+      },
+      "properties": {
+        "index": 2,
+        "name": "Grafton Gallery"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            35.0,
+            39.0
+          ],
+          [
+            28.94966,
+            41.01384
+          ],
+          [
+            -87.65005,
+            41.85003
+          ],
+          [
+            -74.00597,
+            40.71427
+          ],
+          [
+            -90.28261,
+            38.63727
+          ],
+          [
+            -74.00597,
+            40.71427
+          ]
+        ]
+      },
+      "properties": {
+        "index": 3,
+        "name": "Mr. Dikran G. Kelekian"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            11.24626,
+            43.77925
+          ],
+          [
+            -0.5,
+            52.0
+          ],
+          [
+            -0.16936,
+            51.48755
+          ],
+          [
+            -1.25,
+            51.0
+          ]
+        ]
+      },
+      "properties": {
+        "index": 4,
+        "name": "Florence Anita Eyre Coote, Countess of Northbrook"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            4.88969,
+            52.37403
+          ],
+          [
+            6.11667,
+            53.0
+          ]
+        ]
+      },
+      "properties": {
+        "index": 5,
+        "name": "Charles Huguenot van der Linden"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            2.47124,
+            49.19461
+          ],
+          [
+            0.83333,
+            45.16667
+          ]
+        ]
+      },
+      "properties": {
+        "index": 6,
+        "name": "Jean Baptiste Antoine Guillemet"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            55.4504,
+            -20.88231
+          ],
+          [
+            3.87723,
+            43.61092
+          ],
+          [
+            2.3488,
+            48.85341
+          ],
+          [
+            2.13333,
+            48.8
+          ]
+        ]
+      },
+      "properties": {
+        "index": 7,
+        "name": "Mr. Ambroise Vollard"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.00597,
+            40.71427
+          ],
+          [
+            -74.00597,
+            40.71427
+          ]
+        ]
+      },
+      "properties": {
+        "index": 8,
+        "name": "American Art Association"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -83.17797,
+            41.1145
+          ],
+          [
+            -83.41687,
+            41.157
+          ],
+          [
+            -83.74088,
+            42.27756
+          ],
+          [
+            -77.06637,
+            38.91122
+          ],
+          [
+            -71.11616,
+            42.37787
+          ],
+          [
+            -74.00597,
+            40.71427
+          ]
+        ]
+      },
+      "properties": {
+        "index": 9,
+        "name": "Mr. John Quinn"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            4.65556,
+            51.47167
+          ],
+          [
+            4.34878,
+            50.85045
+          ],
+          [
+            -0.12574,
+            51.50853
+          ],
+          [
+            4.29861,
+            52.07667
+          ],
+          [
+            2.3488,
+            48.85341
+          ],
+          [
+            4.88969,
+            52.37403
+          ],
+          [
+            2.3488,
+            48.85341
+          ],
+          [
+            5.23889,
+            52.13917
+          ]
+        ]
+      },
+      "properties": {
+        "index": 10,
+        "name": "Theo van Gogh"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -0.12574,
+            51.50853
+          ],
+          [
+            -0.12574,
+            51.50853
+          ],
+          [
+            -0.12574,
+            51.50853
+          ],
+          [
+            -0.12574,
+            51.50853
+          ]
+        ]
+      },
+      "properties": {
+        "index": 11,
+        "name": "Arthur Tooth & Sons, London"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            1.2578,
+            45.83153
+          ],
+          [
+            2.3488,
+            48.85341
+          ],
+          [
+            -0.23333,
+            44.91667
+          ],
+          [
+            2.3488,
+            48.85341
+          ],
+          [
+            5.38107,
+            43.29695
+          ],
+          [
+            13.33561,
+            38.13205
+          ],
+          [
+            5.38107,
+            43.29695
+          ],
+          [
+            3.0,
+            28.0
+          ],
+          [
+            -2.13753,
+            49.2167
+          ],
+          [
+            -2.5787,
+            49.45853
+          ],
+          [
+            1.62998,
+            49.08142
+          ],
+          [
+            -2.13435,
+            48.62189
+          ],
+          [
+            5.05526,
+            43.40735
+          ],
+          [
+            5.899,
+            43.0887
+          ],
+          [
+            -3.0,
+            48.0
+          ],
+          [
+            -2.08888,
+            47.11205
+          ],
+          [
+            -2.25828,
+            46.99226
+          ],
+          [
+            -3.74722,
+            47.85556
+          ],
+          [
+            4.53444,
+            48.0575
+          ],
+          [
+            11.57894,
+            49.94782
+          ],
+          [
+            13.73832,
+            51.05089
+          ],
+          [
+            7.15339,
+            43.6646
+          ],
+          [
+            4.88969,
+            52.37403
+          ],
+          [
+            2.3488,
+            48.85341
+          ],
+          [
+            7.15339,
+            43.6646
+          ],
+          [
+            4.53444,
+            48.0575
+          ],
+          [
+            11.57549,
+            48.13743
+          ],
+          [
+            7.15339,
+            43.6646
+          ],
+          [
+            2.33587,
+            48.86102
+          ]
+        ]
+      },
+      "properties": {
+        "index": 12,
+        "name": "Pierre Auguste Renoir"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            4.88969,
+            52.37403
+          ],
+          [
+            4.88969,
+            52.37403
+          ]
+        ]
+      },
+      "properties": {
+        "index": 13,
+        "name": "C.H. Hodges and Others"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -1.90664,
+            53.86791
+          ],
+          [
+            -71.05977,
+            42.35843
+          ],
+          [
+            -74.00597,
+            40.71427
+          ],
+          [
+            -74.16376,
+            40.85843
+          ],
+          [
+            -74.17181,
+            40.91677
+          ]
+        ]
+      },
+      "properties": {
+        "index": 14,
+        "name": "Catholina Lambert"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -80.63396,
+            40.36979
+          ],
+          [
+            -79.99589,
+            40.44062
+          ],
+          [
+            -72.92649,
+            41.31121
+          ],
+          [
+            34.75,
+            31.5
+          ],
+          [
+            -79.99589,
+            40.44062
+          ],
+          [
+            -74.00597,
+            40.71427
+          ],
+          [
+            -79.99589,
+            40.44062
+          ],
+          [
+            34.75,
+            31.5
+          ]
+        ]
+      },
+      "properties": {
+        "index": 15,
+        "name": "Charles J. Rosenbloom"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -2.59665,
+            51.45523
+          ],
+          [
+            18.47265,
+            -34.3586
+          ],
+          [
+            -4.45939,
+            57.51976
+          ]
+        ]
+      },
+      "properties": {
+        "index": 16,
+        "name": "Colonel Hugh D. Baillie"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -71.0745,
+            42.29732
+          ],
+          [
+            -71.05977,
+            42.35843
+          ],
+          [
+            -2.69531,
+            54.75844
+          ],
+          [
+            5.75,
+            52.25
+          ],
+          [
+            -4.0,
+            40.0
+          ],
+          [
+            12.83333,
+            42.83333
+          ],
+          [
+            -71.05977,
+            42.35843
+          ],
+          [
+            2.3488,
+            48.85341
+          ],
+          [
+            -74.00597,
+            40.71427
+          ],
+          [
+            -70.61449,
+            42.98926
+          ],
+          [
+            -70.66199,
+            42.61593
+          ],
+          [
+            -73.59957,
+            41.03343
+          ],
+          [
+            -72.32897,
+            41.31593
+          ],
+          [
+            -82.38304,
+            23.13302
+          ],
+          [
+            -74.00597,
+            40.71427
+          ],
+          [
+            14.24641,
+            40.85631
+          ],
+          [
+            12.51133,
+            41.89193
+          ],
+          [
+            11.24626,
+            43.77925
+          ],
+          [
+            2.3488,
+            48.85341
+          ],
+          [
+            -2.69531,
+            54.75844
+          ],
+          [
+            -74.00597,
+            40.71427
+          ],
+          [
+            -120.50139,
+            44.00013
+          ],
+          [
+            -120.50139,
+            44.00013
+          ],
+          [
+            -74.00597,
+            40.71427
+          ],
+          [
+            2.3488,
+            48.85341
+          ],
+          [
+            -74.00597,
+            40.71427
+          ],
+          [
+            -72.1848,
+            40.96343
+          ]
+        ]
+      },
+      "properties": {
+        "index": 17,
+        "name": "Childe Hassam"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -6.66667,
+            54.98333
+          ],
+          [
+            -71.05977,
+            42.35843
+          ],
+          [
+            -74.00597,
+            40.71427
+          ],
+          [
+            2.3488,
+            48.85341
+          ],
+          [
+            -74.00597,
+            40.71427
+          ],
+          [
+            2.3488,
+            48.85341
+          ],
+          [
+            -74.00597,
+            40.71427
+          ],
+          [
+            2.3488,
+            48.85341
+          ],
+          [
+            -74.00597,
+            40.71427
+          ],
+          [
+            2.3488,
+            48.85341
+          ],
+          [
+            -74.00597,
+            40.71427
+          ],
+          [
+            -4.25763,
+            55.86515
+          ],
+          [
+            -74.00597,
+            40.71427
+          ]
+        ]
+      },
+      "properties": {
+        "index": 18,
+        "name": "Edward Guthrie Kennedy"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            3.33333,
+            46.56667
+          ],
+          [
+            2.3488,
+            48.85341
+          ],
+          [
+            2.16978,
+            49.07158
+          ]
+        ]
+      },
+      "properties": {
+        "index": 19,
+        "name": "Eugène Murer"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            2.3488,
+            48.85341
+          ],
+          [
+            -1.55336,
+            47.21725
+          ]
+        ]
+      },
+      "properties": {
+        "index": 20,
+        "name": "Private Collection, Nantes, France (66.4, Cezanne, The Plain of the Arc River)"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            6.3,
+            52.15833
+          ],
+          [
+            2.3488,
+            48.85341
+          ],
+          [
+            12.51133,
+            41.89193
+          ],
+          [
+            2.3488,
+            48.85341
+          ],
+          [
+            4.88969,
+            52.37403
+          ],
+          [
+            6.3,
+            52.15833
+          ]
+        ]
+      },
+      "properties": {
+        "index": 21,
+        "name": "Baroness Francoise Bonger-van der Borch"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -71.05977,
+            42.35843
+          ],
+          [
+            -74.00597,
+            40.71427
+          ],
+          [
+            -1.42559,
+            55.01788
+          ],
+          [
+            -70.31449,
+            43.53342
+          ]
+        ]
+      },
+      "properties": {
+        "index": 22,
+        "name": "Winslow Homer"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            22.93086,
+            40.64362
+          ],
+          [
+            2.3488,
+            48.85341
+          ],
+          [
+            -0.12574,
+            51.50853
+          ],
+          [
+            22.93086,
+            40.64362
+          ],
+          [
+            2.3488,
+            48.85341
+          ],
+          [
+            -0.12574,
+            51.50853
+          ],
+          [
+            -66.50101,
+            18.2494
+          ],
+          [
+            -0.12574,
+            51.50853
+          ],
+          [
+            -0.12574,
+            51.50853
+          ],
+          [
+            11.25318,
+            43.76803
+          ],
+          [
+            8.23975,
+            48.7606
+          ],
+          [
+            -87.90647,
+            43.0389
+          ],
+          [
+            -74.00597,
+            40.71427
+          ]
+        ]
+      },
+      "properties": {
+        "index": 23,
+        "name": "Charles Zadok"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            11.24626,
+            43.77925
+          ],
+          [
+            -0.60905,
+            51.48833
+          ],
+          [
+            88.36304,
+            22.56263
+          ],
+          [
+            -1.3187,
+            51.06513
+          ],
+          [
+            -0.16936,
+            51.48755
+          ]
+        ]
+      },
+      "properties": {
+        "index": 24,
+        "name": "Francis G. Baring"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -91.9135,
+            42.67332
+          ],
+          [
+            -73.73513,
+            40.81982
+          ],
+          [
+            -73.43901,
+            41.94537
+          ],
+          [
+            -72.28641,
+            43.70035
+          ],
+          [
+            -74.00597,
+            40.71427
+          ],
+          [
+            -73.72846,
+            40.80066
+          ],
+          [
+            -76.28522,
+            36.84681
+          ],
+          [
+            -81.79148,
+            24.55459
+          ],
+          [
+            -81.79148,
+            24.55459
+          ],
+          [
+            -74.00597,
+            40.71427
+          ],
+          [
+            -70.17864,
+            42.05844
+          ]
+        ]
+      },
+      "properties": {
+        "index": 25,
+        "name": "Walter P. Chrysler Jr."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            2.3488,
+            48.85341
+          ],
+          [
+            -0.6748,
+            51.41082
+          ],
+          [
+            10.01534,
+            53.57532
+          ],
+          [
+            13.05794,
+            52.39655
+          ],
+          [
+            7.09548,
+            50.73438
+          ],
+          [
+            12.37129,
+            51.33962
+          ],
+          [
+            13.41053,
+            52.52437
+          ],
+          [
+            9.3934,
+            51.36562
+          ],
+          [
+            7.44744,
+            46.94809
+          ],
+          [
+            2.0,
+            46.0
+          ],
+          [
+            -0.70312,
+            52.16045
+          ],
+          [
+            9.3934,
+            51.36562
+          ],
+          [
+            2.3488,
+            48.85341
+          ],
+          [
+            2.65024,
+            39.56939
+          ],
+          [
+            4.84671,
+            45.74846
+          ]
+        ]
+      },
+      "properties": {
+        "index": 26,
+        "name": "Harry G. Kessler"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -74.00597,
+            40.71427
+          ],
+          [
+            -71.05977,
+            42.35843
+          ],
+          [
+            9.14062,
+            48.69096
+          ],
+          [
+            -77.73888,
+            39.32538
+          ],
+          [
+            -77.64138,
+            38.97567
+          ],
+          [
+            -71.05977,
+            42.35843
+          ],
+          [
+            -83.00018,
+            40.25034
+          ],
+          [
+            -83.50018,
+            32.75042
+          ],
+          [
+            -71.05977,
+            42.35843
+          ]
+        ]
+      },
+      "properties": {
+        "index": 27,
+        "name": "Henry L. Higginson"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            6.6,
+            50.1
+          ],
+          [
+            8.77069,
+            50.80904
+          ],
+          [
+            13.25,
+            52.43333
+          ],
+          [
+            14.38128,
+            52.53392
+          ],
+          [
+            11.32903,
+            50.9803
+          ],
+          [
+            14.13716,
+            52.50704
+          ],
+          [
+            8.01427,
+            47.00016
+          ],
+          [
+            2.3488,
+            48.85341
+          ],
+          [
+            5.38107,
+            43.29695
+          ],
+          [
+            -4.0,
+            40.0
+          ],
+          [
+            -8.13057,
+            39.6945
+          ],
+          [
+            -43.2075,
+            -22.90278
+          ],
+          [
+            -43.77361,
+            -21.22583
+          ],
+          [
+            -46.63611,
+            -23.5475
+          ]
+        ]
+      },
+      "properties": {
+        "index": 28,
+        "name": "Hugo Simon"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -0.01193,
+            51.46431
+          ],
+          [
+            -1.49929,
+            50.70529
+          ],
+          [
+            -0.18651,
+            52.33049
+          ],
+          [
+            -1.8795,
+            50.72048
+          ]
+        ]
+      },
+      "properties": {
+        "index": 29,
+        "name": "Thomas Baring, MP"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            4.88969,
+            52.37403
+          ],
+          [
+            -0.12574,
+            51.50853
+          ],
+          [
+            5.84306,
+            52.4475
+          ],
+          [
+            5.12222,
+            52.09083
+          ],
+          [
+            4.88969,
+            52.37403
+          ],
+          [
+            2.3488,
+            48.85341
+          ],
+          [
+            5.16111,
+            52.27333
+          ],
+          [
+            2.16978,
+            49.07158
+          ],
+          [
+            -74.00597,
+            40.71427
+          ],
+          [
+            4.88969,
+            52.37403
+          ]
+        ]
+      },
+      "properties": {
+        "index": 30,
+        "name": "Johanna Gezina van Gogh-Bonger"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            10.68729,
+            53.86893
+          ],
+          [
+            13.41053,
+            52.52437
+          ],
+          [
+            11.57549,
+            48.13743
+          ],
+          [
+            2.3488,
+            48.85341
+          ],
+          [
+            13.41053,
+            52.52437
+          ],
+          [
+            10.68729,
+            53.86893
+          ],
+          [
+            11.3667,
+            47.9
+          ],
+          [
+            13.41053,
+            52.52437
+          ]
+        ]
+      },
+      "properties": {
+        "index": 31,
+        "name": "Maria Slavona"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -0.12574,
+            51.50853
+          ],
+          [
+            -1.25596,
+            51.75222
+          ],
+          [
+            -5.07113,
+            50.15441
+          ],
+          [
+            88.36304,
+            22.56263
+          ],
+          [
+            -1.40428,
+            50.90395
+          ],
+          [
+            30.0,
+            27.0
+          ],
+          [
+            -1.25,
+            51.0
+          ]
+        ]
+      },
+      "properties": {
+        "index": 32,
+        "name": "Thomas G. Baring"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            1.7035,
+            49.06199
+          ],
+          [
+            1.36699,
+            48.83391
+          ],
+          [
+            1.46332,
+            49.09292
+          ]
+        ]
+      },
+      "properties": {
+        "index": 33,
+        "name": "Michel Monet"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.90408,
+          51.53671
+        ]
+      },
+      "properties": {
+        "title": "Wootton Bassett",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.12574,
+          51.50853
+        ]
+      },
+      "properties": {
+        "title": "London",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.3488,
+          48.85341
+        ]
+      },
+      "properties": {
+        "title": "Paris",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.00597,
+          40.71427
+        ]
+      },
+      "properties": {
+        "title": "New York",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.49306,
+          52.15833
+        ]
+      },
+      "properties": {
+        "title": "Leiden",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.25318,
+          43.76803
+        ]
+      },
+      "properties": {
+        "title": "Ponte Vecchio",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.23975,
+          48.7606
+        ]
+      },
+      "properties": {
+        "title": "Baden-Baden",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.90647,
+          43.0389
+        ]
+      },
+      "properties": {
+        "title": "Milwaukee",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.0,
+          39.0
+        ]
+      },
+      "properties": {
+        "title": "Turkey",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.94966,
+          41.01384
+        ]
+      },
+      "properties": {
+        "title": "Istanbul",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.65005,
+          41.85003
+        ]
+      },
+      "properties": {
+        "title": "Chicago",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.28261,
+          38.63727
+        ]
+      },
+      "properties": {
+        "title": "Forest Park",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.70312,
+          52.16045
+        ]
+      },
+      "properties": {
+        "title": "England",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.24626,
+          43.77925
+        ]
+      },
+      "properties": {
+        "title": "Florence",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.5,
+          52.0
+        ]
+      },
+      "properties": {
+        "title": "County of Bedfordshire",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.16936,
+          51.48755
+        ]
+      },
+      "properties": {
+        "title": "Chelsea",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.25,
+          51.0
+        ]
+      },
+      "properties": {
+        "title": "Hampshire",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -79.99589,
+          40.44062
+        ]
+      },
+      "properties": {
+        "title": "Pittsburgh",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.88969,
+          52.37403
+        ]
+      },
+      "properties": {
+        "title": "Amsterdam",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.11667,
+          53.0
+        ]
+      },
+      "properties": {
+        "title": "Jubbega Derde Sluis",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.47124,
+          49.19461
+        ]
+      },
+      "properties": {
+        "title": "Chantilly",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0.83333,
+          45.16667
+        ]
+      },
+      "properties": {
+        "title": "Dordogne",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          55.4504,
+          -20.88231
+        ]
+      },
+      "properties": {
+        "title": "Saint-Denis",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.87723,
+          43.61092
+        ]
+      },
+      "properties": {
+        "title": "Montpellier",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.13333,
+          48.8
+        ]
+      },
+      "properties": {
+        "title": "Versailles",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.17797,
+          41.1145
+        ]
+      },
+      "properties": {
+        "title": "Tiffin",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.41687,
+          41.157
+        ]
+      },
+      "properties": {
+        "title": "Fostoria",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.74088,
+          42.27756
+        ]
+      },
+      "properties": {
+        "title": "Ann Arbor",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.06637,
+          38.91122
+        ]
+      },
+      "properties": {
+        "title": "Cloisters",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.11616,
+          42.37787
+        ]
+      },
+      "properties": {
+        "title": "Old Cambridge",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.65556,
+          51.47167
+        ]
+      },
+      "properties": {
+        "title": "Zundert",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.34878,
+          50.85045
+        ]
+      },
+      "properties": {
+        "title": "Brussels",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.29861,
+          52.07667
+        ]
+      },
+      "properties": {
+        "title": "The Hague",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.23889,
+          52.13917
+        ]
+      },
+      "properties": {
+        "title": "Den Dolder",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -4.25763,
+          55.86515
+        ]
+      },
+      "properties": {
+        "title": "Glasgow",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.0,
+          46.0
+        ]
+      },
+      "properties": {
+        "title": "France",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.57327,
+          47.5584
+        ]
+      },
+      "properties": {
+        "title": "Basel",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          1.2578,
+          45.83153
+        ]
+      },
+      "properties": {
+        "title": "Limoges",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.23333,
+          44.91667
+        ]
+      },
+      "properties": {
+        "title": "Libourne",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.38107,
+          43.29695
+        ]
+      },
+      "properties": {
+        "title": "Marseille",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.33561,
+          38.13205
+        ]
+      },
+      "properties": {
+        "title": "Palermo",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.0,
+          28.0
+        ]
+      },
+      "properties": {
+        "title": "Algeria",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -2.13753,
+          49.2167
+        ]
+      },
+      "properties": {
+        "title": "Jersey",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -2.5787,
+          49.45853
+        ]
+      },
+      "properties": {
+        "title": "Guernsey",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          1.62998,
+          49.08142
+        ]
+      },
+      "properties": {
+        "title": "La Roche-Guyon",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -2.13435,
+          48.62189
+        ]
+      },
+      "properties": {
+        "title": "Saint-Briac-sur-Mer",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.05526,
+          43.40735
+        ]
+      },
+      "properties": {
+        "title": "Martigues",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.899,
+          43.0887
+        ]
+      },
+      "properties": {
+        "title": "Tamaris-sur-Mer",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.0,
+          48.0
+        ]
+      },
+      "properties": {
+        "title": "Brittany",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -2.08888,
+          47.11205
+        ]
+      },
+      "properties": {
+        "title": "Pornic",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -2.25828,
+          46.99226
+        ]
+      },
+      "properties": {
+        "title": "Noirmoutier",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.74722,
+          47.85556
+        ]
+      },
+      "properties": {
+        "title": "Pont-Aven",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.53444,
+          48.0575
+        ]
+      },
+      "properties": {
+        "title": "Essoyes",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.57894,
+          49.94782
+        ]
+      },
+      "properties": {
+        "title": "Bayreuth",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.73832,
+          51.05089
+        ]
+      },
+      "properties": {
+        "title": "Dresden",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.15339,
+          43.6646
+        ]
+      },
+      "properties": {
+        "title": "Cagnes-sur-Mer",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.57549,
+          48.13743
+        ]
+      },
+      "properties": {
+        "title": "Munich",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.33587,
+          48.86102
+        ]
+      },
+      "properties": {
+        "title": "The Louvre",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.90664,
+          53.86791
+        ]
+      },
+      "properties": {
+        "title": "Keighley",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.05977,
+          42.35843
+        ]
+      },
+      "properties": {
+        "title": "Boston",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.16376,
+          40.85843
+        ]
+      },
+      "properties": {
+        "title": "Clifton",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.17181,
+          40.91677
+        ]
+      },
+      "properties": {
+        "title": "Paterson",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -80.63396,
+          40.36979
+        ]
+      },
+      "properties": {
+        "title": "Steubenville",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.92649,
+          41.31121
+        ]
+      },
+      "properties": {
+        "title": "Yale University",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          34.75,
+          31.5
+        ]
+      },
+      "properties": {
+        "title": "Israel",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          91.1,
+          29.65
+        ]
+      },
+      "properties": {
+        "title": "Lhasa",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -2.59665,
+          51.45523
+        ]
+      },
+      "properties": {
+        "title": "Bristol",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.47265,
+          -34.3586
+        ]
+      },
+      "properties": {
+        "title": "Cape of Good Hope",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -4.45939,
+          57.51976
+        ]
+      },
+      "properties": {
+        "title": "Muir of Ord",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.0745,
+          42.29732
+        ]
+      },
+      "properties": {
+        "title": "Dorchester",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -2.69531,
+          54.75844
+        ]
+      },
+      "properties": {
+        "title": "United Kingdom",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.75,
+          52.25
+        ]
+      },
+      "properties": {
+        "title": "Netherlands",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -4.0,
+          40.0
+        ]
+      },
+      "properties": {
+        "title": "Spain",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.83333,
+          42.83333
+        ]
+      },
+      "properties": {
+        "title": "Italy",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.61449,
+          42.98926
+        ]
+      },
+      "properties": {
+        "title": "Appledore Island",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.66199,
+          42.61593
+        ]
+      },
+      "properties": {
+        "title": "Gloucester",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.59957,
+          41.03343
+        ]
+      },
+      "properties": {
+        "title": "Cos Cob",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.32897,
+          41.31593
+        ]
+      },
+      "properties": {
+        "title": "Old Lyme",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.38304,
+          23.13302
+        ]
+      },
+      "properties": {
+        "title": "Havana",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.24641,
+          40.85631
+        ]
+      },
+      "properties": {
+        "title": "Naples",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.51133,
+          41.89193
+        ]
+      },
+      "properties": {
+        "title": "Rome",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -120.50139,
+          44.00013
+        ]
+      },
+      "properties": {
+        "title": "Oregon",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.1848,
+          40.96343
+        ]
+      },
+      "properties": {
+        "title": "East Hampton",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -6.66667,
+          54.98333
+        ]
+      },
+      "properties": {
+        "title": "Garvagh",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          3.33333,
+          46.56667
+        ]
+      },
+      "properties": {
+        "title": "Moulins",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.16978,
+          49.07158
+        ]
+      },
+      "properties": {
+        "title": "Auvers-sur-Oise",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.55336,
+          47.21725
+        ]
+      },
+      "properties": {
+        "title": "Nantes",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.3,
+          52.15833
+        ]
+      },
+      "properties": {
+        "title": "Almen",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.42559,
+          55.01788
+        ]
+      },
+      "properties": {
+        "title": "Tynemouth",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.31449,
+          43.53342
+        ]
+      },
+      "properties": {
+        "title": "Prouts Neck",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22.93086,
+          40.64362
+        ]
+      },
+      "properties": {
+        "title": "Thessaloniki",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -66.50101,
+          18.2494
+        ]
+      },
+      "properties": {
+        "title": "Puerto Rico",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.60905,
+          51.48833
+        ]
+      },
+      "properties": {
+        "title": "Eton",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          88.36304,
+          22.56263
+        ]
+      },
+      "properties": {
+        "title": "Kolkata",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.3187,
+          51.06513
+        ]
+      },
+      "properties": {
+        "title": "Winchester",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -91.9135,
+          42.67332
+        ]
+      },
+      "properties": {
+        "title": "Oelwein",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.73513,
+          40.81982
+        ]
+      },
+      "properties": {
+        "title": "Kings Point",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.43901,
+          41.94537
+        ]
+      },
+      "properties": {
+        "title": "The Hotchkiss School",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.28641,
+          43.70035
+        ]
+      },
+      "properties": {
+        "title": "Dartmouth College",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.72846,
+          40.80066
+        ]
+      },
+      "properties": {
+        "title": "Great Neck",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.28522,
+          36.84681
+        ]
+      },
+      "properties": {
+        "title": "Norfolk",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -81.79148,
+          24.55459
+        ]
+      },
+      "properties": {
+        "title": "Key West",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.17864,
+          42.05844
+        ]
+      },
+      "properties": {
+        "title": "Provincetown",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.6748,
+          51.41082
+        ]
+      },
+      "properties": {
+        "title": "Ascot",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.01534,
+          53.57532
+        ]
+      },
+      "properties": {
+        "title": "Hamburg",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.05794,
+          52.39655
+        ]
+      },
+      "properties": {
+        "title": "Potsdam",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.09548,
+          50.73438
+        ]
+      },
+      "properties": {
+        "title": "Bonn",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.37129,
+          51.33962
+        ]
+      },
+      "properties": {
+        "title": "Leipzig",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.41053,
+          52.52437
+        ]
+      },
+      "properties": {
+        "title": "Berlin",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.3934,
+          51.36562
+        ]
+      },
+      "properties": {
+        "title": "Weimar",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.44744,
+          46.94809
+        ]
+      },
+      "properties": {
+        "title": "Bern",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.65024,
+          39.56939
+        ]
+      },
+      "properties": {
+        "title": "Palma de Mallorca",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.84671,
+          45.74846
+        ]
+      },
+      "properties": {
+        "title": "Lyon",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.14062,
+          48.69096
+        ]
+      },
+      "properties": {
+        "title": "Europe",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.73888,
+          39.32538
+        ]
+      },
+      "properties": {
+        "title": "Harpers Ferry",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.64138,
+          38.97567
+        ]
+      },
+      "properties": {
+        "title": "Aldie",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.00018,
+          40.25034
+        ]
+      },
+      "properties": {
+        "title": "Ohio",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -83.50018,
+          32.75042
+        ]
+      },
+      "properties": {
+        "title": "Georgia",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.6,
+          50.1
+        ]
+      },
+      "properties": {
+        "title": "Usch",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.77069,
+          50.80904
+        ]
+      },
+      "properties": {
+        "title": "Marburg",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.25,
+          52.43333
+        ]
+      },
+      "properties": {
+        "title": "Zehlendorf",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.38128,
+          52.53392
+        ]
+      },
+      "properties": {
+        "title": "Seelow",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.13716,
+          52.50704
+        ]
+      },
+      "properties": {
+        "title": "Müncheberg",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.01427,
+          47.00016
+        ]
+      },
+      "properties": {
+        "title": "Switzerland",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.13057,
+          39.6945
+        ]
+      },
+      "properties": {
+        "title": "Portugal",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -43.2075,
+          -22.90278
+        ]
+      },
+      "properties": {
+        "title": "Rio de Janeiro",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -43.77361,
+          -21.22583
+        ]
+      },
+      "properties": {
+        "title": "Barbacena",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -46.63611,
+          -23.5475
+        ]
+      },
+      "properties": {
+        "title": "São Paulo",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.01193,
+          51.46431
+        ]
+      },
+      "properties": {
+        "title": "Lewisham",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.49929,
+          50.70529
+        ]
+      },
+      "properties": {
+        "title": "Yarmouth",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.18651,
+          52.33049
+        ]
+      },
+      "properties": {
+        "title": "Huntingdon",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.8795,
+          50.72048
+        ]
+      },
+      "properties": {
+        "title": "Bournemouth",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.84306,
+          52.4475
+        ]
+      },
+      "properties": {
+        "title": "Elburg",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.12222,
+          52.09083
+        ]
+      },
+      "properties": {
+        "title": "Utrecht",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          5.16111,
+          52.27333
+        ]
+      },
+      "properties": {
+        "title": "Bussum",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.68729,
+          53.86893
+        ]
+      },
+      "properties": {
+        "title": "Lübeck",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.3667,
+          47.9
+        ]
+      },
+      "properties": {
+        "title": "Münsing",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.25596,
+          51.75222
+        ]
+      },
+      "properties": {
+        "title": "Oxford",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -5.07113,
+          50.15441
+        ]
+      },
+      "properties": {
+        "title": "Falmouth",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.40428,
+          50.90395
+        ]
+      },
+      "properties": {
+        "title": "Southampton",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.0,
+          27.0
+        ]
+      },
+      "properties": {
+        "title": "Egypt",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          1.7035,
+          49.06199
+        ]
+      },
+      "properties": {
+        "title": "Vétheuil",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          1.36699,
+          48.83391
+        ]
+      },
+      "properties": {
+        "title": "Sorel-Moussel",
+        "clickable": true
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          1.46332,
+          49.09292
+        ]
+      },
+      "properties": {
+        "title": "Vernon",
+        "clickable": true
+      }
+    }
+  ]
+}

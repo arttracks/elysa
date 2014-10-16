@@ -1,0 +1,12 @@
+<ul class="list-unstyled">
+  {{#each}}
+    <li>
+      {{#link-to 'period' order}}
+      <span  {{bind-attr class='parsable'}}>
+        {{party}} 
+      </span>
+      {{/link-to}}
+    </li>
+  {{/each}}
+</ul>
+{{outlet}}

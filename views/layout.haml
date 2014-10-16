@@ -1,0 +1,27 @@
+!!!
+%html
+  %head
+    %title CMOA Museum Provenance 
+
+
+    %link{:rel => :stylesheet, :type => :"text/css", :href => "/css/libraries/bootstrap/bootstrap.css"}
+    %link{:rel => :stylesheet, :type => :"text/css", :href => "/css/date_picker.css"}
+
+  %body
+    .navbar.navbar-inverse.navbar-fixed-top
+      .container
+        .navbar-header
+          %a.navbar-brand CMOA Museum Provenance  
+    .container
+      .row
+        .col-md-12
+          =yield
+
+  %script{src: "/js/libraries/jquery/jquery.js"}
+  %script{src: "/js/libraries/typeahead.js/typeahead.bundle.js"}
+  %script{src: "/js/libraries/handlebars/handlebars.js"}
+  %script{src: "/js/libraries/ember/ember.js"}
+  %script{src: "/js/libraries/ember/ember-data.js"}
+  %script{src: "/js/templates.js"}
+  %script{src: "/js/ember-app.js"}
+

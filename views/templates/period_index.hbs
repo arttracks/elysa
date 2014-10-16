@@ -1,0 +1,13 @@
+<ul class="list-unstyled">
+  {{#each period}}
+    <li>
+      <a href="#" class="provenance_party {{problem parsable}}" id="record_{{order}}">
+        {{party}} 
+       <!--{{#if date_string}}
+        - <em> {{date_string}}</em>
+       {{/if}}
+       -->  
+      </a>
+    </li>
+  {{/each}}
+</ul>

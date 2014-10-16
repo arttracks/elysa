@@ -1,0 +1,14 @@
+<div id='enter_data' {{bind-attr class=":row hidden"}} >
+  <div class ='col-md-8 col-md-offset-2'>
+    <form>
+      <div class='form-group'>
+        <label for='provenance-input'>Provenance Text:</label>
+        {{textarea value=provenance class='form-control' rows=8 }}  
+      </div>
+    </form>
+    {{#link-to 'timeline'}}
+      <button class='btn btn-primary' id ='submit-provenance'> Generate Structured Data</button>
+    {{/link-to}}
+  </div>
+</div>
+{{outlet}}

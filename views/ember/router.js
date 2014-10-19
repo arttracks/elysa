@@ -19,7 +19,7 @@ App.TimelineRoute = Ember.Route.extend({
   },
   model: function() {
     var prov = this.controllerFor('provenance').get('provenance')
-    return new Promise(function(resolve, reject) {
+    return new Ember.RSVP.Promise(function(resolve, reject) {
       Ember.$.post('/get_structure', {provenance: prov}).then(function(data){
         resolve(data.period)
       });

@@ -41,7 +41,12 @@
   <div class="col-md-12 col-md-offset-0 well">
     {{#each}}
       {{#link-to 'period' order class='provenance_line'}}
-        {{provenance}}{{transfer_type direct_transfer}}
+        {{#if parsable}}
+          {{provenance~}}
+        {{else}}
+          <span class='provenance_text'>{{~provenance~}}</span><span class='provenance_original_text'>{{~original_text~}}</span>
+         {{~/if~}} 
+        {{~transfer_type direct_transfer}}
       {{/link-to}}
     {{/each}}
     <div>
@@ -56,6 +61,7 @@
 </div>
 <div class="row">
   <div class='col-md-9'>
+    <img src="/images/provenance_visualization_v2.png">
   </div>
   <div class="col-md-3" id='provenance_map'>
     {{view "provenance_map"}}

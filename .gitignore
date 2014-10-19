@@ -24,3 +24,4 @@ tmp
 mkmf.log
 .sass-cache
 views/ember/compiled_templates/*
+public/css/app.css

@@ -1,0 +1,22 @@
+---
+layout: default
+permalink: /dates/
+---
+
+<div class="home">
+  <h1 class="page-heading">Date Information</h1>
+
+  <p>
+    This is a collection of the information on dates that we've accumulated over time.
+  </p>
+
+  <ul class="post-list">
+    {% for page in site.dates %}
+      <li>
+        <h2>
+          <a class="post-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
+        </h2>
+      </li>
+    {% endfor %}
+  </ul>
+</div>

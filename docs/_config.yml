@@ -1,0 +1,32 @@
+# Site settings
+title: Museum Provenance
+email: newburyd@carnegiemuseums.com
+description: > # this means to ignore newlines until "baseurl:"
+  A ruby library for tracking and digitizing provenance records
+  for artworks in museums and other cultural institutions.
+  A subproject of the Art Tracks project for the 
+  Carnegie Museum of Art in Pittsburgh, PA.
+baseurl: "/docs" # the subpath of your site, e.g. /blog/
+url: "http://museumprovenance.com/docs" # the base hostname & protocol for your site
+twitter_username: workergnome
+github_username:  cmoa
+destination: docs/_site
+
+# Build settings
+markdown: kramdown
+
+# Customized things
+safe: true
+timezone: America/New_York
+encoding: utf-8
+port: 5000
+
+collections:
+  dates:
+    title: Date Information
+    output: true
+    permalink: /dates/:path/
+  acquisitions:
+    title: Acquisition Information
+    output: true
+    permalink: /acquisitions/:path/

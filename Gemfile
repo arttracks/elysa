@@ -15,6 +15,9 @@ gem "rb-fsevent"
 gem 'date_time_precision', :path => "/Users/david/Documents/opensource/date_time_precision"
 gem 'museum_provenance', :path => "../museum_provenance"
 
+group :documentation do
+  gem 'rack-jekyll', :git => 'https://github.com/adaoraul/rack-jekyll.git'
+end
 
 group :development do
   gem 'guard'

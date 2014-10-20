@@ -2,4 +2,4 @@
 //= require router
 //= require helpers
 //= require_directory ./models
-//= require_directory ./compiled_templates
+//= require_tree ./compiled_templates

@@ -25,3 +25,6 @@ mkmf.log
 .sass-cache
 views/ember/compiled_templates/*
 public/css/app.css
+public/js/animations.js
+public/css/animations.css
+public/js/ember-app.js

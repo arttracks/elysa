@@ -8,7 +8,9 @@ App.ProvenanceController = Ember.ObjectController.extend({
 
 App.TimelineController = Ember.ArrayController.extend({
   showExtended: false,
+  dateCreated: new Date(1890,1,1),
   itemController: 'period',
+ 
   actions: {
     toggle_extended: function() {
       var current_state = this.get('showExtended');
@@ -16,8 +18,35 @@ App.TimelineController = Ember.ArrayController.extend({
     }
   }
 });
+
 App.PeriodController = Ember.ObjectController.extend({
   needs: ['timeline'],
+  active: false,
+  computed_latest_definite: function() {
+    return date = new Date(this.get("latest_definite")*1000);
+  }.property('latest_definite'),
+
+  computed_earliest_definite: function() {
+    return date = new Date(this.get("earliest_definite")*1000);
+  }.property('earliest_definite'),
+
+  computed_latest_possible: function() {
+    return date = new Date(this.get("latest_possible")*1000);
+  }.property('latest_possible'),
+  computed_earliest_possible: function() {
+    var date;
+    if (this.get("earliest_possible")) {
+      date = new Date(this.get("earliest_possible")*1000);
+    }
+    else if (!this.parentController) {
+      date = null;
+    }
+    else {
+     date = this.parentController.get("dateCreated");
+    }
+    return date;
+  }.property('earliest_possible'),
+
   showExtendedBinding: Ember.Binding.oneWay("controllers.timeline.showExtended")
 });
 
@@ -40,12 +69,3 @@ App.ProvenanceMapView = EmberLeaflet.MapView.extend({
   childLayers: [App.TileLayer]
 });
 
-// App.Timeline = DS.Model.extend({
-//   party        : DS.attr(),
-//   order        : DS.attr(),
-//   location     : DS.attr(),
-//   birth        : DS.attr(),
-//   death        : DS.attr(),
-//   stock_number : DS.attr(),
-//   parsable:
-// });

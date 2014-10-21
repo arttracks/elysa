@@ -1,4 +1,4 @@
-.chart div
+.periods div
   font: 10px sans-serif
   background-color: steelblue
   text-align: right
@@ -6,10 +6,13 @@
   margin: 1px
   color: white
 
-.chart rect
-  fill: steelblue
+.periods rect.possible_bounds
+  fill: grey
 
-.chart text 
-  fill: white
+.periods rect.definite_bounds
+  fill: black
+
+.periods text 
+  fill: black
   font: 10px sans-serif
-  text-anchor: end
+  text-anchor: front

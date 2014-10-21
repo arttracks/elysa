@@ -30,5 +30,8 @@ App.TimelineRoute = Ember.Route.extend({
 App.PeriodRoute = Ember.Route.extend({
   model: function(params) {
     return this.modelFor('timeline').objectAt(params.period_id);
+  },
+  afterModel: function() {
+    this.set("active",true);
   }
 })

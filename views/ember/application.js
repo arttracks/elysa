@@ -2,14 +2,11 @@ window.App = Ember.Application.create({
     LOG_TRANSITIONS: true
 });
 
-
-App.ArtworkController = Ember.ObjectController.extend({});
-
 App.TimelineController = Ember.ArrayController.extend({
+  needs: 'artwork',
   showExtended: false,
-  dateCreated: new Date(1890,1,1),
+  artwork: Ember.computed.alias("controllers.artwork"),
   itemController: 'period',
- 
   actions: {
     toggle_extended: function() {
       var current_state = this.get('showExtended');
@@ -18,34 +15,18 @@ App.TimelineController = Ember.ArrayController.extend({
   }
 });
 
+App.ArtworkController = Ember.ObjectController.extend({
+  creation: function(){
+    var earliest = this.get("creationDateEarliest").getFullYear();
+    var latest = this.get("creationDateLatest").getFullYear();
+    if (earliest == latest) return "(" + earliest + ")"
+    return "(" + earliest + " - " + latest + ")"
+  }.property("creationDateLatest","creationDateEarliest")
+})
+
 App.PeriodController = Ember.ObjectController.extend({
   needs: ['timeline'],
   active: false,
-  computed_latest_definite: function() {
-    return date = new Date(this.get("latest_definite")*1000);
-  }.property('latest_definite'),
-
-  computed_earliest_definite: function() {
-    return date = new Date(this.get("earliest_definite")*1000);
-  }.property('earliest_definite'),
-
-  computed_latest_possible: function() {
-    return date = new Date(this.get("latest_possible")*1000);
-  }.property('latest_possible'),
-  computed_earliest_possible: function() {
-    var date;
-    if (this.get("earliest_possible")) {
-      date = new Date(this.get("earliest_possible")*1000);
-    }
-    else if (!this.parentController) {
-      date = null;
-    }
-    else {
-     date = this.parentController.get("dateCreated");
-    }
-    return date;
-  }.property('earliest_possible'),
-
   showExtendedBinding: Ember.Binding.oneWay("controllers.timeline.showExtended")
 });
 

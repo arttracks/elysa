@@ -1,6 +1,7 @@
 App.Artwork = DS.Model.extend({
   title: DS.attr('string'),
   artist: DS.attr('string'),
-  creationDate: DS.attr('date'),
+  creationDateEarliest: DS.attr('date'),
+  creationDateLatest: DS.attr('date'),
   provenance: DS.attr('string')
 });

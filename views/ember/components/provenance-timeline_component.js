@@ -6,8 +6,8 @@ App.ProvenanceTimelineComponent = Ember.Component.extend({
   elementHeight: 30,
 
   dateCreated: function() {
-    return this.get('periods.dateCreated') ;
-  }.property("dateCreated"),
+    return this.get('periods.artwork.creationDateEarliest') ;
+  }.property("periods.artwork.creationDateEarliest"),
 
   height: function() {
     return  this.get('period_data').length * this.get("elementHeight");

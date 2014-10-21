@@ -34,16 +34,15 @@ App.TimelineRoute = Ember.Route.extend({
   },
   model: function() {
     var prov = this.modelFor('artwork').get('provenance');
+    var self = this;
     return new Ember.RSVP.Promise(function(resolve, reject) {
       Ember.$.post('/get_structure', {provenance: prov}).then(function(data){
+        data.period.forEach(function(element,index) {
+          element.id = element.order;
+          self.store.push('period', element);
+        });
         resolve(data.period)
       });
     });
-  }
-});
-
-App.PeriodRoute = Ember.Route.extend({
-  model: function(params) {
-    return this.modelFor('timeline').objectAt(params.period_id);
   }
 });

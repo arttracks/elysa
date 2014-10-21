@@ -28,3 +28,4 @@ public/css/app.css
 public/js/animations.js
 public/css/animations.css
 public/js/ember-app.js
+views/ember/temp/compiled_templates/*

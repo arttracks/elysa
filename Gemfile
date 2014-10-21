@@ -8,7 +8,7 @@ gem "thin", "~>1.6"
 gem "tilt", "~>1.4"
 gem "sinatra-contrib"
 gem "bootstrap-sass"
-gem "sinatra-handlebars"
+#gem "sinatra-handlebars"
 gem "rerun"
 gem "rb-fsevent"
 

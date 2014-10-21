@@ -1,5 +1,7 @@
 App.Router.map(function() {
   this.resource("provenance");
+  this.resource("artworks");
+  this.resource("artwork", {path: 'artworks/:artwork_id'});
   this.resource("timeline", function() {
     this.resource("period", { path: '/:period_id' });      
   });
@@ -7,7 +9,19 @@ App.Router.map(function() {
 
 App.IndexRoute = Ember.Route.extend({
   redirect: function() {
-    this.transitionTo('provenance');
+    this.transitionTo('artworks');
+  }
+});
+
+App.ArtworksRoute = Ember.Route.extend({
+  model: function() {
+    return this.store.find('artwork_list');
+  }
+});
+
+App.ArtworkRoute = Ember.Route.extend({
+  model: function(params) {
+    return this.store.find('artwork', params.artwork_id);
   }
 });
 

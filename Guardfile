@@ -88,6 +88,6 @@ module ::Guard
   end
 end
 
-guard 'ember_handlebars', :input => 'views/ember_templates', :output => 'views/ember/compiled_templates', :remove_prefix  => 'views/ember_templates/' do
-    watch(/views\/ember_templates\/.+/)
+guard 'ember_handlebars', :input => 'views/ember/templates', :output => 'views/ember/temp/compiled_templates', :remove_prefix  => 'views/ember/templates/' do
+    watch(/views\/ember\/templates\/.+/)
 end

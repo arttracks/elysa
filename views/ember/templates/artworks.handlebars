@@ -1,0 +1,8 @@
+<div class ='col-md-8 col-md-offset-2'>
+  <ul>
+    {{#each}}
+      <li>  {{#link-to 'artwork' id}}{{title}}{{/link-to}} </li>
+    {{/each}}
+  </ul>
+</div>
+{{outlet}}

@@ -1,0 +1,3 @@
+App.ArtworkList = DS.Model.extend({
+  title: DS.attr('string')
+});

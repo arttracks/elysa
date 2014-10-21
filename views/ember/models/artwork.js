@@ -1,7 +1,3 @@
-App.ArtworkList = DS.Model.extend({
-  title: DS.attr('string')
-});
-
 App.Artwork = DS.Model.extend({
   title: DS.attr('string'),
   artist: DS.attr('string'),

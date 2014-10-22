@@ -22,16 +22,16 @@ App.ArtworkRoute = Ember.Route.extend({
     return this.store.find('artwork', params.artwork_id);
   },
   afterModel: function(artwork) {
-    var prov = artwork.get('provenance');
     return new Ember.RSVP.Promise(function(resolve, reject) {
-      Ember.$.post('/get_structure', {provenance: prov}).then(function(data){
-        data.period.forEach(function(element,index) {
-          element.id = element.order;
-          element.artwork = artwork.get("id");
+      Ember.$.post('/get_structure', {provenance: artwork.get('provenance')})
+        .then(function(data){
+          data.period.forEach(function(element,index) {
+            element.id = element.order;
+            element.artwork = artwork.get("id");
+          });
+          artwork.store.pushPayload('period', data);
+          resolve(data.period)
         });
-        artwork.store.pushPayload('period', data);
-        resolve(data.period)
-      });
     }).then(this.transitionTo('period',0));
   }
 });

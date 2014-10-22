@@ -42,6 +42,7 @@ App.Period = DS.Model.extend({
   }.property("earliest_possible","artwork.creationDateEarliest"),
 
   footnote_number: function() {
+    this.get("artwork.footnotes_updated");
     var footnoteCount = 0;
     var myVal = null;
     var self = this;
@@ -56,7 +57,7 @@ App.Period = DS.Model.extend({
       }
     });
     return myVal;
-  }.property("artwork.@each.footnote"),
+  }.property("artwork.footnotes_updated"),
 
   provenance_with_footnote: function() {
     var val = ""
@@ -67,5 +68,5 @@ App.Period = DS.Model.extend({
       val += " [" +this.get("footnote_number") + "]";
     }
     return val
-  }.property("provenance","artwork.@each.footnote"),
+  }.property("provenance","footnote_number", "footnote"),
 });

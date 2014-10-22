@@ -1,6 +1,8 @@
 <div class="row">
   <dl class="dl-horizontal col-md-6">
-    <dt>Party</dt><dd>{{possibly party_certainty}}{{party}}</dd>
+    <dt>Party</dt><dd>{{possibly party_certainty}}
+      {{input type=text value=party action="refreshData" on="focus-out"}}
+    </dd>
     <dt>Birth</dt><dd>{{possibly birth_certainty}}{{birth}}</dd>
     <dt>Death</dt><dd>{{possibly death_certainty}}{{death}}</dd>
     <dt>Location</dt><dd>{{possibly location_certainty}}{{location}}</dd>

@@ -30,7 +30,7 @@ App.ArtworkRoute = Ember.Route.extend({
             element.artwork = artwork.get("id");
           });
           artwork.store.pushPayload('period', data);
-          resolve(data.period)
+          resolve();
         });
     }).then(this.transitionTo('period',0));
   }

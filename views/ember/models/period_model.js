@@ -49,7 +49,7 @@ App.Period = DS.Model.extend({
     var periods = this.get("artwork.periods");
     periods.forEach(function(val) {
       var footnote = val.get("footnote");
-      if (footnote != "") {
+      if (footnote && footnote != "") {
         footnoteCount++;
         if (val.get("id") == self.get("id")) {
           myVal = footnoteCount;
@@ -64,7 +64,7 @@ App.Period = DS.Model.extend({
     var footnote = this.get("footnote");
 
     val += this.get("provenance");
-    if (footnote != "") {
+    if (footnote && footnote != "") {
       val += " [" +this.get("footnote_number") + "]";
     }
     return val

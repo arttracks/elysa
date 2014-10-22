@@ -13,8 +13,11 @@ App.ArtworkController = Ember.ObjectController.extend({
     var earliest = this.get("creationDateEarliest").getFullYear();
     var latest = this.get("creationDateLatest").getFullYear();
 
-    if (earliest == latest) return "[" + earliest + "]"
-    return "[" + earliest + " - " + latest + "]"
+    if (earliest == latest) {
+      return "[" + earliest + "]";
+    }
+    else {
+      return "[" + earliest + " - " + latest + "]"
+    }
   }.property("creationDateLatest","creationDateEarliest")
-
 });

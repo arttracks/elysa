@@ -6,7 +6,7 @@ App.ProvenanceTimelineComponent = Ember.Component.extend({
   elementHeight: 28,
 
   height: function() {
-    return  this.get('period_data').length * this.get("elementHeight") +  this.get('margin.top') + this.get('margin.bottom');
+    return  this.get('timeline_data').length * this.get("elementHeight") +  this.get('margin.top') + this.get('margin.bottom');
   }.property(),
 
   w: function(){
@@ -17,18 +17,9 @@ App.ProvenanceTimelineComponent = Ember.Component.extend({
     return this.get('height') - this.get('margin.top') - this.get('margin.bottom');
   }.property('height'),  
 
-  period_data: function() {
-    return this.get('periods').map(function(item){return item});
-  }.property("periods.@each.party"),
-
   didInsertElement: function(){
     this.draw();
   },
-
-  current_active: function() {
-    var active_period = this.find(function(item){item.get("active")});
-    return active_period.get("order");
-  }.property("periods.@each.active"),
 
   transformG: function(){
     return "translate(" + this.get('margin.left') + "," + this.get('margin.top') + ")";
@@ -40,14 +31,14 @@ App.ProvenanceTimelineComponent = Ember.Component.extend({
 
   periodChanged: function() {
     this.draw();
-  }.observes('period_data'),
+  }.observes('timeline_data'),
 
-  
-   draw: function(){
+  draw: function(){
+      
 
     var svg = d3.select('#'+this.get('elementId'));
-    var data = this.get('period_data');
-   
+    var data = this.get('timeline_data');
+
     var width = this.get('w');
     var height = this.get('h');
    
@@ -55,7 +46,7 @@ App.ProvenanceTimelineComponent = Ember.Component.extend({
     y.domain(data.map(function(d) { return +d.get('order'); }));
 
     var x = d3.time.scale().rangeRound([0,width],0.1);
-    x.domain([this.get('artwork.creationDateEarliest'),Date.now()]);
+    x.domain([this.get('creationDate'),Date.now()]);
     x.nice(d3.time.year);
 
    var xAxis = d3.svg.axis().scale(x).orient("bottom").ticks(10);
@@ -63,7 +54,8 @@ App.ProvenanceTimelineComponent = Ember.Component.extend({
 
 
     var periods = svg.select(".periods").selectAll("g").data(data)
-      .enter().append("g")
+      .enter().append("g");
+    
     periods.append("rect")
       .attr("class", "possible_bounds")
       .attr("height", y.rangeBand()/2)
@@ -115,6 +107,7 @@ App.ProvenanceTimelineComponent = Ember.Component.extend({
         .attr("x", function(d) { 
           return x(d.get("computed_earliest_possible")); 
         })  
+    svg.select('.periods').selectAll("text").data(data)
       .text(function(d){return d.get("party")});
   },  
 });

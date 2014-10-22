@@ -6,4 +6,7 @@ App.Artwork = DS.Model.extend({
   creationDateLatest: DS.attr('date'),
   provenance: DS.attr('string'),
   footnotes_updated: function(){}.property('periods.@each.footnote'),
+  timeline_data: function() {
+    return this.get('periods').map(function(item){return item})
+  }.property('periods.@each.party')
 });

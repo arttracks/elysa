@@ -1,8 +1,95 @@
 <div class='row'>
   <div class ='col-md-12'>
-    <h3> {{title}} {{creation}}</h3>
+    <h3> {{title}} {{creation_label}}</h3>
     <h4> {{artist}}</h4>
   </div>
 </div>
 <hr/>
-{{outlet}}
+<div class="row">
+  <div class="interface col-md-12">
+    <div class="btn-toolbar pull-right">
+      <div class="btn-group btn-group-xs">
+        <button class="btn btn-info" {{action 'toggle_extended'}}>
+         {{#if showExtended}}
+            Hide Extended Fields
+         {{else}}
+            Show Extended Fields
+         {{/if}}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-3">
+    <label>Party Records:</label>
+    <hr>
+    <ul class="list-unstyled">
+      {{#each periods}}
+        <li>
+          {{#link-to 'period' order class='provenance_party'}}
+          <span  {{bind-attr class='parsable::unparsable'}}>
+            {{party}} 
+          </span>
+          {{/link-to}}
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+  <div class="col-md-9">
+    <label>
+      Details:
+    </label>
+    <hr>
+    {{outlet}}
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12 col-md-offset-0 well">
+    {{#each periods}}
+      {{#link-to 'period' order class='provenance_line'}}
+        {{#if parsable}}
+          {{provenance_with_footnote~}}
+        {{else}}
+          <span class='provenance_text'>{{~provenance_with_footnote~}}</span><span class='provenance_original_text'>{{~original_text~}}</span>
+         {{~/if~}} 
+        {{~transfer_type direct_transfer}}
+      {{/link-to}}
+    {{/each}}
+    <div>
+    NOTES:
+      {{#each periods}}
+        {{#if footnote}}
+          {{#link-to 'period' order class='provenance_line'}}
+            {{footnote_number}}. {{footnote}}
+          {{/link-to}}
+          {{/if}}
+      {{/each}}
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class='col-md-12'>
+      {{provenance-timeline artwork=this periods=periods}}
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-3" id='provenance_map'>
+    {{!-- {{view "provenance_map"}} --}}
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div class="interface col-md-12">
+    <div class="btn-toolbar pull-right">
+      <div class="btn-group">
+        {{#link-to 'index'}}
+        <button class="btn btn-warning">Start Over</button>
+        {{/link-to}}
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<hr>
+

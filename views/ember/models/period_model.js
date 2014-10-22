@@ -40,4 +40,32 @@ App.Period = DS.Model.extend({
     if(this.get("earliest_possible")) return this.get("earliest_possible");
     return this.get("artwork.creationDateEarliest"); 
   }.property("earliest_possible","artwork.creationDateEarliest"),
+
+  footnote_number: function() {
+    var footnoteCount = 0;
+    var myVal = null;
+    var self = this;
+    var periods = this.get("artwork.periods");
+    periods.forEach(function(val) {
+      var footnote = val.get("footnote");
+      if (footnote != "") {
+        footnoteCount++;
+        if (val.get("id") == self.get("id")) {
+          myVal = footnoteCount;
+        }
+      }
+    });
+    return myVal;
+  }.property("artwork.@each.footnote"),
+
+  provenance_with_footnote: function() {
+    var val = ""
+    var footnote = this.get("footnote");
+
+    val += this.get("provenance");
+    if (footnote != "") {
+      val += " [" +this.get("footnote_number") + "]";
+    }
+    return val
+  }.property("provenance","artwork.@each.footnote"),
 });

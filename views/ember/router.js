@@ -39,8 +39,9 @@ App.TimelineRoute = Ember.Route.extend({
       Ember.$.post('/get_structure', {provenance: prov}).then(function(data){
         data.period.forEach(function(element,index) {
           element.id = element.order;
-          self.store.push('period', element);
+          element.artwork = self.modelFor('artwork').get("id");
         });
+        self.store.pushPayload('period', data);
         resolve(data.period)
       });
     });

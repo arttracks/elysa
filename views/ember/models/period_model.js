@@ -1,4 +1,6 @@
 App.Period = DS.Model.extend({
+  artwork:            DS.belongsTo('artwork'),
+  order:              DS.attr("number"),
   period_certainty:   DS.attr('boolean'),
   acquisition_method: DS.attr('string'),
   party:              DS.attr('string'),
@@ -26,5 +28,16 @@ App.Period = DS.Model.extend({
   parsable:           DS.attr('boolean'),
   direct_transfer:    DS.attr('string'),
   stock_number:       DS.attr('string'),
-  footnote:           DS.attr('string')
+  footnote:           DS.attr('string'),
+  earliest_possible:  DS.attr('date'),
+  latest_possible:    DS.attr('date'),
+  earliest_definite:  DS.attr('date'),
+  latest_definite:    DS.attr('date'),
+  acquisition_time_span: DS.attr("string"),
+  deacquisition_time_span: DS.attr("string"),
+
+  computed_earliest_possible: function() {
+    if(this.get("earliest_possible")) return this.get("earliest_possible");
+    return this.get("artwork.creationDateEarliest"); 
+  }.property("earliest_possible","artwork.creationDateEarliest"),
 });

@@ -3,15 +3,11 @@ App.ProvenanceTimelineComponent = Ember.Component.extend({
   attributeBindings: 'width height'.w(),
   margin: {top: 20, right: 20, bottom: 30, left: 40},  
   width: 1200,
-  elementHeight: 30,
-
-  dateCreated: function() {
-    return this.get('periods.artwork.creationDateEarliest') ;
-  }.property("periods.artwork.creationDateEarliest"),
+  elementHeight: 28,
 
   height: function() {
-    return  this.get('period_data').length * this.get("elementHeight");
-  }.property("periods"),
+    return  this.get('period_data').length * this.get("elementHeight") +  this.get('margin.top') + this.get('margin.bottom');
+  }.property(),
 
   w: function(){
     return this.get('width') - this.get('margin.left') - this.get('margin.right');
@@ -56,10 +52,10 @@ App.ProvenanceTimelineComponent = Ember.Component.extend({
     var height = this.get('h');
    
     var y = d3.scale.ordinal().rangeRoundBands([height,0], 0.1);;
-    y.domain(data.map(function(d) { return d.get('order'); }));
+    y.domain(data.map(function(d) { return +d.get('order'); }));
 
     var x = d3.time.scale().rangeRound([0,width],0.1);
-    x.domain([this.get('dateCreated'),Date.now()]);
+    x.domain([this.get('artwork.creationDateEarliest'),Date.now()]);
     x.nice(d3.time.year);
 
    var xAxis = d3.svg.axis().scale(x).orient("bottom").ticks(10);
@@ -72,7 +68,8 @@ App.ProvenanceTimelineComponent = Ember.Component.extend({
       .attr("class", "possible_bounds")
       .attr("height", y.rangeBand()/2)
       .attr("width", function(d) {
-        return x(d.get("computed_latest_possible")) - x(d.get("computed_earliest_possible"));
+        var val = (x(d.get("latest_possible")) - x(d.get("computed_earliest_possible")));
+        return val || 0;
       })
       .attr("y", function(d) { return y(d.get("order")) + y.rangeBand()/2; })  
       .attr("x", function(d) { 
@@ -83,20 +80,41 @@ App.ProvenanceTimelineComponent = Ember.Component.extend({
       .attr("class", "definite_bounds")
       .attr("height", y.rangeBand()/2)
       .attr("width", function(d) {
-        return x(d.get("computed_latest_definite")) - x(d.get("computed_earliest_definite"));
+        var val =  x(d.get("latest_definite")) - x(d.get("earliest_definite"));
+        return val || 0;
       })
       .attr("y", function(d) { return y(d.get("order")) + y.rangeBand()/2; })  
       .attr("x", function(d) { 
-        return x(d.get("computed_earliest_definite")); 
+        return x(d.get("earliest_definite")) || -1000 ; 
       })        
+
+
+    periods.append("rect")  // Start bar
+      .attr("class", "start_of_definite")
+      .attr("height", y.rangeBand()/2 + 2)
+      .attr("width", 1)
+      .attr("y", function(d) { return y(d.get("order")) + y.rangeBand()/2 -1; })  
+      .attr("x", function(d) { 
+        return x(d.get("earliest_definite")) || -1000; 
+      })
+
+    periods.append("rect")  // End bar
+      .attr("class", "start_of_definite")
+      .attr("height", y.rangeBand()/2 + 2)
+      .attr("width", 1)
+      .attr("y", function(d) { return y(d.get("order")) + y.rangeBand()/2 -1; })  
+      .attr("x", function(d) { 
+        return x(d.get("latest_definite")) || -1000; 
+      })
+
 
     periods.append('text')
         .attr("class", function(d) {return d.get("active") ? "active" : "";})
-        .attr("y", function(d) { return y(d.get("order")); }) 
+        .attr("y", function(d) {return y(d.get("order")) }) 
         .attr("dy", "1em") 
         .attr("x", function(d) { 
           return x(d.get("computed_earliest_possible")); 
         })  
-      .text(function(d){return d.get("party") + " - " + d.get("active")});
+      .text(function(d){return d.get("party")});
   },  
 });

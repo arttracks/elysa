@@ -1,38 +1,36 @@
 <div class="row">
-  <dl class="dl-horizontal col-md-6">
-    <dt>Party</dt><dd>{{possibly party_certainty}}
-      {{input type=text value=party action="refreshData" on="focus-out"}}
-    </dd>
-    <dt>Birth</dt><dd>{{possibly birth_certainty}}{{birth}}</dd>
-    <dt>Death</dt><dd>{{possibly death_certainty}}{{death}}</dd>
-    <dt>Location</dt><dd>{{possibly location_certainty}}{{location}}</dd>
-    <dt>Stock Number</dt><dd>{{stock_number}}</dd>
-  </dl>
-  <dl class="dl-horizontal col-md-6">
-    <dt>Period Certain?</dt><dd>{{yes_no period_certainty}}</dd>
-    <dt>Acquisition Method</dt><dd>{{acquisition_method}}</dd>
-    <dt>Transfer in</dt><dd>{{acquisition_time_span}}</dd>
-    <dt>Transfer out</dt><dd>{{deacquisition_time_span}}</dd>
-    <dt>Direct Transfer?</dt><dd>{{yes_no direct_transfer}}</dd>
-  </dl>
+  <form class="form-horizontal col-md-6 form-compact">
+    {{inline-editor    label="Party Name"    val=party        action="refreshData" possibly=party_certainty    }}
+    {{inline-editor    label="Party Location" val=location     action="refreshData" possibly=location_certainty }}
+    {{inline-editor    label="Birth Year"    val=birth_year   action="refreshData" possibly=birth_certainty    }}
+    {{inline-editor    label="Death Year"    val=death_year   action="refreshData" possibly=death_certainty    }}
+    {{inline-editor    label="Stock Number"  val=stock_number action="refreshData" }}
+  </form>
+  <form class="form-horizontal col-md-6 form-compact">
+    {{bootstrap-switch label="Period Certain?"    status=period_certainty     action="refreshData" }}
+    {{bootstrap-switch label="Direct Transfer?"   status=direct_transfer      action="refreshData" }}
+    {{inline-editor    label="Acquis. Method" val=acquisition_method      action="refreshData" }}
+    {{inline-editor    label="Transfer in"        val=acquisition_time_span   action="refreshData" }}
+    {{inline-editor    label="Transfer out"       val=deacquisition_time_span action="refreshData" }}
+  </form>
 </div>
 
 <div class ="row">
-  <dl class="dl-horizontal col-md-12">
-    <dt>Footnote</dt><dd>{{footnote}}</dd> 
-  </dl>
+  {{inline-editor    label="Footnote" val=footnote      action="refreshData" }}
 </div>
 
 <div {{bind-attr class=":row :extended_fields showExtended:visible"}}>
   <dl class="dl-horizontal col-md-6">
     <dt>Party Certainty</dt><dd>{{party_certainty}}</dd>
+    <dt>Birth</dt><dd>{{birth}}</dd>
     <dt>Birth Certainty</dt><dd>{{birth_certainty}}</dd>
+    <dt>Death</dt><dd>{{death}}</dd>
     <dt>Death Certainty</dt><dd>{{death_certainty}}</dd>
     <dt>Location Certainty</dt><dd>{{location_certainty}}</dd>
     <dt>Period Certainty</dt><dd>{{period_certainty}}</dd>
     <dt>Earliest Possible</dt><dd>{{computed_earliest_possible}}</dd>
-    <dt>Latest Possible</dt><dd>{{latest_possible}}</dd>
     <dt>Earliest Definite</dt><dd>{{earliest_definite}}</dd>
+    <dt>Latest Possible</dt><dd>{{latest_possible}}</dd>
     <dt>Latest Definite</dt><dd>{{latest_definite}}</dd>
   </dl>
   <dl class="dl-horizontal col-md-6">

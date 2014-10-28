@@ -2,14 +2,33 @@ window.App = Ember.Application.create({
     LOG_TRANSITIONS: true
 });
 
-// App.EpochTransform = DS.Transform.extend({
-//   deserialize: function(serialized) {
-//     return  moment.utc(serialized*1000);
-//   },
-//   serialize: function(deserialized) {
-//     return deserialized.getTime()/1000;
-//   }
-// });
+
+
+
+App.EpochTransform = DS.Transform.extend({
+  deserialize: function(serialized) {
+     if (serialized === undefined || serialized === null) {
+      return undefined;
+    }
+    return  moment.utc(serialized*1000);
+  },
+  serialize: function(deserialized) {
+    if (deserialized === undefined || deserialized === null) {
+      return undefined;
+    }
+    if (deserialized.unix) { // for a Moment.js date
+      var val =  deserialized.unix();
+      return val == 0 ? undefined : (+val); 
+      
+    }
+    if (deserialized.getTime) {  // for a standard date
+      return deserialized.getTime()/1000;
+    }
+    else {
+      console.log("deserialized", deserialized);
+    }
+  }
+});
 
 
 

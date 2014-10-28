@@ -79,9 +79,10 @@ App.ProvenanceTimelineComponent = Ember.Component.extend({
 
     updates.selectAll(".lifespan")
       .attr("transform", function(d){
+        if (!d.get('birth')) return ""
         str  = "translate(" 
         str += (x(d.get('birth'))+.5) + ","
-        str += (y(d.get("order"))+ y.rangeBand()/2 + .5) + ")"
+        str += (y(+d.get("order"))+ y.rangeBand()/2 + .5) + ")"
         return str;
       })
       .attr("points", function(d) {
@@ -96,36 +97,36 @@ App.ProvenanceTimelineComponent = Ember.Component.extend({
       .attr("height", y.rangeBand()/2)
       .attr("width", function(d) {
         var val =  x(d.get("latest_definite")) - x(d.get("earliest_definite"));
-        return val || 0;
+        return Math.abs(val) || 0;
       })
-      .attr("y", function(d) { return y(d.get("order")) + y.rangeBand()/2; })  
-      .attr("x", function(d) {  return x(d.get("earliest_definite")) || -1000 ;})   
+      .attr("y", function(d) { return y(+d.get("order")) + y.rangeBand()/2; })  
+      .attr("x", function(d) {  return x( Math.min(d.get("earliest_definite"),d.get("latest_definite"))) || -1000 ;})   
 
     // update possible range
     updates.selectAll(".possible_bounds")
-      .attr("y", function(d) { return y(d.get("order")) + y.rangeBand()/2; })  
+      .attr("y", function(d) { return y(+d.get("order")) + y.rangeBand()/2; })  
       .attr("x", function(d) { return x(d.get("computed_earliest_possible")); })
       .attr("height", y.rangeBand()/2)
       .attr("width", function(d) {
         var val = (x(d.get("latest_possible")) - x(d.get("computed_earliest_possible")));
-        return val || 0;
+        return Math.abs(val) || 0;
       })
 
     // update start bars
     updates.selectAll(".start_of_definite")
-      .attr("y", function(d) { return y(d.get("order")) + y.rangeBand()/2 -1; })  
+      .attr("y", function(d) { return y(+d.get("order")) + y.rangeBand()/2 -1; })  
       .attr("x", function(d) { return x(d.get("earliest_definite")) || -1000; })
       .attr("height", y.rangeBand()/2 + 2)
 
     // update end bars
     updates.selectAll(".end_of_definite")
       .attr("height", y.rangeBand()/2 + 2)
-      .attr("y", function(d) { return y(d.get("order")) + y.rangeBand()/2 -1; })  
+      .attr("y", function(d) { return y(+d.get("order")) + y.rangeBand()/2 -1; })  
       .attr("x", function(d) { return x(d.get("latest_definite")) || -1000;   })
 
     //Update text on change
     updates.selectAll("text")
-      .attr("y", function(d) {return y(d.get("order")) }) 
+      .attr("y", function(d) {return y(+d.get("order")) }) 
       .attr("x", function(d) { return x(d.get("computed_earliest_possible"));})  
       .attr("class", function(d) {return d.get("active") ? "active" : "";})
       .text(function(d){return d.get("party")});

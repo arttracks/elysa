@@ -1,27 +1,27 @@
 App.Period = DS.Model.extend({
   artwork:            DS.belongsTo('artwork'),
   order:              DS.attr("number"),
-  period_certainty:   DS.attr('boolean'),
+  period_certainty:   DS.attr('boolean', {defaultValue: true}),
   acquisition_method: DS.attr('string'),
   party:              DS.attr('string'),
-  party_certainty:    DS.attr('boolean'),
-  birth:              DS.attr('date'),
-  birth_certainty:    DS.attr('boolean'),
-  death:              DS.attr('date'),
-  death_certainty:    DS.attr('boolean'),
+  party_certainty:    DS.attr('boolean', {defaultValue: true}),
+  birth:              DS.attr('epoch'),
+  birth_certainty:    DS.attr('boolean', {defaultValue: true}),
+  death:              DS.attr('epoch'),
+  death_certainty:    DS.attr('boolean', {defaultValue: true}),
   location:           DS.attr('string'),
-  location_certainty: DS.attr('boolean'),
-  botb:               DS.attr('date'),
-  botb_certainty:     DS.attr('boolean'),
+  location_certainty: DS.attr('boolean', {defaultValue: true}),
+  botb:               DS.attr('epoch'),
+  botb_certainty:     DS.attr('boolean', {defaultValue: true}),
   botb_precision:     DS.attr('number'),
-  eotb:               DS.attr('string'),
-  eotb_certainty:     DS.attr('boolean'),
+  eotb:               DS.attr('epoch'),
+  eotb_certainty:     DS.attr('boolean', {defaultValue: true}),
   eotb_precision:     DS.attr('number'),
-  bote:               DS.attr('date'),
-  bote_certainty:     DS.attr('boolean'),
+  bote:               DS.attr('epoch'),
+  bote_certainty:     DS.attr('boolean', {defaultValue: true}),
   bote_precision:     DS.attr('number'),
-  eote:               DS.attr('date'),
-  eote_certainty:     DS.attr('boolean'),
+  eote:               DS.attr('epoch'),
+  eote_certainty:     DS.attr('boolean', {defaultValue: true}),
   eote_precision:     DS.attr('number'),
   original_text:      DS.attr('string'),
   provenance:         DS.attr('string'),
@@ -29,16 +29,53 @@ App.Period = DS.Model.extend({
   direct_transfer:    DS.attr('string'),
   stock_number:       DS.attr('string'),
   footnote:           DS.attr('string'),
-  earliest_possible:  DS.attr('date'),
-  latest_possible:    DS.attr('date'),
-  earliest_definite:  DS.attr('date'),
-  latest_definite:    DS.attr('date'),
+  earliest_possible:  DS.attr('epoch'),
+  latest_possible:    DS.attr('epoch'),
+  earliest_definite:  DS.attr('epoch'),
+  latest_definite:    DS.attr('epoch'),
   acquisition_time_span: DS.attr("string"),
   deacquisition_time_span: DS.attr("string"),
 
+
+  birth_year: function(key, value, previousValue) {
+
+    if (arguments.length > 1) {
+      if (value == "") {
+        this.set('birth',null);
+        return "";
+      }
+      var d =  moment(value, "YYYY")
+      if (d.isValid) {
+        this.set('birth',d);
+      }
+    }
+    
+    var val = this.get('birth');
+    if(val) return val.format("YYYY");
+  }.property('birth'),
+
+  death_year: function(key, value, previousValue) {
+
+    if (arguments.length > 1) {
+      if (value == "") {
+        this.set('death',null);
+        return "";
+      }
+      var d =  moment(value+"-12-31")
+      if (d.isValid) {
+        this.set('death',d);
+      }
+      else {
+      }
+    }
+    var val = this.get('death');
+    if(val) return val.format("YYYY");
+  }.property('death'),
+
   computed_earliest_possible: function() {
-    if(this.get("earliest_possible")) return this.get("earliest_possible");
-    return this.get("artwork.creationDateEarliest"); 
+    var e = this.get("earliest_possible");
+    var c = this.get("artwork.creationDateEarliest");
+    return e ? Math.max(e,c) : c;
   }.property("earliest_possible","artwork.creationDateEarliest"),
 
   footnote_number: function() {

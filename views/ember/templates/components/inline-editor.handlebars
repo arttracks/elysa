@@ -1,16 +1,18 @@
 <div class="form-group ">
-  <label class="col-sm-4 inline-editor-label">{{label}}</label>
-  <div class='col-sm-8'>
+  <label {{bind-attr class="labelRowClass :inline-editor-label"}}>{{label}}</label>
+  <div {{bind-attr class="fieldRowClass"}}>
     {{#if isEditing}}
-      {{inline-input val=val class='form-control input-sm'}}
+      {{inline-input val=val class='form-control input-sm' pattern=pattern tabindex=tabindex}}
     {{else}}
-      <span {{action "beginEditing"}}>
+      {{!-- <span {{action "beginEditing" on "focusIn"}}  {{bind-attr tabindex=tabindex}}> --}}
+      <span {{action "beginEditing" on "click"}}>
         {{#if val}}
-           <span class='click_to_edit'> {{val}} </span>
+           <span class='click_to_edit' > {{val}} </span>
         {{else}}
           <span class='click_to_edit disabled'> click to edit </span>
         {{/if}}
       </span>
+      {{!-- </span> --}}
     {{/if}}
   </div>
 </div>

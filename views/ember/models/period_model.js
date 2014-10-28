@@ -36,6 +36,15 @@ App.Period = DS.Model.extend({
   acquisition_time_span: DS.attr("string"),
   deacquisition_time_span: DS.attr("string"),
 
+  deacquisition_string: function(key,value,previousValue) {
+    if (arguments.length > 1) {
+      if (value == "") {
+        this.set('deacquisition_time_span',null);
+        return "";
+      }
+    }
+    return this.get('deacquisition_time_span');
+  }.property('deacquisition_time_span'),
 
   birth_year: function(key, value, previousValue) {
 

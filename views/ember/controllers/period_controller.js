@@ -4,22 +4,18 @@ App.PeriodController = Ember.ObjectController.extend({
   actions: {
     refreshData: function() {
       Ember.run.once(this, 'rebuildStructure');
-    }
+    },
+    updateDate: function(val, field) {
+      console.log("val",val, field);
+    },
   },
 
   rebuildStructure: function() {
     var self = this;
-    var data = {period: this.get('artwork.periods').map(function(item){
-      return item.serialize()}
-    )};
-    console.log("data",data);
+    var data = this.get('artwork.serializedPeriods');
     Ember.$.post('/rebuild_structure', data)
-    .then(function(data){
-      data.period.forEach(function(element,index) {
-        element.id = element.order;
-        element.artwork = self.get('artwork.id');
-      });
-      self.get('artwork').store.pushPayload('period', data);
+    .then(function(results){
+      self.send('reconstructData',results);
     });
   },
 

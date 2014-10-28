@@ -1,6 +1,8 @@
 App.InlineEditorComponent = Ember.Component.extend({
   tagName: 'span',
   isEditing: false,
+  singleLine: false,
+
   actions: {
     beginEditing: function() {
       this.set('isEditing', true);
@@ -9,9 +11,19 @@ App.InlineEditorComponent = Ember.Component.extend({
     endEditing: function(val) {
       this.set("val",val);
       this.set('isEditing',false);
-      this.sendAction();
+      this.sendAction("action", val);
     } 
-  }
+  },
+
+  labelRowClass: function() {
+    return this.get('singleLine') ? "col-sm-2" : "col-sm-4"
+  }.property('singleLine'),
+
+  fieldRowClass: function() {
+    return this.get('singleLine')  ? "col-sm-10" : "col-sm-8"
+  }.property('singleLine'),
+
+
 });
 
 App.InlineInputComponent = Ember.TextField.extend({
@@ -25,6 +37,7 @@ App.InlineInputComponent = Ember.TextField.extend({
   becomeFocused: function() {
    this.$().focus();
   }.on('didInsertElement'),
+
   focusOut: function() {
     this.sendAction('action',this.get('value'));
   },

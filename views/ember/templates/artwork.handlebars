@@ -22,31 +22,16 @@
 </div>
 <div class="row">
   <div class="col-md-3">
-    <label>Party Records:</label>
-    <hr>
-    <ul class="list-unstyled">
-      {{#each periods}}
-        <li>
-          {{#link-to 'period' id class='provenance_party'}}
-          <span  {{bind-attr class='parsable::unparsable'}}>
-            {{party}} 
-          </span>
-          {{/link-to}}
-        </li>
-      {{/each}}
-    </ul>
+    {{party-list-nav periods=sortedPeriods delete='deleteParty' reorder='reorderParties'}}
   </div>
   <div class="col-md-9">
-    <label>
-      Details:
-    </label>
-    <hr>
     {{outlet}}
   </div>
 </div>
 <div class="row">
-  <div class="col-md-12 col-md-offset-0 well">
-    {{#each periods}}
+  <div class="col-md-12 col-md-offset-0 panel panel-default">
+    <div class ="panel-body">
+    {{#each sortedPeriods}}
       {{#link-to 'period' id class='provenance_line'}}
         {{#if parsable}}
           {{provenance_with_footnote~}}
@@ -58,13 +43,14 @@
     {{/each}}
     <div>
     NOTES:
-      {{#each periods}}
+      {{#each sortedPeriods}}
         {{#if footnote}}
-          {{#link-to 'period' order class='provenance_line'}}
+          {{#link-to 'period' id class='provenance_line'}}
             {{footnote_number}}. {{footnote}}
           {{/link-to}}
           {{/if}}
       {{/each}}
+    </div>
     </div>
   </div>
 </div>

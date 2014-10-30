@@ -2,10 +2,12 @@
   <label class="col-sm-4 inline-editor-label">{{label}}</label>
   <div class='col-sm-8'>
     {{view "dynamic_select" 
-        content=acq_methods 
+        content=precisions
+        optionLabelPath= 'content.name'
+        optionValuePath= 'content.id'
         selection=val 
         class='form-control input-sm'
-        prompt="select a method"
+        prompt="select a precision"
     }}
   </div>
 </div>

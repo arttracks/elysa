@@ -16,10 +16,20 @@
   fill: black
 
 .periods text 
-  fill: black
+  fill: darkslategrey
   font: 10px sans-serif
   text-anchor: front
+  &.active
+    font-weight: bold
+    font-size: 12px
+    fill: black
 
 .lifespan
   fill: none
   stroke: blue 
+
+.creation-line
+  stroke: green
+  stroke-width: 1
+  stroke-dasharray: 5,5
+  opacity: .5

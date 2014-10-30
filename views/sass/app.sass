@@ -20,9 +20,22 @@ a
 .unparsable
   color: red
   font-style: italic
-.provenance_party.active
-  font-weight: bold
-  color: #2a6496
+.party-list
+  .badge
+    display: none
+    font-size: 70%
+    border-radius: 20px
+    padding: 3px 4px
+    cursor: pointer
+  .list-group-item:hover
+    .badge
+      display: block
+.provenance_party
+  &:focus
+    text-decoration: none    
+  &.active
+    font-weight: bold
+    color: white
 .extended_fields
   display: none
   &.visible

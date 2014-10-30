@@ -36,6 +36,8 @@ App.Period = DS.Model.extend({
   acquisition_time_span: DS.attr("string"),
   deacquisition_time_span: DS.attr("string"),
 
+  active: false,
+
   deacquisition_string: function(key,value,previousValue) {
     if (arguments.length > 1) {
       if (value == "") {

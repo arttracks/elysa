@@ -2,9 +2,6 @@ window.App = Ember.Application.create({
     LOG_TRANSITIONS: true
 });
 
-
-
-
 App.EpochTransform = DS.Transform.extend({
   deserialize: function(serialized) {
      if (serialized === undefined || serialized === null) {
@@ -29,10 +26,6 @@ App.EpochTransform = DS.Transform.extend({
     }
   }
 });
-
-
-
-
 
 // MAP STUFFF
 

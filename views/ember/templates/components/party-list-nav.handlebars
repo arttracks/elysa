@@ -1,0 +1,23 @@
+<div class="panel panel-default">
+
+  <div class="panel-heading"> <h5> Parties</h5></div>
+  {{!--    <div class="panel-body">
+    <p>...</p>
+  </div> --}}
+
+  <ul class="list-group party-list" id="party-list">
+    {{#each periods}}
+    <li {{bind-attr class="active :list-group-item" id=id}}>
+      {{#link-to 'period' id class='provenance_party'}}
+      <span {{bind-attr class='parsable::unparsable'}}>
+        {{party}}
+      </span>
+      {{/link-to}}
+      <span class="badge" {{action 'deleteParty' id}}><span class="glyphicon glyphicon-remove"></span></span>
+      </li>
+    {{/each}}
+  </ul>
+
+  <div class="panel-footer"> add a party </div>
+
+</div>

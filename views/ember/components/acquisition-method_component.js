@@ -1,4 +1,4 @@
-App.AcqusitionSelectView = Ember.Select.extend({
+App.DynamicSelectView = Ember.Select.extend({
   change: function (event) {
     this._super(event);
     this.get('controller').send('handleChange');

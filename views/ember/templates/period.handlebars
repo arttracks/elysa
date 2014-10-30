@@ -1,24 +1,27 @@
 <div class="row">
   <form class="form-horizontal col-md-6 form-compact">
     {{inline-editor    label="Party Name"     val=party        action="refreshData" possibly=party_certainty    tabindex=10 }}
+    {{inline-editor    label="Year of Birth"     val=birth_year   action="refreshData" possibly=birth_certainty    tabindex=30}}
+    {{inline-editor    label="Year of Death"     val=death_year   action="refreshData" possibly=death_certainty    tabindex=40 }}
     {{inline-editor    label="Party Location" val=location     action="refreshData" possibly=location_certainty tabindex=20 }}
-    {{inline-editor    label="Birth Year"     val=birth_year   action="refreshData" possibly=birth_certainty    tabindex=30  pattern='-?\d{1,4}'  }}
-    {{inline-editor    label="Death Year"     val=death_year   action="refreshData" possibly=death_certainty    tabindex=40 }}
-    {{inline-editor    label="Stock Number"   val=stock_number action="refreshData" tabindex=0 }}
+    {{acquisition-method                            val=acquisition_method      action="refreshData" }}
   </form>
   <form class="form-horizontal col-md-6 form-compact">
     {{bootstrap-switch   label="Period Certain?"    status=period_certainty     action="refreshData" }}
     {{bootstrap-switch   label="Direct Transfer?"   status=direct_transfer      action="refreshData" }}
-    {{acquisition-method                            val=acquisition_method      action="refreshData" }}
     {{inline-editor      label="Transfer in"        val=acquisition_time_span   action="updateDate"  }}
     {{inline-editor      label="Transfer out"       val=deacquisition_string action="refreshData" }}
   </form>
+</div>
+
+<div class="row">
   {{inline-editor    label="Footnote" val=footnote      action="refreshData" singleLine=true }}
 </div>
 
 <div {{bind-attr class=":row :extended_fields showExtended:visible"}}>
   <hr/>
   <form class="form-horizontal col-md-6 form-compact">
+    {{inline-editor    label="Stock Number"   val=stock_number action="refreshData" tabindex=0 }}
     {{bootstrap-switch   label="Party Certain?"    status=party_certainty     action="refreshData" }}
     {{bootstrap-switch   label="Birth Certain?"    status=birth_certainty     action="refreshData" }}
     {{bootstrap-switch   label="Death Certain?"    status=death_certainty     action="refreshData" }}
@@ -52,16 +55,18 @@
 
   <form class="form-horizontal col-md-6 form-compact">
     {{!-- <dt>BotB</dt><dd>{{botb}}</dd> --}}
-    {{bootstrap-switch   label="BOTB Certain?"    status=botb_certainty     action="refreshData" }}
+    {{bootstrap-switch label="BOTB Certain?"  status=botb_certainty  action="refreshData" }}
+    {{!-- {{precision-select label="BOTB Precision" val=botb_precision     action="refreshData" }} --}}
+
     {{!-- <dt>BotB Precision</dt><dd>{{botb_precision}}</dd> --}}
     {{!-- <dt>EotB</dt><dd>{{eotb}}</dd> --}}
     {{bootstrap-switch   label="EOTB Certain?"    status=eotb_certainty     action="refreshData" }}
-    {{!-- <dt>EotB Precision</dt><dd>{{eotb_precision}}</dd> --}}
+    {{!-- {{precision-select label="EOTB Precision" val=eotb_precision     action="refreshData" }} --}}
     {{!-- <dt>BotE</dt><dd>{{bote}}</dd> --}}
     {{bootstrap-switch   label="BOTE Certain?"    status=bote_certainty     action="refreshData" }}
-    {{!-- <dt>BotE Precision</dt><dd>{{bote_precision}}</dd> --}}
+    {{!-- {{precision-select label="BOTE Precision" val=bote_precision     action="refreshData" }} --}}
     {{!-- <dt>EotE</dt><dd>{{eote}}</dd> --}}
     {{bootstrap-switch   label="EOTE Certain?"    status=eote_certainty     action="refreshData" }}
-    {{!-- <dt>EotE Precision</dt><dd>{{eote_precision}}</dd>  --}}
+    {{!-- {{precision-select label="EOTE Precision" val=eote_precision     action="refreshData" }} --}}
   </form>
 </div>

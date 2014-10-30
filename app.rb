@@ -51,6 +51,11 @@ module CMOA
       return { artwork_list: artworks}.to_json
     end
 
+    delete '/periods/:id' do
+      content_type :json
+      {}.to_json
+    end
+
     get '/artworks/:id' do
       content_type :json
       record = settings.fake_db["table"]["record"].find{|record| record["irn"] == params[:id]}
@@ -72,7 +77,12 @@ module CMOA
         symbolize_keys(val)
       end
       #puts data
-      MuseumProvenance::Provenance.from_json({period: data}).to_json
+      results = MuseumProvenance::Provenance.from_json({period: data}).to_json
+      vals = JSON.parse(results)
+      puts vals
+
+      vals["period"] = vals["period"].collect.with_index{|r,i| r[:id] = data[i][:id]; r }
+      vals.to_json
     end
 
     post '/get_structure' do

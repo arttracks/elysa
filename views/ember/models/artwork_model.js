@@ -24,5 +24,4 @@ App.Artwork = DS.Model.extend({
             }
     )};
   }.property().volatile()
-
 });

@@ -49,7 +49,6 @@ App.Period = DS.Model.extend({
   }.property('deacquisition_time_span'),
 
   birth_year: function(key, value, previousValue) {
-
     if (arguments.length > 1) {
       if (value == "") {
         this.set('birth',null);
@@ -59,8 +58,7 @@ App.Period = DS.Model.extend({
       if (d.isValid) {
         this.set('birth',d);
       }
-    }
-    
+    }   
     var val = this.get('birth');
     if(val) return val.format("YYYY");
   }.property('birth'),
@@ -110,7 +108,6 @@ App.Period = DS.Model.extend({
   provenance_with_footnote: function() {
     var val = ""
     var footnote = this.get("footnote");
-
     val += this.get("provenance");
     if (footnote && footnote != "") {
       val += " [" +this.get("footnote_number") + "]";

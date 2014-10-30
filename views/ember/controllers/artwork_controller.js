@@ -1,6 +1,5 @@
 App.ArtworkController = Ember.ObjectController.extend({
   showExtended: false,
-  sortProperties: ['order'],
 
   actions: {
     reorderParties: function(indexes) {
@@ -12,6 +11,7 @@ App.ArtworkController = Ember.ObjectController.extend({
       this.endPropertyChanges();
       this.send('rebuildStructure');
     },
+    
     deleteParty: function(id) {
       var self = this;
       console.log("id",id)
@@ -31,16 +31,17 @@ App.ArtworkController = Ember.ObjectController.extend({
         party.destroyRecord().then(onSuccess,onFail);
       });
     },
+    
     toggle_extended: function() {
       var current_state = this.get('showExtended');
       this.set('showExtended',!current_state);
     }
   },
 
+  // Computed property for artwork display
   creation_label: function(){
     var earliest = this.get("creationDateEarliest").getFullYear();
     var latest = this.get("creationDateLatest").getFullYear();
-
     if (earliest == latest) {
       return "[" + earliest + "]";
     }

@@ -1,16 +1,16 @@
 <div class="row">
   <form class="form-horizontal col-md-6 form-compact">
-    {{inline-editor    label="Party Name"     val=party        action="rebuildStructure" possibly=party_certainty    tabindex=10 }}
-    {{inline-editor    label="Year of Birth"     val=birth_year   action="rebuildStructure" possibly=birth_certainty    tabindex=30}}
-    {{inline-editor    label="Year of Death"     val=death_year   action="rebuildStructure" possibly=death_certainty    tabindex=40 }}
-    {{inline-editor    label="Party Location" val=location     action="rebuildStructure" possibly=location_certainty tabindex=20 }}
+    {{inline-editor    label="Party Name"     val=party        action="rebuildStructure" possibly=party_certainty    tabindex=10  bubbles=false }}
+    {{inline-editor    label="Year of Birth"  val=birth_year   action="rebuildStructure" possibly=birth_certainty    tabindex=30 bubbles=false }}
+    {{inline-editor    label="Year of Death"  val=death_year   action="rebuildStructure" possibly=death_certainty    tabindex=40 bubbles=false }}
+    {{inline-editor    label="Party Location" val=location     action="rebuildStructure" possibly=location_certainty tabindex=20 bubbles=false }}
     {{acquisition-method                            val=acquisition_method      action="rebuildStructure" }}
   </form>
   <form class="form-horizontal col-md-6 form-compact">
-    {{bootstrap-switch   label="Period Certain?"    status=period_certainty     action="rebuildStructure" }}
-    {{bootstrap-switch   label="Direct Transfer?"   status=direct_transfer      action="rebuildStructure" }}
-    {{inline-editor      label="Transfer in"        val=acquisition_time_span   action="updateDate"  }}
-    {{inline-editor      label="Transfer out"       val=deacquisition_string action="rebuildStructure" }}
+    {{bootstrap-switch   label="Period Certain?"    status=period_certainty     action="rebuildStructure" bubbles=false }}
+    {{bootstrap-switch   label="Direct Transfer?"   status=direct_transfer      action="rebuildStructure" bubbles=false }}
+    {{inline-editor      label="Transfer in"        val=acquisition_time_span   action="updateDate"       bubbles=false }}
+    {{inline-editor      label="Transfer out"       val=deacquisition_string    action="rebuildStructure" bubbles=false }}
   </form>
 </div>
 

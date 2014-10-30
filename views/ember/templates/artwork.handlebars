@@ -1,12 +1,10 @@
 <div class='row'>
-  <div class ='col-md-12'>
+  <div class ='col-md-8'>
     <h3> {{title}} {{creation_label}}</h3>
     <h4> {{artist}}</h4>
   </div>
-</div>
-<hr/>
-<div class="row">
-  <div class="interface col-md-12">
+  
+  <div class="interface col-md-4">
     <div class="btn-toolbar pull-right">
       <div class="btn-group btn-group-xs">
         <button class="btn btn-info" {{action 'toggle_extended'}}>
@@ -19,7 +17,10 @@
       </div>
     </div>
   </div>
+
 </div>
+<hr class='compact'/>
+
 <div class="row">
   <div class="col-md-3">
     {{party-list-nav periods=sortedPeriods delete='deleteParty' reorder='reorderParties' add='addParty'}}
@@ -29,33 +30,10 @@
   </div>
 </div>
 <div class="row">
-  <div class="col-md-12 col-md-offset-0 panel panel-default">
-    <div class ="panel-body">
-    {{#each sortedPeriods}}
-      {{#link-to 'period' id class='provenance_line'}}
-        {{#if parsable}}
-          {{provenance_with_footnote~}}
-        {{else}}
-          <span class='provenance_text'>{{~provenance_with_footnote~}}</span><span class='provenance_original_text'>{{~original_text~}}</span>
-         {{~/if~}} 
-        {{~transfer_type direct_transfer}}
-      {{/link-to}}
-    {{/each}}
-    <div>
-    NOTES:
-      {{#each sortedPeriods}}
-        {{#if footnote}}
-          {{#link-to 'period' id class='provenance_line'}}
-            {{footnote_number}}. {{footnote}}
-          {{/link-to}}
-          {{/if}}
-      {{/each}}
-    </div>
-    </div>
-  </div>
+  {{provenance-text periods=sortedPeriods}}
 </div>
 <div class="row">
-  <div class='col-md-12'>
+  <div class='col-md-12 timeline-holder'>
     {{provenance-timeline creationDate=creationDateEarliest timeline_data=timeline_data}}
   </div>
 </div>

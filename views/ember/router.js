@@ -43,7 +43,6 @@ App.ArtworkRoute = Ember.Route.extend({
         element.artwork = artwork;
       });
       this.store.pushPayload('period', data);
-      this.controllerFor('artwork').set("isRefreshed",true);
     },
     setActivePeriod: function(period) {
       var periods = this.modelFor('artwork').get('periods');

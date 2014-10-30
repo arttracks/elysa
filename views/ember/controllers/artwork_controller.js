@@ -1,6 +1,5 @@
 App.ArtworkController = Ember.ObjectController.extend({
   showExtended: false,
-  isRefreshed: false,
   sortProperties: ['order'],
 
   actions: {
@@ -37,12 +36,6 @@ App.ArtworkController = Ember.ObjectController.extend({
       this.set('showExtended',!current_state);
     }
   },
-
-  handleRefreshedData: function() {
-    var refreshed = this.get("isRefreshed");
-    if (!refreshed) return false;
-    this.set("isRefreshed",false);
-  }.observes("isRefreshed"),
 
   creation_label: function(){
     var earliest = this.get("creationDateEarliest").getFullYear();

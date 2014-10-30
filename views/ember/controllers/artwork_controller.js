@@ -11,7 +11,7 @@ App.ArtworkController = Ember.ObjectController.extend({
       this.endPropertyChanges();
       this.send('rebuildStructure');
     },
-    
+  
     deleteParty: function(id) {
       var self = this;
       console.log("id",id)

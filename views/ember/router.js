@@ -25,6 +25,15 @@ App.PeriodRoute = Ember.Route.extend({
 
 App.ArtworkRoute = Ember.Route.extend({
   actions: {
+    addParty: function() {
+      var self = this;
+      var data = this.modelFor('artwork').get('serializedPeriods');
+      Ember.$.post('/add_party', data)
+      .then(function(results){
+        self.send('reconstructData',results);
+      });
+    },
+
     rebuildStructure: function() {
       Ember.run.once(this, function() {
         var self = this;

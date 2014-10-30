@@ -1,4 +1,4 @@
-<div class="panel panel-default">
+<div class="panel panel-default party-list-nav">
 
   <div class="panel-heading"> <h5> Parties</h5></div>
   {{!--    <div class="panel-body">
@@ -18,6 +18,10 @@
     {{/each}}
   </ul>
 
-  <div class="panel-footer"> add a party </div>
+  <div class="panel-footer">
+    <button {{action 'addParty'}} class="btn btn-default btn-block add_party">
+      Add a Party
+    </button>
+  </div>
 
 </div>

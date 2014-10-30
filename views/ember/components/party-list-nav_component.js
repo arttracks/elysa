@@ -2,6 +2,9 @@ App.PartyListNavComponent  = Ember.Component.extend({
   actions: {
     deleteParty: function(id){
       this.sendAction("delete",id);
+    },
+    addParty: function() {
+      this.sendAction('add');  
     }
   },
 
@@ -13,6 +16,8 @@ App.PartyListNavComponent  = Ember.Component.extend({
   didInsertElement: function() {
     var self = this;
     Ember.$("#party-list").sortable({
+      containment: "parent",
+      tolerance: "pointer",
       update: function(event, ui) {
         var indexes = {};
 

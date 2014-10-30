@@ -71,6 +71,26 @@ module CMOA
       }}.to_json
     end
 
+    post '/add_party' do
+      content_type :json
+      data = params[:period].collect do |key,val| 
+        symbolize_keys(val)
+      end
+      results = MuseumProvenance::Provenance.from_json({period: data})
+      results.insert_earliest(MuseumProvenance::Period.new("unknown party"));
+      
+      vals = JSON.parse(results.to_json)
+      vals["period"] = vals["period"].collect.with_index do |r,i|
+        if i == 0
+          r[:id] = data[0][:id] + "-" + results.count.to_s
+        else
+          r[:id] = data[i-1][:id]
+        end
+        r 
+      end
+      vals.to_json
+    end
+
     post '/rebuild_structure' do
       content_type :json
       data = params[:period].collect do |key,val| 
@@ -78,7 +98,11 @@ module CMOA
       end
       results = MuseumProvenance::Provenance.from_json({period: data}).to_json
       vals = JSON.parse(results)
-      vals["period"] = vals["period"].collect.with_index{|r,i| r[:id] = data[i][:id]; r }
+      vals["period"] = vals["period"].collect.with_index do |r,i|
+        puts "#{r['party']} - #{r['direct_transfer']}"
+        r[:id] = data[i][:id];
+        r
+      end
       vals.to_json
     end
 

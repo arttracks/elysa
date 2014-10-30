@@ -41,7 +41,8 @@ App.InlineInputComponent = Ember.TextField.extend({
   focusOut: function() {
     this.sendAction('action',this.get('value'));
   },
-  insertNewline: function() {
+  insertNewline: function(e) {
     this.sendAction('action',this.get('value'));
+    return false;
   },
 });

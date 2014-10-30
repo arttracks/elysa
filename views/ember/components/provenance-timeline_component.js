@@ -90,6 +90,8 @@ App.ProvenanceTimelineComponent = Ember.Component.extend({
       .attr("class", "possible_bounds")
     creates.append('polyline') // create lifespan bar
       .attr("class", 'lifespan')
+  creates.append('polyline') // create lifespan bar for alive people
+      .attr("class", 'lifespan-nodeath')
     creates.append("rect") // Create definite bar
       .attr("class", "definite_bounds")
     creates.append("rect")  // Create Start bar
@@ -121,6 +123,23 @@ App.ProvenanceTimelineComponent = Ember.Component.extend({
         var len =  x(d.death) - x(d.birth);
         return p + "0,5 0,-5 0,0 " + len + ",0 " + len +",5 " + len + ",-5";
       })
+
+      elements.selectAll(".lifespan-nodeath").data(data,key)
+        .attr("transform", function(d){
+          if (!d.birth) return ""
+          if (d.death) return ""
+          str  = "translate(" 
+          str += (x(d.birth)+.5) + ","
+          str += (y(+d.order)+ y.rangeBand()/2 + .5) + ")"
+          return str;
+        })
+        .attr("points", function(d) {
+          if (!d.birth) return ""
+          if (d.death) return ""
+          var p = ""
+          var len =  x(Date.now()) - x(d.birth);
+          return p + "0,0 " + len + ",0";
+        })
 
     // update definite range
     elements.selectAll(".definite_bounds").data(data,key)

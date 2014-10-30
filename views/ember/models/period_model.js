@@ -26,7 +26,7 @@ App.Period = DS.Model.extend({
   original_text:      DS.attr('string'),
   provenance:         DS.attr('string'),
   parsable:           DS.attr('boolean'),
-  direct_transfer:    DS.attr('string'),
+  direct_transfer:    DS.attr('boolean'),
   stock_number:       DS.attr('string'),
   footnote:           DS.attr('string'),
   earliest_possible:  DS.attr('epoch'),

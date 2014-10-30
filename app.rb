@@ -76,11 +76,8 @@ module CMOA
       data = params[:period].collect do |key,val| 
         symbolize_keys(val)
       end
-      #puts data
       results = MuseumProvenance::Provenance.from_json({period: data}).to_json
       vals = JSON.parse(results)
-      puts vals
-
       vals["period"] = vals["period"].collect.with_index{|r,i| r[:id] = data[i][:id]; r }
       vals.to_json
     end

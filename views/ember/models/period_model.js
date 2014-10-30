@@ -92,7 +92,7 @@ App.Period = DS.Model.extend({
     var footnoteCount = 0;
     var myVal = null;
     var self = this;
-    var periods = this.get("artwork.periods");
+    var periods = this.get("artwork.sortedPeriods");
     periods.forEach(function(val) {
       var footnote = val.get("footnote");
       if (footnote && footnote != "") {

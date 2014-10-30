@@ -6,14 +6,12 @@ App.PartyListNavComponent  = Ember.Component.extend({
   },
 
   handleReorder: function(indices) {
-    console.log('indices',indices);
     this.sendAction('reorder',indices);
     this.rerender();
   },
 
   didInsertElement: function() {
-
-    self = this;
+    var self = this;
     Ember.$("#party-list").sortable({
       update: function(event, ui) {
         var indexes = {};

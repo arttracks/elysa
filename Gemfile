@@ -12,7 +12,7 @@ gem "bootstrap-sass"
 gem "rerun"
 gem "rb-fsevent"
 
-gem 'date_time_precision', "~>1.8"
+gem 'date_time_precision', :git => 'https://github.com/Spokeo/date_time_precision'
 gem 'museum_provenance', :path => "../museum_provenance"
 
 group :documentation do

@@ -1,16 +1,23 @@
+{{#unless parsable}}
 <div class="row">
-  <form class="form-horizontal col-md-6 form-compact">
+
+<p class='col-md-6'>{{provenance}}</p>
+<p class='col-md-6 unparsable'>{{original_text}}</p>
+</div>
+{{/unless}}
+<div class="row">
+  <form class="form-horizontal col-md-6 form-compact" onsubmit="return false;">
     {{inline-editor    label="Party Name"     val=party        action="rebuildStructure" possibly=party_certainty    tabindex=10  bubbles=false }}
     {{inline-editor    label="Year of Birth"  val=birth_year   action="rebuildStructure" possibly=birth_certainty    tabindex=30 bubbles=false }}
     {{inline-editor    label="Year of Death"  val=death_year   action="rebuildStructure" possibly=death_certainty    tabindex=40 bubbles=false }}
     {{inline-editor    label="Party Location" val=location     action="rebuildStructure" possibly=location_certainty tabindex=20 bubbles=false }}
     {{acquisition-method                            val=acquisition_method      action="rebuildStructure" }}
   </form>
-  <form class="form-horizontal col-md-6 form-compact">
+  <form class="form-horizontal col-md-6 form-compact" onsubmit="return false;">
     {{bootstrap-switch   label="Period Certain?"    status=period_certainty     action="rebuildStructure" bubbles=false }}
     {{bootstrap-switch   label="Direct Transfer?"   status=direct_transfer      action="rebuildStructure" bubbles=false }}
-    {{inline-editor      label="Transfer in"        val=acquisition_time_span   action="updateDate"       bubbles=false }}
-    {{inline-editor      label="Transfer out"       val=deacquisition_string    action="rebuildStructure" bubbles=false }}
+    {{inline-editor  label="Transfer"  val=timestring action="updateDate"  bubbles=false}}
+    {{inline-editor    label="Stock Number"   val=stock_number action="rebuildStructure" tabindex=0 }}
   </form>
 </div>
 
@@ -20,8 +27,7 @@
 
 <div {{bind-attr class=":row :extended_fields showExtended:visible"}}>
   <hr/>
-  <form class="form-horizontal col-md-6 form-compact">
-    {{inline-editor    label="Stock Number"   val=stock_number action="rebuildStructure" tabindex=0 }}
+  <form class="form-horizontal col-md-6 form-compact" onsubmit="return false;">
     {{bootstrap-switch   label="Party Certain?"    status=party_certainty     action="rebuildStructure" }}
     {{bootstrap-switch   label="Birth Certain?"    status=birth_certainty     action="rebuildStructure" }}
     {{bootstrap-switch   label="Death Certain?"    status=death_certainty     action="rebuildStructure" }}
@@ -51,9 +57,33 @@
         <span class='click_to_edit'>{{latest_definite}}</span>
       </div>
     </div>
+    <div class="form-group">
+      <label class="col-sm-4 inline-editor-label">BOTB</label>
+      <div class='col-sm-8'>
+        <span class='click_to_edit'>{{botb}}</span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-4 inline-editor-label">EOTB</label>
+      <div class='col-sm-8'>
+        <span class='click_to_edit'>{{eotb}}</span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-4 inline-editor-label">BOTE</label>
+      <div class='col-sm-8'>
+        <span class='click_to_edit'>{{bote}}</span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-4 inline-editor-label">EOTE</label>
+      <div class='col-sm-8'>
+        <span class='click_to_edit'>{{eote}}</span>
+      </div>
+    </div>
   </form>
 
-  <form class="form-horizontal col-md-6 form-compact">
+  <form class="form-horizontal col-md-6 form-compact" onsubmit="return false;">
     {{!-- <dt>BotB</dt><dd>{{botb}}</dd> --}}
     {{bootstrap-switch label="BOTB Certain?"  status=botb_certainty  action="rebuildStructure" }}
     {{!-- {{precision-select label="BOTB Precision" val=botb_precision     action="rebuildStructure" }} --}}

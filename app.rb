@@ -17,7 +17,7 @@ module CMOA
     # }
 
     configure do
-      set :fake_db, File.open( "data/lil_things.json", "r" ) { |f| JSON.load( f )}
+      set :fake_db, File.open( "data/things.json", "r" ) { |f| JSON.load( f )}
 
     end
 
@@ -69,6 +69,22 @@ module CMOA
         creationDateLatest: Date.new(record["CreLatestDate"].to_i),
         provenance: record["CreProvenance"]
       }}.to_json
+    end
+
+    post '/parse_timestring' do
+      content_type :json
+      p = MuseumProvenance::Period.new("test ")
+      p.parse_time_string(params[:str])      
+      hash = {}
+      hash[:eotb] = p.eotb ? p.eotb.to_time.to_i : nil    
+      hash[:eote] = p.eote ? p.eote.to_time.to_i : nil   
+      hash[:botb] = p.botb ? p.botb.to_time.to_i : nil
+      hash[:bote] = p.bote ? p.bote.to_time.to_i : nil      
+      hash[:eotb_precision] = p.beginning.latest_raw.precision rescue nil
+      hash[:eote_precision] = p.ending.latest_raw.precision rescue nil
+      hash[:botb_precision] = p.beginning.earliest_raw.precision rescue nil 
+      hash[:bote_precision] = p.ending.earliest_raw.precision  rescue nil
+      hash.to_json
     end
 
     post '/add_party' do

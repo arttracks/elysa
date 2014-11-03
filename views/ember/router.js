@@ -53,6 +53,7 @@ App.ArtworkRoute = Ember.Route.extend({
       });
       this.store.pushPayload('period', data);
     },
+
     setActivePeriod: function(period) {
       var periods = this.modelFor('artwork').get('periods');
       periods.forEach(function(element) {

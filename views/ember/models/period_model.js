@@ -35,8 +35,14 @@ App.Period = DS.Model.extend({
   latest_definite:    DS.attr('epoch'),
   acquisition_time_span: DS.attr("string"),
   deacquisition_time_span: DS.attr("string"),
+  timestring:        DS.attr("string"),
 
   active: false,
+
+
+  dumbo_time_string: function() {
+    console.log("timestring",this.get("timestring"))
+  }.observes('timestring'),
 
   deacquisition_string: function(key,value,previousValue) {
     if (arguments.length > 1) {

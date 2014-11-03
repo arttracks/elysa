@@ -17,7 +17,7 @@ module CMOA
     # }
 
     configure do
-      set :fake_db, File.open( "data/things.json", "r" ) { |f| JSON.load( f )}
+      set :fake_db, File.open( "data/lil_things.json", "r" ) { |f| JSON.load( f )}
 
     end
 

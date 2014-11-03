@@ -1,9 +1,10 @@
 App.ProvenanceTimelineComponent = Ember.Component.extend({
   tagName: 'svg',
-  attributeBindings: 'width height'.w(),
+  attributeBindings: 'width height class'.w(),
   margin: {top: 20, right: 20, bottom: 30, left: 40},  
   width: 1200,
   elementHeight: 28,
+  class: "timeline-svg",
 
   height: function() {
     return  this.get('timeline_data').length * this.get("elementHeight") +  this.get('margin.top') + this.get('margin.bottom');
@@ -25,8 +26,16 @@ App.ProvenanceTimelineComponent = Ember.Component.extend({
     return "translate(0,"+ this.get('h') +")";
   }.property("h"),  
 
-  didInsertElement: function(){
+  resizeMe: function() {
+    var w = parseInt(d3.select('#'+this.get('elementId')).style("width"));
+    console.log("resizeMe",w);
+    this.set("width",w);
     this.draw();
+  },
+  didInsertElement: function(){
+//    this.draw();
+    $(window).on("resize", $.proxy(this.resizeMe,this));
+    this.resizeMe();
   },
 
   periodChanged: function() {

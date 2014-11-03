@@ -1,8 +1,9 @@
 <div class ='col-md-8 col-md-offset-2'>
-  <ul>
+  {{input type="text" class="search" placeholder="IRN ?" value=query action="search"}}
+  {{!-- <ul>
     {{#each}}
       <li>  {{#link-to 'artwork' id}}{{title}}{{/link-to}} </li>
     {{/each}}
-  </ul>
+  </ul> --}}
 </div>
 {{outlet}}

@@ -11,11 +11,7 @@ App.IndexRoute = Ember.Route.extend({
   }
 });
 
-App.ArtworksRoute = Ember.Route.extend({
-  model: function() {
-    return this.store.find('artwork_list');
-  }
-});
+App.ArtworksRoute = Ember.Route.extend({});
 
 App.PeriodRoute = Ember.Route.extend({
   afterModel: function(period, transition) {

@@ -38,6 +38,8 @@ App.Period = DS.Model.extend({
   timestring:        DS.attr("string"),
 
   active: false,
+  updated: false,
+
 
   party_is_blank: function() {
     var party = this.get("party");

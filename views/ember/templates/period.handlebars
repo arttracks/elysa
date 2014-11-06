@@ -1,37 +1,43 @@
 {{#unless parsable}}
 <div class="row">
-
-<p class='col-md-6'>{{provenance}}</p>
-<p class='col-md-6 unparsable'>{{original_text}}</p>
+<div class="form-group compact">
+  <label class="col-sm-2 inline-editor-label">Original Text</label>
+  <div class='col-sm-10'>
+    <span class=' unparsable'>{{original_text}}</span>
+  </div>
+</div>
 </div>
 {{/unless}}
 <div class="row">
+{{inline-editor    label="Current Text" val=provenance  action="updateProvenance" singleLine=true}}
+</div>
+<div class="row">
   <form class="form-horizontal col-md-6 form-compact" onsubmit="return false;">
-    {{inline-editor    label="Party Name"     val=party        action="rebuildStructure" possibly=party_certainty    tabindex=10  bubbles=false }}
-    {{inline-editor    label="Year of Birth"  val=birth_year   action="rebuildStructure" possibly=birth_certainty    tabindex=30 bubbles=false }}
-    {{inline-editor    label="Year of Death"  val=death_year   action="rebuildStructure" possibly=death_certainty    tabindex=40 bubbles=false }}
-    {{inline-editor    label="Party Location" val=location     action="rebuildStructure" possibly=location_certainty tabindex=20 bubbles=false }}
-    {{acquisition-method                            val=acquisition_method      action="rebuildStructure" }}
+    {{inline-editor    label="Party Name"     val=party        action="updateRecord" possibly=party_certainty    tabindex=10  bubbles=false }}
+    {{inline-editor    label="Year of Birth"  val=birth_year   action="updateRecord" possibly=birth_certainty    tabindex=30 bubbles=false }}
+    {{inline-editor    label="Year of Death"  val=death_year   action="updateRecord" possibly=death_certainty    tabindex=40 bubbles=false }}
+    {{inline-editor    label="Party Location" val=location     action="updateRecord" possibly=location_certainty tabindex=20 bubbles=false }}
+    {{acquisition-method                            val=acquisition_method      action="updateRecord" }}
   </form>
   <form class="form-horizontal col-md-6 form-compact" onsubmit="return false;">
-    {{bootstrap-switch   label="Period Certain?"    status=period_certainty     action="rebuildStructure" bubbles=false }}
-    {{bootstrap-switch   label="Direct Transfer?"   status=direct_transfer      action="rebuildStructure" bubbles=false }}
+    {{bootstrap-switch   label="Period Certain?"    status=period_certainty     action="updateRecord" bubbles=false }}
+    {{bootstrap-switch   label="Direct Transfer?"   status=direct_transfer      action="updateRecord" bubbles=false }}
     {{inline-editor  label="Ownership Dates"  val=timestring action="updateDate"  bubbles=false}}
-    {{inline-editor    label="Stock Number"   val=stock_number action="rebuildStructure" tabindex=0 }}
+    {{inline-editor    label="Stock Number"   val=stock_number action="updateRecord" tabindex=0 }}
   </form>
 </div>
 
 <div class="row">
-  {{inline-editor    label="Footnote" val=footnote      action="rebuildStructure" singleLine=true }}
+  {{inline-editor    label="Footnote" val=footnote      action="updateRecord" singleLine=true }}
 </div>
 
 <div {{bind-attr class=":row :extended_fields showExtended:visible"}}>
   <hr/>
   <form class="form-horizontal col-md-6 form-compact" onsubmit="return false;">
-    {{bootstrap-switch   label="Party Certain?"    status=party_certainty     action="rebuildStructure" }}
-    {{bootstrap-switch   label="Birth Certain?"    status=birth_certainty     action="rebuildStructure" }}
-    {{bootstrap-switch   label="Death Certain?"    status=death_certainty     action="rebuildStructure" }}
-    {{bootstrap-switch   label="Loc. Certain?"     status=location_certainty  action="rebuildStructure" }}
+    {{bootstrap-switch   label="Party Certain?"    status=party_certainty     action="updateRecord" }}
+    {{bootstrap-switch   label="Birth Certain?"    status=birth_certainty     action="updateRecord" }}
+    {{bootstrap-switch   label="Death Certain?"    status=death_certainty     action="updateRecord" }}
+    {{bootstrap-switch   label="Loc. Certain?"     status=location_certainty  action="updateRecord" }}
     <div class="form-group">
       <label class="col-sm-4 inline-editor-label">Earliest Possible</label>
       <div class='col-sm-8'>
@@ -85,18 +91,18 @@
 
   <form class="form-horizontal col-md-6 form-compact" onsubmit="return false;">
     {{!-- <dt>BotB</dt><dd>{{botb}}</dd> --}}
-    {{bootstrap-switch label="BOTB Certain?"  status=botb_certainty  action="rebuildStructure" }}
-    {{!-- {{precision-select label="BOTB Precision" val=botb_precision     action="rebuildStructure" }} --}}
+    {{bootstrap-switch label="BOTB Certain?"  status=botb_certainty  action="updateRecord" }}
+    {{!-- {{precision-select label="BOTB Precision" val=botb_precision     action="updateRecord" }} --}}
 
     {{!-- <dt>BotB Precision</dt><dd>{{botb_precision}}</dd> --}}
     {{!-- <dt>EotB</dt><dd>{{eotb}}</dd> --}}
-    {{bootstrap-switch   label="EOTB Certain?"    status=eotb_certainty     action="rebuildStructure" }}
-    {{!-- {{precision-select label="EOTB Precision" val=eotb_precision     action="rebuildStructure" }} --}}
+    {{bootstrap-switch   label="EOTB Certain?"    status=eotb_certainty     action="updateRecord" }}
+    {{!-- {{precision-select label="EOTB Precision" val=eotb_precision     action="updateRecord" }} --}}
     {{!-- <dt>BotE</dt><dd>{{bote}}</dd> --}}
-    {{bootstrap-switch   label="BOTE Certain?"    status=bote_certainty     action="rebuildStructure" }}
-    {{!-- {{precision-select label="BOTE Precision" val=bote_precision     action="rebuildStructure" }} --}}
+    {{bootstrap-switch   label="BOTE Certain?"    status=bote_certainty     action="updateRecord" }}
+    {{!-- {{precision-select label="BOTE Precision" val=bote_precision     action="updateRecord" }} --}}
     {{!-- <dt>EotE</dt><dd>{{eote}}</dd> --}}
-    {{bootstrap-switch   label="EOTE Certain?"    status=eote_certainty     action="rebuildStructure" }}
-    {{!-- {{precision-select label="EOTE Precision" val=eote_precision     action="rebuildStructure" }} --}}
+    {{bootstrap-switch   label="EOTE Certain?"    status=eote_certainty     action="updateRecord" }}
+    {{!-- {{precision-select label="EOTE Precision" val=eote_precision     action="updateRecord" }} --}}
   </form>
 </div>

@@ -36,6 +36,14 @@ module CMOA
           result
         }
       end
+      def maintain_history(data,results)
+        results[:id] = data[:id]
+        if data[:original_text] != results["original_text"] 
+          results[:original_text] = data[:original_text]
+          results[:parsable] = (results[:original_text] == results["provenance"])
+        end
+        results
+      end
     end
 
     get '/' do
@@ -72,6 +80,11 @@ module CMOA
       }}.to_json
     end
 
+    post "/parse_provenance_line" do
+      content_type :json
+      p = MuseumProvenance::Provenance.extract params[:str]
+      p.to_json
+    end
     post '/parse_timestring' do
       content_type :json
       p = MuseumProvenance::Period.new("test ")
@@ -124,9 +137,7 @@ module CMOA
       results = MuseumProvenance::Provenance.from_json({period: data}).to_json
       vals = JSON.parse(results)
       vals["period"] = vals["period"].collect.with_index do |r,i|
-        puts "#{r['party']} - #{r['direct_transfer']}"
-        r[:id] = data[i][:id];
-        r
+        maintain_history(data[i],r)
       end
       vals.to_json
     end

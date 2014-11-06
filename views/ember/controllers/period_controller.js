@@ -1,6 +1,32 @@
 App.PeriodController = Ember.ObjectController.extend( Ember.Evented, {
   needs: ['artwork'],
   actions: {
+
+    updateRecord: function(val) {
+      this.model.set('updated',true);
+      this.send("rebuildStructure");
+    },
+    updateProvenance: function(val) {
+      this.model.rollback();
+      var self = this;
+      var id = this.model.get('id');
+      Ember.$.post('/parse_provenance_line', {str: val})
+        .then(function(data){
+          var p = data.period[0]
+          p = self.store.normalize('period',p)
+          console.log('data',p);
+          var orig = self.model.get('original_text');
+          var dt = self.model.get('direct_transfer');
+          var foot = self.model.get('footnote');
+          p.id = id
+          self.store.push('period',p);
+          self.model.set('original_text',orig);
+          self.model.set('direct_transfer',dt);
+          self.model.set('footnote',foot);
+
+          self.send('rebuildStructure');
+        });     
+    },
     updateDate: function(val) {
       var self = this;
       this.model.rollback();

@@ -7,7 +7,7 @@
 
   <ul class="list-group party-list" id="party-list">
     {{#each periods}}
-    <li {{bind-attr class="active :list-group-item" id=id}}>
+    <li {{bind-attr class="active updated :list-group-item" id=id}}>
       {{#link-to 'period' id class='provenance_party'}}
       <span {{bind-attr class='parsable::unparsable'}}>
         {{partyName}}

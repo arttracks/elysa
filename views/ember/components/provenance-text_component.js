@@ -18,7 +18,7 @@ App.ProvenanceTextComponent  = Ember.Component.extend({
       val += item.get('provenance_with_footnote');
       val += (item.get("direct_transfer") ? "; " : ". ");
       if (item.get("footnote")) {
-        notes += item.get("footnote_number") +". " + item.get("footnote")
+        notes += item.get("footnote_number") +". " + item.get("footnote") + " "
       }
     }
     if (notes != "") {

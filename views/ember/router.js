@@ -14,6 +14,11 @@ App.IndexRoute = Ember.Route.extend({
 App.ArtworksRoute = Ember.Route.extend({});
 
 App.PeriodRoute = Ember.Route.extend({
+  actions: {
+    willTransition: function(transition) {
+      this.controller.trigger("routeChange");
+    },
+  },
   model: function(params) {
     if (this.store.hasRecordForId('period',params.period_id)){
       return this.store.find('period', params.period_id)

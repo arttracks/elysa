@@ -54,7 +54,7 @@ App.Period = DS.Model.extend({
 
   party_with_certainty: function() {
     var str = this.get("party");
-    if (!party_certainty) {
+    if (!this.get('party_certainty')) {
       str += "?";
     }
     return str;

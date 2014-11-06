@@ -3,6 +3,13 @@ App.InlineEditorComponent = Ember.Component.extend({
   isEditing: false,
   singleLine: false,
 
+  init: function() {
+    this._super();
+    this.get('targetObject').on("routeChange", $.proxy(function(){
+      this.set('isEditing', false)
+    },this));
+  },
+
   actions: {
     beginEditing: function() {
       this.set('isEditing', true);

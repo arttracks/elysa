@@ -1,4 +1,4 @@
-App.PeriodController = Ember.ObjectController.extend({
+App.PeriodController = Ember.ObjectController.extend( Ember.Evented, {
   needs: ['artwork'],
   actions: {
     updateDate: function(val) {

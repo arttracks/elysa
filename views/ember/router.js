@@ -36,7 +36,7 @@ App.ArtworkRoute = Ember.Route.extend({
         var data = this.modelFor('artwork').get('serializedPeriods');
         Ember.$.post('/rebuild_structure', data)
         .then(function(results){
-          self.send('reconstructData',results);
+          this.send('reconstructData',results);
         });
       });
     },
@@ -72,8 +72,14 @@ App.ArtworkRoute = Ember.Route.extend({
           resolve();
         });
     }).then(function() {
-      var id = artwork.get('periods').objectAt(0).get('id');
-      self.transitionTo("period",id);
+      var p = artwork.get('periods').objectAt(0);
+      if (p) {
+        var id = p.get('id');
+        self.transitionTo("period",id);
+      }
+      else {
+        self.controllerFor('artwork').send("addParty");
+      }
     });
   }
 });

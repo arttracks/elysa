@@ -16,7 +16,7 @@
   <form class="form-horizontal col-md-6 form-compact" onsubmit="return false;">
     {{bootstrap-switch   label="Period Certain?"    status=period_certainty     action="rebuildStructure" bubbles=false }}
     {{bootstrap-switch   label="Direct Transfer?"   status=direct_transfer      action="rebuildStructure" bubbles=false }}
-    {{inline-editor  label="Transfer"  val=timestring action="updateDate"  bubbles=false}}
+    {{inline-editor  label="Ownership Dates"  val=timestring action="updateDate"  bubbles=false}}
     {{inline-editor    label="Stock Number"   val=stock_number action="rebuildStructure" tabindex=0 }}
   </form>
 </div>

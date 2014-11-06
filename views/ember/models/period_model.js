@@ -39,6 +39,26 @@ App.Period = DS.Model.extend({
 
   active: false,
 
+  party_is_blank: function() {
+    var party = this.get("party");
+    return party == "" || party == undefined || party == null;
+  }.property('party'),
+
+  partyName: function() {
+    var party = this.get("party");
+    if (party == "")
+      return "unknown party";
+    else
+      return party;
+  }.property('party'),
+
+  party_with_certainty: function() {
+    var str = this.get("party");
+    if (!party_certainty) {
+      str += "?";
+    }
+    return str;
+  }.property('party','party_certainty'),
 
   dumbo_time_string: function() {
     console.log("timestring",this.get("timestring"))
@@ -118,6 +138,7 @@ App.Period = DS.Model.extend({
     if (footnote && footnote != "") {
       val += " [" +this.get("footnote_number") + "]";
     }
+    if (val == "") val = this.get("partyName");
     return val
-  }.property("provenance","footnote_number", "footnote"),
+  }.property("provenance","footnote_number", "footnote", "partyName"),
 });

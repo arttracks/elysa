@@ -93,7 +93,7 @@ module CMOA
         symbolize_keys(val)
       end
       results = MuseumProvenance::Provenance.from_json({period: data})
-      results.insert_earliest(MuseumProvenance::Period.new("unknown party"));
+      results.insert_earliest(MuseumProvenance::Period.new(""));
       
       vals = JSON.parse(results.to_json)
       vals["period"] = vals["period"].collect.with_index do |r,i|

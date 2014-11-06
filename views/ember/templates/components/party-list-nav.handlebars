@@ -10,7 +10,7 @@
     <li {{bind-attr class="active :list-group-item" id=id}}>
       {{#link-to 'period' id class='provenance_party'}}
       <span {{bind-attr class='parsable::unparsable'}}>
-        {{party}}
+        {{partyName}}
       </span>
       {{/link-to}}
       <span class="badge" {{action 'deleteParty' id}}><span class="glyphicon glyphicon-remove"></span></span>

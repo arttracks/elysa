@@ -7,7 +7,7 @@
       {{!-- <span {{action "beginEditing" on "focusIn"}}  {{bind-attr tabindex=tabindex}}> --}}
       <span {{action "beginEditing" on "click"}}>
         {{#if val}}
-           <span class='click_to_edit' > {{val}} </span>
+           <span class='click_to_edit' > {{val}} {{ques possibly}}</span>
         {{else}}
           <span class='click_to_edit disabled'> click to edit </span>
         {{/if}}

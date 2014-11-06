@@ -1,7 +1,7 @@
 <div class="col-md-12 col-md-offset-0 panel panel-default">
     <div class ="panel-body">
     {{#each periods}}
-      {{#link-to 'period' id class='provenance_line'}}
+      {{#link-to 'period' id classNameBindings=':provenance_line party_is_blank'}}
         {{#if parsable}}
           {{provenance_with_footnote~}}
         {{else}}

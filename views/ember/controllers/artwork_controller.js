@@ -22,7 +22,7 @@ App.ArtworkController = Ember.ObjectController.extend({
           self.send('rebuildStructure')
           if(isCurrent) {
             var firstId = self.get('periods').objectAt(0).get('id');
-            self.transitionToRoute("period",firstId)
+            self.transitionTo("period",firstId)
           }
         }
         var onFail = function(e) {

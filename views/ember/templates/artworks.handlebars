@@ -1,5 +1,10 @@
-<div class ='col-md-8 col-md-offset-2'>
-  {{input type="text" class="search" placeholder="IRN ?" value=query action="search"}}
+<div class ='col-md-8 col-md-offset-2'>  
+<div class='well'>
+  <div class="form-group form-group-lg">
+    <label>Search across IRNs: </label>
+    {{input type="text" class="search form-control" placeholder="artwork IRN" value=query action="search"}}
+    </div>
+</div>
   {{!-- <ul>
     {{#each}}
       <li>  {{#link-to 'artwork' id}}{{title}}{{/link-to}} </li>

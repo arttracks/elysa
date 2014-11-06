@@ -12,15 +12,17 @@
         {{~transfer_type direct_transfer}}
       {{/link-to}}
     {{/each}}
-    <div>
-    NOTES:
-      {{#each periods}}
-        {{#if footnote}}
-          {{#link-to 'period' id class='provenance_line'}}
-            {{footnote_number}}. {{footnote}}
-          {{/link-to}}
-          {{/if}}
-      {{/each}}
-    </div>
+    {{#if notes_exist}}
+      <div>
+        NOTES:
+        {{#each periods}}
+          {{#if footnote}}
+            {{#link-to 'period' id class='provenance_line'}}
+              {{footnote_number}}. {{footnote}}
+            {{/link-to}}
+            {{/if}}
+        {{/each}}
+      </div>
+    {{/if}}
     </div>
   </div>

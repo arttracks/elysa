@@ -1,4 +1,14 @@
 App.ProvenanceTextComponent  = Ember.Component.extend({
+  notes_exist: function() {
+    var periods = this.get("periods");
+    for (var q1 = 0; q1 < periods.length; q1++) {
+      var item = periods[q1];
+      if (item.get("footnote")) {
+        return true;
+      }
+    }
+    return false;
+  }.property("periods.@each.footnote"),
   full_provenance: function() {
     var val = "";
     var notes = "";

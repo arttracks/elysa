@@ -103,7 +103,6 @@ module CMOA
 
     post '/add_party' do
       content_type :json
-      puts "\n\n#{params[:period]}\n\n"
       if params[:period]
         data = params[:period].collect do |key,val| 
           symbolize_keys(val)
@@ -115,16 +114,16 @@ module CMOA
       results.insert_earliest(MuseumProvenance::Period.new(""));
       
       vals = JSON.parse(results.to_json)
-      puts "\n\n#{vals}\n\n"
+
       vals["period"] = vals["period"].collect.with_index do |r,i|
         if data.nil?
           r[:id] = "0-#{params['artwork_id']}"
         elsif i == 0
           r[:id] = data[0][:id] + "-" + results.count.to_s
         else
-          r[:id] = data[i-1][:id]
+          r = maintain_history(data[i-1],r)
         end
-        r 
+        r
       end
       vals.to_json
     end

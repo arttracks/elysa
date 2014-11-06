@@ -2,6 +2,9 @@ App.ArtworkController = Ember.ObjectController.extend({
   showExtended: false,
 
   actions: {
+    gotoParty: function(id) {
+      this.transitionToRoute('period',id);
+    },
     reorderParties: function(indexes) {
       this.beginPropertyChanges();
       this.get("periods").forEach(function(item) {

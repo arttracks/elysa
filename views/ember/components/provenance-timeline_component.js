@@ -96,11 +96,15 @@ App.ProvenanceTimelineComponent = Ember.Component.extend({
     var elements = svg.select(".periods").selectAll("g").data(data,key)
     // Build new elements 
     var creates = elements.enter().append("g");
-     creates.append("rect") // Create possible bar
+    creates.on("click", function (d, i) {
+      self.sendAction('action',d.id);
+    });
+
+    creates.append("rect") // Create possible bar
       .attr("class", "possible_bounds")
     creates.append('polyline') // create lifespan bar
       .attr("class", 'lifespan')
-  creates.append('polyline') // create lifespan bar for alive people
+    creates.append('polyline') // create lifespan bar for alive people
       .attr("class", 'lifespan-nodeath')
     creates.append("rect") // Create definite bar
       .attr("class", "definite_bounds")

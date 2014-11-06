@@ -50,7 +50,7 @@ App.ArtworkRoute = Ember.Route.extend({
         var data = this.modelFor('artwork').get('serializedPeriods');
         Ember.$.post('/rebuild_structure', data)
         .then(function(results){
-          this.send('reconstructData',results);
+          self.send('reconstructData',results);
         });
       });
     },

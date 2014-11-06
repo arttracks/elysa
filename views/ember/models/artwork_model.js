@@ -13,11 +13,11 @@ App.Artwork = DS.Model.extend({
   footnotes_updated: function(){}.property('periods.@each.footnote'),
   
   timeline_data: function() {
-    return this.get('periods').sortBy("order").map(function(item){return item})
+    return this.get('sortedPeriods').map(function(item){return item})
   }.property('periods.@each.party','periods.@each.active','periods.@each.order'),
 
   serializedPeriods: function() {
-    return {period: this.get('periods').sortBy("order").map(function(item){
+    return {period: this.get('sortedPeriods').map(function(item){
               var data =  item.serialize()
               data.id = item.get("id");
               return data;

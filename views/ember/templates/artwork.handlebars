@@ -26,7 +26,10 @@
     {{party-list-nav periods=sortedPeriods delete='deleteParty' reorder='reorderParties' add='addParty'}}
   </div>
   <div class="col-md-9">
-    {{outlet}}
+     {{outlet}}
+   {{#unless periods}}  
+      There is no provenance record for this artwork.
+   {{/unless}}
   </div>
 </div>
 <div class="row">

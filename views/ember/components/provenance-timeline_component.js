@@ -62,6 +62,7 @@ App.ProvenanceTimelineComponent = Ember.Component.extend({
       d.latest_definite = moment.unix(d.latest_definite);
       if (d.birth) d.birth = moment.unix(d.birth);
       if (d.death) d.death = moment.unix(d.death);
+      d.party = el.get("partyName");
       return d;
     });
     var key = function(d) { 

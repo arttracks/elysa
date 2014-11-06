@@ -14,8 +14,19 @@ App.IndexRoute = Ember.Route.extend({
 App.ArtworksRoute = Ember.Route.extend({});
 
 App.PeriodRoute = Ember.Route.extend({
+  model: function(params) {
+    if (this.store.hasRecordForId('period',params.period_id)){
+      return this.store.find('period', params.period_id)
+    }
+    return null;
+  },
   afterModel: function(period, transition) {
-    transition.send("setActivePeriod",period);
+   if (period == null) {
+    this.transitionTo("artwork");
+   }
+   else {
+     transition.send("setActivePeriod",period);
+   }
   }
 })
 
@@ -24,9 +35,12 @@ App.ArtworkRoute = Ember.Route.extend({
     addParty: function() {
       var self = this;
       var data = this.modelFor('artwork').get('serializedPeriods');
+      var artwork = this.modelFor('artwork');
+      data.artwork_id = artwork.get("id");
       Ember.$.post('/add_party', data)
       .then(function(results){
         self.send('reconstructData',results);
+        Ember.run.once(function(){self.gotoFirstRecord(artwork)})
       });
     },
 
@@ -64,7 +78,7 @@ App.ArtworkRoute = Ember.Route.extend({
   },
 
   afterModel: function(artwork, transition) {
-    self = this;
+    var self = this;
     return new Ember.RSVP.Promise(function(resolve, reject) {
       Ember.$.post('/get_structure', {provenance: artwork.get('provenance')})
         .then(function(data){
@@ -72,14 +86,16 @@ App.ArtworkRoute = Ember.Route.extend({
           resolve();
         });
     }).then(function() {
-      var p = artwork.get('periods').objectAt(0);
-      if (p) {
-        var id = p.get('id');
-        self.transitionTo("period",id);
-      }
-      else {
-        self.controllerFor('artwork').send("addParty");
+      if (artwork.get('periods').count) {
+        self.gotoFirstRecord(artwork);
       }
     });
-  }
+  },
+  gotoFirstRecord: function(artwork) {
+      var p = artwork.get('sortedPeriods').objectAt(0);
+      if (p) {
+        var id = p.get('id');
+        this.transitionTo("period",id);
+      }
+    }
 });

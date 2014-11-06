@@ -56,6 +56,7 @@ module CMOA
       {}.to_json
     end
 
+
     get '/artworks/:id' do
       content_type :json
       record = settings.fake_db["table"]["record"].find{|record| record["irn"] == params[:id]}
@@ -89,15 +90,23 @@ module CMOA
 
     post '/add_party' do
       content_type :json
-      data = params[:period].collect do |key,val| 
-        symbolize_keys(val)
+      puts "\n\n#{params[:period]}\n\n"
+      if params[:period]
+        data = params[:period].collect do |key,val| 
+          symbolize_keys(val)
+        end
+        results = MuseumProvenance::Provenance.from_json({period: data})
+      else 
+        results = MuseumProvenance::Timeline.new()
       end
-      results = MuseumProvenance::Provenance.from_json({period: data})
       results.insert_earliest(MuseumProvenance::Period.new(""));
       
       vals = JSON.parse(results.to_json)
+      puts "\n\n#{vals}\n\n"
       vals["period"] = vals["period"].collect.with_index do |r,i|
-        if i == 0
+        if data.nil?
+          r[:id] = "0-#{params['artwork_id']}"
+        elsif i == 0
           r[:id] = data[0][:id] + "-" + results.count.to_s
         else
           r[:id] = data[i-1][:id]

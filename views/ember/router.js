@@ -86,7 +86,7 @@ App.ArtworkRoute = Ember.Route.extend({
           resolve();
         });
     }).then(function() {
-      if (artwork.get('periods').count) {
+      if (artwork.get('periods.length')) {
         self.gotoFirstRecord(artwork);
       }
     });

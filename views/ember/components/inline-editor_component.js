@@ -24,10 +24,12 @@ App.InlineEditorComponent = Ember.Component.extend({
     },
     
     endEditing: function(val) {
-      this.set("val",val);
       this.set('isEditing',false);
-      this.sendAction("action", val);
-    } 
+      if (val) {
+        this.set("val",val);
+        this.sendAction("action", val);
+      }
+    },
   },
 
   labelRowClass: function() {
@@ -67,7 +69,13 @@ App.InlineInputComponent = Ember.TextField.extend({
   },
   completeEditing: function() {
     var val = this.get('value');
-    this.set("previousVal", val);
-    this.sendAction('action',val);
+    var prev = this.get('previousVal');
+    if (val != prev){
+      this.set("previousVal", val);
+      this.sendAction('action',val);
+    }
+    else {
+      this.sendAction('action');
+    }
   }
 });

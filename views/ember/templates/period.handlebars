@@ -9,27 +9,27 @@
 </div>
 {{/unless}}
 <div class="row">
-{{inline-editor    label="Current Text" val=provenance  action="updateProvenance" singleLine=true primary=true }}
+{{inline-editor  tabstop="1"   label="Current Text" val=provenance  action="updateProvenance" singleLine=true primary=true }}
 </div>
 <hr class='compact'/>
 <div class="row">
   <form class="form-horizontal col-md-6 form-compact" onsubmit="return false;">
-    {{inline-editor    label="Party Name"     val=party        action="updateRecord" possibly=party_certainty }}
-    {{inline-editor    label="Year of Birth"  val=birth_year   action="updateRecord" possibly=birth_certainty   }}
-    {{inline-editor    label="Year of Death"  val=death_year   action="updateRecord" possibly=death_certainty   }}
-    {{inline-editor    label="Party Location" val=location     action="updateRecord" possibly=location_certainty}}
-    {{acquisition-method                      val=acquisition_method      action="updateRecord" }}
+    {{inline-editor tabstop="2"    label="Party Name"     val=party        action="updateRecord" possibly=party_certainty }}
+    {{inline-editor tabstop="3"    label="Year of Birth"  val=birth_year   action="updateRecord" possibly=birth_certainty   }}
+    {{inline-editor tabstop="4"    label="Year of Death"  val=death_year   action="updateRecord" possibly=death_certainty   }}
+    {{inline-editor tabstop="5"    label="Party Location" val=location     action="updateRecord" possibly=location_certainty}}
+    {{acquisition-method  tabstop="6"                     val=acquisition_method      action="updateRecord" }}
   </form>
   <form class="form-horizontal col-md-6 form-compact" onsubmit="return false;">
-    {{bootstrap-switch   label="Period Certain?"    status=period_certainty     action="updateRecord" }}
-    {{bootstrap-switch   label="Direct Transfer?"   status=direct_transfer      action="updateRecord" }}
-    {{inline-editor  label="Ownership Dates"  val=timestring                    action="updateDate" }}
-    {{inline-editor    label="Stock Number"   val=stock_number                  action="updateRecord" }}
+    {{bootstrap-switch  tabstop="8"  label="Period Certain?"    status=period_certainty     action="updateRecord" }}
+    {{bootstrap-switch   tabstop="9" label="Direct Transfer?"   status=direct_transfer      action="updateRecord" }}
+    {{inline-editor  tabstop="10"  label="Ownership Dates"  val=timestring                    action="updateDate" }}
+    {{inline-editor  tabstop="11"   label="Stock Number"   val=stock_number                  action="updateRecord" }}
   </form>
 </div>
 
 <div class="row">
-  {{inline-editor    label="Footnote" val=footnote      action="updateRecord" singleLine=true }}
+  {{inline-editor   tabstop="7"  label="Footnote" val=footnote      action="updateRecord" singleLine=true }}
 </div>
 
 <div {{bind-attr class=":row :extended_fields showExtended:visible"}}>

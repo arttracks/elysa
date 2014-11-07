@@ -37,6 +37,9 @@ App.PeriodRoute = Ember.Route.extend({
 
 App.ArtworkRoute = Ember.Route.extend({
   actions: {
+    openPrimary: function() {
+      this.controllerFor('period').trigger("openPrimary");
+    },
     addParty: function() {
       var self = this;
       var data = this.modelFor('artwork').get('serializedPeriods');

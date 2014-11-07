@@ -8,13 +8,8 @@
   <ul class="list-group party-list" id="party-list">
     {{#each periods}}
     <li {{bind-attr class="active updated :list-group-item" id=id}}>
-      {{#link-to 'period' id class='provenance_party'}}
-      <span {{bind-attr class='parsable::unparsable'}}>
-        {{partyName}}
-      </span>
-      {{/link-to}}
-      <span class="badge" {{action 'deleteParty' id}}><span class="glyphicon glyphicon-remove"></span></span>
-      </li>
+      {{party-list-nav-item parsable=parsable id=id name=partyName primary=primary delete="delete" open="open"}}  
+    </li>
     {{/each}}
   </ul>
 

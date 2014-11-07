@@ -1,4 +1,4 @@
-App.ArtworkController = Ember.ObjectController.extend({
+App.ArtworkController = Ember.ObjectController.extend(Ember.Evented, {
   showExtended: false,
 
   actions: {
@@ -17,7 +17,7 @@ App.ArtworkController = Ember.ObjectController.extend({
   
     deleteParty: function(id) {
       var self = this;
-      console.log("id",id)
+      console.log("deleting id",id)
       this.store.find("period",id).then(function(party){
         console.log("parrty",party);
         var isCurrent = party.get('active');

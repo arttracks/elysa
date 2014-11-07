@@ -2,12 +2,20 @@ App.InlineEditorComponent = Ember.Component.extend({
   tagName: 'span',
   isEditing: false,
   singleLine: false,
+  primary: false,
 
   init: function() {
     this._super();
+    
     this.get('targetObject').on("routeChange", $.proxy(function(){
       this.set('isEditing', false)
     },this));
+
+    if (this.get('primary')) {
+      this.get('targetObject').on("openPrimary",$.proxy(function(){
+        this.set('isEditing', true)
+      },this));
+    }
   },
 
   actions: {
@@ -36,20 +44,30 @@ App.InlineEditorComponent = Ember.Component.extend({
 App.InlineInputComponent = Ember.TextField.extend({
   action: 'endEditing',
   targetObject: Em.computed.alias('parentView'),  
+  previousVal: "",
   init: function() {
     this._super();
     var value = (this.get("val"));
     this.set("value", value);
+    this.set("previousVal", value);
   },
   becomeFocused: function() {
    this.$().focus();
   }.on('didInsertElement'),
 
   focusOut: function() {
-    this.sendAction('action',this.get('value'));
+    this.completeEditing();
   },
   insertNewline: function(e) {
-    this.sendAction('action',this.get('value'));
-    return false;
+    this.completeEditing();
   },
+  cancel: function() {
+    this.set('value',this.get('previousVal'));
+    this.completeEditing();
+  },
+  completeEditing: function() {
+    var val = this.get('value');
+    this.set("previousVal", val);
+    this.sendAction('action',val);
+  }
 });

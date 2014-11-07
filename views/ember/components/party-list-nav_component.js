@@ -1,6 +1,9 @@
 App.PartyListNavComponent  = Ember.Component.extend({
   actions: {
-    deleteParty: function(id){
+    open: function() {
+      this.sendAction('open');
+    },
+    delete: function(id){
       this.sendAction("delete",id);
     },
     addParty: function() {

@@ -23,8 +23,9 @@
   <form class="form-horizontal col-md-6 form-compact" onsubmit="return false;">
     {{bootstrap-switch  tabstop="8"  label="Period Certain?"    status=period_certainty     action="updateRecord" }}
     {{bootstrap-switch   tabstop="9" label="Direct Transfer?"   status=direct_transfer      action="updateRecord" }}
-    {{inline-editor  tabstop="10"  label="Ownership Dates"  val=timestring                    action="updateDate" }}
-    {{inline-editor  tabstop="11"   label="Stock Number"   val=stock_number                  action="updateRecord" }}
+    {{bootstrap-switch   tabstop="10" label="Primary Owner?"   status=primary_owner         action="updateRecord" }}
+    {{inline-editor  tabstop="11"  label="Ownership Dates"  val=timestring                    action="updateDate" }}
+    {{inline-editor  tabstop="12"   label="Stock Number"   val=stock_number                  action="updateRecord" }}
   </form>
 </div>
 

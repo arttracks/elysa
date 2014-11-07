@@ -1,6 +1,7 @@
 App.Period = DS.Model.extend({
   artwork:            DS.belongsTo('artwork'),
   order:              DS.attr("number"),
+  primary_owner:      DS.attr("boolean"),
   period_certainty:   DS.attr('boolean', {defaultValue: true}),
   acquisition_method: DS.attr('string'),
   party:              DS.attr('string'),

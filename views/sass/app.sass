@@ -26,28 +26,36 @@ hr.compact
 .unparsable
   color: red
   font-style: italic
+.disabled
+  color: slategrey
 .updated .unparsable
   color: #88a000
 .active .unparsable 
   color: white
 .party-list-nav
+  .provenance_party
+    display: inline-block
+    width: 100%
+    padding-right: 12px
+    &:focus
+      text-decoration: none    
+    &.active
+      font-weight: bold
+      color: white
   .badge
     display: none
     font-size: 70%
     border-radius: 20px
     padding: 3px 4px
     cursor: pointer
+    position: absolute
+    right: 4px
+    top: 4px
   .list-group-item, .panel-heading
     padding: 3px 15px
   .list-group-item:hover
     .badge
       display: block
-.provenance_party
-  &:focus
-    text-decoration: none    
-  &.active
-    font-weight: bold
-    color: white
 .extended_fields
   display: none
   &.visible

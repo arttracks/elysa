@@ -3,7 +3,7 @@
 <div class="form-group compact">
   <label class="col-sm-2 inline-editor-label">Original Text</label>
   <div class='col-sm-10'>
-    <span class=' unparsable'>{{original_text}}</span>
+    <span class=' disabled'>{{original_text}}</span>
   </div>
 </div>
 </div>
@@ -11,6 +11,7 @@
 <div class="row">
 {{inline-editor    label="Current Text" val=provenance  action="updateProvenance" singleLine=true}}
 </div>
+<hr class='compact'/>
 <div class="row">
   <form class="form-horizontal col-md-6 form-compact" onsubmit="return false;">
     {{inline-editor    label="Party Name"     val=party        action="updateRecord" possibly=party_certainty    tabindex=10  bubbles=false }}

@@ -4,11 +4,7 @@
 
     {{#each periods}}
       {{#link-to 'period' id classNameBindings=':provenance_line party_is_blank'}}
-        {{#if parsable}}
-          {{provenance_with_footnote~}}
-        {{else}}
-          <span class='provenance_text'>{{~provenance_with_footnote~}}</span><span class='provenance_original_text'>{{~original_text~}}</span>
-         {{~/if~}} 
+        {{provenance_with_footnote~}}
         {{~transfer_type direct_transfer}}
       {{/link-to}}
     {{/each}}

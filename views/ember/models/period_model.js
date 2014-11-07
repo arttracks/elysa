@@ -64,7 +64,7 @@ App.Period = DS.Model.extend({
   }.property('party','party_certainty'),
 
   dumbo_time_string: function() {
-    console.log("timestring",this.get("timestring"))
+    //console.log("timestring",this.get("timestring"))
   }.observes('timestring'),
 
   deacquisition_string: function(key,value,previousValue) {

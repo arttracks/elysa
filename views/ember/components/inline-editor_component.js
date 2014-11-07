@@ -25,7 +25,7 @@ App.InlineEditorComponent = Ember.Component.extend({
     
     endEditing: function(val) {
       this.set('isEditing',false);
-      if (val) {
+      if (val !== undefined) {
         this.set("val",val);
         this.sendAction("action", val);
       }
@@ -70,7 +70,7 @@ App.InlineInputComponent = Ember.TextField.extend({
   completeEditing: function() {
     var val = this.get('value');
     var prev = this.get('previousVal');
-    if (val != prev){
+    if (val != prev && !(val === "" && prev === undefined)){
       this.set("previousVal", val);
       this.sendAction('action',val);
     }

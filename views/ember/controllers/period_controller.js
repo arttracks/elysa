@@ -12,20 +12,24 @@ App.PeriodController = Ember.ObjectController.extend( Ember.Evented, {
       var id = this.model.get('id');
       Ember.$.post('/parse_provenance_line', {str: val})
         .then(function(data){
-          var p = data.period[0]
-          p = self.store.normalize('period',p)
-          console.log('data',p);
+          // Normalize the data
+          var p = self.store.normalize('period',data.period[0])
+          p.id = id
+          // Save fields that you want to update
           var orig = self.model.get('original_text');
           var dt = self.model.get('direct_transfer');
           var foot = self.model.get('footnote');
           var order = self.model.get('order');
-          p.id = id
+
           self.store.push('period',p);
+
+          // Re-load fields that you want to update
           self.model.set('original_text',orig);
           self.model.set('direct_transfer',dt);
           self.model.set('footnote',foot);
           self.model.set('order',order);
           self.model.set('updated', true);
+
           self.send('rebuildStructure');
         });     
     },

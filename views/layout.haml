@@ -14,7 +14,12 @@
     .navbar.navbar-inverse.navbar-fixed-top
       .container
         .navbar-header
-          %a.navbar-brand CMOA Museum Provenance  
+          %a.navbar-brand{href: "/"} CMOA Museum Provenance
+         
+        .collapse.navbar-collapse
+          %ul.nav.navbar-nav.navbar-right
+            %li
+              %a{href: "/docs"} Documentation
     .container
       .row
         .col-md-12

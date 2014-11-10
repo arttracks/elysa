@@ -1,14 +1,33 @@
-<div class ='col-md-8 col-md-offset-2'>  
-<div class='well'>
-  <div class="form-group form-group-lg">
-    <label>Search across IRNs: </label>
-    {{input type="text" class="search form-control" placeholder="artwork IRN" value=query action="search"}}
-    </div>
+<div class ="row">
+  <div class ='col-md-8 col-md-offset-2'>  
+  <h3> CMOA Museum Provenance</h3>
+  <p>
+    Welcome to the CMOA Provenance entry tool.   Eventually, there will be an interface here that
+    will allow you to search our collection—currently, you can only search via exact artwork IRN.
+  </p>
+  <p>
+    For more information on using the tool, please see <a href='/docs'>the documentation.</a>
+  </p>
+  <p>
+    For examples, please try some of the following works:
+    <ul>
+    <li>{{#link-to 'artwork' 1011575}}The Bath (le Bain){{/link-to}}</li>
+    <li>{{#link-to 'artwork' 1012274}}Landscape Near Aix, The Plain of the Arc River{{/link-to}}</li>
+    <li>{{#link-to 'artwork' 1000003}}Fifth Avenue in Winter{{/link-to}}</li>
+    <li>{{#link-to 'artwork' 1004771}}Young Women Picking Fruit{{/link-to}}</li>
+    </ul>
+  </p>
+
+  </div>
 </div>
-  {{!-- <ul>
-    {{#each}}
-      <li>  {{#link-to 'artwork' id}}{{title}}{{/link-to}} </li>
-    {{/each}}
-  </ul> --}}
+<div class ="row">
+  <div class ='col-md-8 col-md-offset-2'>  
+    <div class='well'>
+      <div class="form-group form-group-lg">
+        <label>Search across IRNs: </label>
+        {{input type="text" class="search form-control" placeholder="artwork IRN" value=query action="search"}}
+        </div>
+    </div>
+  </div>
 </div>
 {{outlet}}

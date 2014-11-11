@@ -45,7 +45,8 @@ App.PeriodController = Ember.ObjectController.extend( Ember.Evented, {
           self.model.set('bote',moment.unix(data.bote))
           self.model.set('eote',moment.unix(data.eote)) 
           self.model.set('bote_precision',data.bote_precision)
-          self.model.set('eote_precision',data.eote_precision)          
+          self.model.set('eote_precision',data.eote_precision)     
+          self.model.set('updated',true);     
           self.send('rebuildStructure');
         });
     },

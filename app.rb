@@ -61,10 +61,12 @@ module CMOA
     get '/artworks/:id' do
       content_type :json
       record = settings.things.find{|record| record["id"] == params[:id].to_i}
-      creator_id = record['creators'].first.to_i
-      if creator_id
-        a =  settings.parties.find{|record| record["id"] == creator_id}
-        record[:artist] = a["name"]
+      creators = record['creators']
+      if creators
+        record[:artist] = record['creators'].collect do |creator|
+          settings.parties.find{|record| record["id"] == creator.to_i}["name"]
+        end.join(", ")
+        
       end
       return nil if record.nil?
       return {artwork: record}.to_json

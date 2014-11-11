@@ -112,9 +112,9 @@ App.Period = DS.Model.extend({
 
   computed_earliest_possible: function() {
     var e = this.get("earliest_possible");
-    var c = this.get("artwork.creationDateEarliest");
+    var c = this.get("artwork.creation_earliest");
     return e ? Math.max(e,c) : c;
-  }.property("earliest_possible","artwork.creationDateEarliest"),
+  }.property("earliest_possible","artwork.creation_earliest"),
 
   footnote_number: function() {
     this.get("artwork.footnotes_updated");

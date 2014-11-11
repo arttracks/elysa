@@ -17,9 +17,7 @@ App.ArtworkController = Ember.ObjectController.extend(Ember.Evented, {
   
     deleteParty: function(id) {
       var self = this;
-      console.log("deleting id",id)
       this.store.find("period",id).then(function(party){
-        console.log("parrty",party);
         var isCurrent = party.get('active');
         var onSuccess = function(){
           self.send('rebuildStructure')
@@ -43,13 +41,13 @@ App.ArtworkController = Ember.ObjectController.extend(Ember.Evented, {
 
   // Computed property for artwork display
   creation_label: function(){
-    var earliest = this.get("creationDateEarliest").getFullYear();
-    var latest = this.get("creationDateLatest").getFullYear();
+    var earliest = this.get("creation_earliest").getFullYear();
+    var latest = this.get("creation_latest").getFullYear();
     if (earliest == latest) {
       return "[" + earliest + "]";
     }
     else {
       return "[" + earliest + " - " + latest + "]"
     }
-  }.property("creationDateLatest","creationDateEarliest")
+  }.property("creation_latest","creation_earliest")
 });

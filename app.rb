@@ -17,7 +17,8 @@ module CMOA
     # }
 
     configure do
-      set :fake_db, File.open( "data/things.json", "r" ) { |f| JSON.load( f )}
+      set :things, File.open( "data/thing.json", "r" ) { |f| JSON.load( f )}["thing"]
+      set :parties, File.open( "data/party.json", "r" ) { |f| JSON.load( f )}["party"]
 
     end
 
@@ -50,14 +51,6 @@ module CMOA
       haml :index
     end
 
-    get '/artworkLists' do
-      content_type :json
-
-      artworks = settings.fake_db["table"]["record"].collect do |record|
-        {id: record["irn"], title: record["TitMainTitle"]}
-      end
-      return { artwork_list: artworks}.to_json
-    end
 
     delete '/periods/:id' do
       content_type :json
@@ -67,17 +60,14 @@ module CMOA
 
     get '/artworks/:id' do
       content_type :json
-      record = settings.fake_db["table"]["record"].find{|record| record["irn"] == params[:id]}
+      record = settings.things.find{|record| record["id"] == params[:id].to_i}
+      creator_id = record['creators'].first.to_i
+      if creator_id
+        a =  settings.parties.find{|record| record["id"] == creator_id}
+        record[:artist] = a["name"]
+      end
       return nil if record.nil?
-     
-      return {artwork: {
-        id: params[:id],
-        artist: record["CreCreatorRef_tab"]["tuple"]["NamFullName"],
-        title: record["TitMainTitle"],
-        creationDateEarliest: Date.new(record["CreEarliestDate"].to_i),
-        creationDateLatest: Date.new(record["CreLatestDate"].to_i),
-        provenance: record["CreProvenance"]
-      }}.to_json
+      return {artwork: record}.to_json
     end
 
     post "/parse_provenance_line" do

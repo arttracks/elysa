@@ -2,8 +2,8 @@ App.Artwork = DS.Model.extend({
   periods: DS.hasMany('period'),
   title: DS.attr('string'),
   artist: DS.attr('string'),
-  creationDateEarliest: DS.attr('date'),
-  creationDateLatest: DS.attr('date'),
+  creation_earliest: DS.attr('date'),
+  creation_latest: DS.attr('date'),
   provenance: DS.attr('string'),
   
   sortedPeriods: function() {

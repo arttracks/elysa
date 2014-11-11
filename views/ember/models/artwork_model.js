@@ -5,7 +5,16 @@ App.Artwork = DS.Model.extend({
   creation_earliest: DS.attr('date'),
   creation_latest: DS.attr('date'),
   provenance: DS.attr('string'),
+  images: DS.attr('raw'),
   
+  hasImage: function() {
+    return this.get('images').length;
+  }.property('images'),
+
+  firstImage: function() {
+    return this.get('images')[0]
+  }.property("images"),
+
   sortedPeriods: function() {
     return this.get('periods').sortBy("order")
   }.property("periods.@each.order"),

@@ -1,5 +1,8 @@
 <div class='row'>
   <div class ='col-md-8'>
+    {{#if hasImage}}
+    <img {{bind-attr src=firstImage }} class="img-thumbnail pull-left artwork-thumbnail">
+    {{/if}}
     <h3> {{title}} {{creation_label}}</h3>
     <h4> {{artist}}</h4>
   </div>

@@ -2,6 +2,15 @@ window.App = Ember.Application.create({
     LOG_TRANSITIONS: true
 });
 
+App.RawTransform = DS.Transform.extend({
+    deserialize: function(serialized) {
+        return serialized;
+    },  
+    serialize: function(deserialized) {
+        return deserialized;
+    }   
+});
+
 App.EpochTransform = DS.Transform.extend({
   deserialize: function(serialized) {
      if (serialized === undefined || serialized === null) {

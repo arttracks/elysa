@@ -39,8 +39,6 @@ App.InlineEditorComponent = Ember.Component.extend({
   fieldRowClass: function() {
     return this.get('singleLine')  ? "col-sm-10" : "col-sm-8"
   }.property('singleLine'),
-
-
 });
 
 App.InlineInputComponent = Ember.TextField.extend({

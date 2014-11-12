@@ -1,7 +1,14 @@
 App.PeriodController = Ember.ObjectController.extend( Ember.Evented, {
   needs: ['artwork'],
-  actions: {
 
+  name_help: {
+    text:  "<p>This is the name of the person, institution, marriage, or gallery involved during this period.</p><p>Abbreviations and clauses in the name need to be on a white list: <i>Dr. Marvin Gaye</i>, or <i>James Dean, his son</i> will work, but others may not.</p><p>Avoid using parentheses in the name.</p>"
+  },
+  period_certainty_help: {
+    text: "<p>This will toggle <strong>Possibly</strong> at the beginning of the record.</p><hr class='compact'/><p>Set this to <strong>no</strong> to indicate that you believe that the text is correct, but are not entirely certain or cannot find documentation to verify this.</p><p>If you are only uncertain about portions of the record such as the name or location, use the individual certanty switches in the Extended Fields.</p>"
+  },
+
+  actions: {
     updateRecord: function(val) {
       this.model.set('updated',true);
       this.send("rebuildStructure");

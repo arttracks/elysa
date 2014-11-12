@@ -1,4 +1,4 @@
-App.ArtworksController = Ember.ObjectController.extend({
+App.ArtworksController = Ember.ObjectController.extend(App.HelpText, {
   needs: 'artwork',
   query: "",
   results: [],

@@ -1,4 +1,4 @@
-App.PartyListNavComponent  = Ember.Component.extend({
+App.PartyListNavComponent  = Ember.Component.extend(App.HelpText, {
   actions: {
     open: function() {
       this.sendAction('open');

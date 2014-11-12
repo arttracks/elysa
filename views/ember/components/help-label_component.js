@@ -13,7 +13,6 @@ App.HelpLabelComponent  = Ember.Component.extend({
         delay: {hide: 50},
       }
       var self = $(this.get('element'));
-      console.log("self:",self)
       var el = self.find('.inline-editor-label');
       el.popover(options)
       self.find(".help").on("click",function() {

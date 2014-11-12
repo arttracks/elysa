@@ -7,7 +7,7 @@ App.DynamicSelectView = Ember.Select.extend({
 
 App.AcquisitionMethodComponent  = Ember.Component.extend({
   acq_methods: ["Bequest", "By descent", "By descent through", "Sale", "Purchase", "Purchase via Agent", "Acquisition", "Auction", "Exchange", "Gift, by exchange", "Bequest, by exchange", "Gift", "Conversion", "Looting", "Forced Sale", "Restitution", "Transfer", "Commission", "Field Collection", "With", "For Sale", "In Sale", "As Agent"],
-  label: "Acquis. Method",
+  label: "Acq. Method",
   actions: {
     handleChange: function() {
       this.sendAction();

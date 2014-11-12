@@ -1,7 +1,7 @@
 {{#unless parsable}}
 <div class="row">
 <div class="form-group compact">
-  <label class="col-sm-2 inline-editor-label">Original Text</label>
+  {{help-label size="col-sm-2" label='Original Text' help=original_text_help}}
   <div class='col-sm-10'>
     <span class=' disabled'>{{original_text}}</span>
   </div>
@@ -9,19 +9,19 @@
 </div>
 {{/unless}}
 <div class="row">
-{{inline-editor  tabstop="1"   label="Current Text" val=provenance  action="updateProvenance" singleLine=true primary=true }}
+{{inline-editor  tabstop="1"   label="Current Text" val=provenance  action="updateProvenance" singleLine=true primary=true help=current_text_help}}
 </div>
 <hr class='compact'/>
 <div class="row">
   <form class="form-horizontal col-md-6 form-compact" onsubmit="return false;">
-    {{inline-editor tabstop="2" label="Party Name"     val=party      action="updateRecord" possibly=party_certainty help_text=name_help}}
-    {{inline-editor tabstop="3" label="Year of Birth"  val=birth_year action="updateRecord" possibly=birth_certainty   }}
-    {{inline-editor tabstop="4" label="Year of Death"  val=death_year action="updateRecord" possibly=death_certainty   }}
-    {{inline-editor tabstop="5" label="Party Location" val=location   action="updateRecord" possibly=location_certainty}}
-    {{acquisition-method  tabstop="6"                     val=acquisition_method      action="updateRecord" }}
+    {{inline-editor tabstop="2" label="Party Name"     val=party      action="updateRecord" possibly=party_certainty help=name_help}}
+    {{inline-editor tabstop="3" label="Year of Birth"  val=birth_year action="updateRecord" possibly=birth_certainty  help=birth_year_help}}
+    {{inline-editor tabstop="4" label="Year of Death"  val=death_year action="updateRecord" possibly=death_certainty   help=death_year_help}}
+    {{inline-editor tabstop="5" label="Party Location" val=location   action="updateRecord" possibly=location_certainty help=location_help}}
+    {{acquisition-method  tabstop="6" val=acquisition_method      action="updateRecord" help=aqcuisition_help }}
   </form>
   <form class="form-horizontal col-md-6 form-compact" onsubmit="return false;">
-    {{bootstrap-switch  tabstop="8"  label="Text Certain"    status=period_certainty     action="updateRecord" help_text=period_certainty_help}}
+    {{bootstrap-switch  tabstop="8"  label="Text Certain"    status=period_certainty     action="updateRecord" help=period_certainty_help}}
     {{bootstrap-switch   tabstop="9" label="Direct Transfer?"   status=direct_transfer      action="updateRecord" }}
     {{bootstrap-switch   tabstop="10" label="Primary Owner?"   status=primary_owner         action="updateRecord" }}
     {{inline-editor  tabstop="11"  label="Ownership Dates"  val=timestring                    action="updateDate" }}

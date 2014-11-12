@@ -86,7 +86,7 @@ The work was **not** owned by John in 1995, and was transferred sometime prior t
     
 The work was known to be in John's possession in 1995, but nothing is known about the transfer to or transfer from John.
 
-### John Doe, between 1995 and 1996 *or* John Doe, between 1995-1996
+### John Doe, 1995 until 1996 *or* between 1995 and 1996 *or* John Doe, between 1995-1996 *or* John Doe, 1995-1996
 
     1995-1995...1996-1996
 

@@ -61,15 +61,15 @@ The work was owned by John until 1995 and there is a definite record of the tran
 
 This should only be used when you know that the work was transferred, but you don't know to whom—otherwise, it is implied in the following record.
 
-### John Doe, until sometime after 1995 *or* John Doe, until at least 1995 
+### John Doe, until at least 1995 *or* John Doe, until sometime after 1995 
 
     ????-????...1995-????
 
-The work was owned by John in 1995, and transferred sometime after 1995.  The "**until sometime after**" form is preferred.
+The work was owned by John in 1995, and transferred sometime after 1995.  The "**until at least**" form is preferred.
 
 This should only be used when something is known both about the acquisition and about the transfer from John, in conjunction with a statement about the acquisition.  
 
-For example, **"John Doe, 1990 until sometime after 1995"**.  
+For example, **"John Doe, 1990 until at least 1995"**.  
 
 Otherwise,  **"John Doe, before 1995"** conveys the same information and is preferred.
 

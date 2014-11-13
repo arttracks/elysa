@@ -10,6 +10,10 @@ App.PartyListNavComponent  = Ember.Component.extend(App.HelpText, {
     },
     addParty: function() {
       this.sendAction('add');  
+    },
+    toggle_transfer: function(id) {
+      var p = this.get('periods').findBy('id',id)
+      p.toggleProperty('direct_transfer');
     }
   },
 

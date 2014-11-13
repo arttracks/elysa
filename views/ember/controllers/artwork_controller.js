@@ -3,7 +3,6 @@ App.ArtworkController = Ember.ObjectController.extend(Ember.Evented, {
 
   actions: {
     resizeNav: function() {
-      console.log("navRes");
       this.notifyPropertyChange('navHeight');
     },
     gotoParty: function(id) {
@@ -46,7 +45,6 @@ App.ArtworkController = Ember.ObjectController.extend(Ember.Evented, {
 
   navHeight: function() {
     var h =  $('#party-list').height() || 310;
-    console.log ("h",h);
     return Math.max(h,310);
   }.property("periods.@each.updated"),
 

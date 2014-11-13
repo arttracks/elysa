@@ -28,7 +28,6 @@ App.ProvenanceTimelineComponent = Ember.Component.extend({
 
   resizeMe: function() {
     var w = parseInt(d3.select('#'+this.get('elementId')).style("width"));
-    console.log("resizeMe",w);
     this.set("width",w);
     this.draw();
   },

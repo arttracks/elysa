@@ -3,6 +3,7 @@ $GREEN: #1C8805
 $PALE_GREY: #f5f5f5
 $PALE_GRAY: $PALE_GREY
 $LIGHT_GRAY: #ddd
+$LIGHT_GREY: $LIGHT_GRAY
 $RED: red
 $BOOTSTRAP_BLUE:  #428bca 
 // GENERAL THINGS
@@ -163,6 +164,37 @@ hr.compact
 
     &:hover
       text-decoration: none
+  .active .direct-transfer-arrow
+    border-top-color:  darken($BOOTSTRAP_BLUE,10%)
+    &:before
+      background-color: darken($BOOTSTRAP_BLUE,10%)
+  .party-list li:last-child .direct-transfer-arrow
+    display: none
+  .direct-transfer-arrow
+    &.disabled
+      opacity: 0.15
+    $ARROW_SIZE: 6px
+    $BAR_HEIGHT: 4px
+    width: 0
+    height: 0
+    border-left: $ARROW_SIZE solid transparent
+    border-right: $ARROW_SIZE solid transparent
+    border-top: $ARROW_SIZE solid #aaa
+    bottom: -($ARROW_SIZE)
+    left: 0px
+    z-index: 5
+    position: absolute
+    cursor: pointer
+    &:before
+      content: ""
+      width: $ARROW_SIZE
+      height: $BAR_HEIGHT
+      background: #aaa
+      position: absolute
+      left: -($ARROW_SIZE/2)
+      bottom: $ARROW_SIZE
+
+
   .badge
     display: none
     font-size: 70%
@@ -171,12 +203,16 @@ hr.compact
     cursor: pointer
     position: absolute
     right: 4px
-    top: 4px
+    top: 2px
+    background-color: $PALE_GREY
+    color: #777
+  .active .badge
+    background-color: darken($BOOTSTRAP_BLUE,20%)
+    color: white
   .list-group-item
     padding: 3px 15px
   .panel-heading
-    padding: 3px 15px 0px
-  
+    padding: 3px 15px 0px  
   .list-group-item:hover
     .badge
       display: block

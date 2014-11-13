@@ -7,7 +7,7 @@
   <ul class="list-group party-list" id="party-list">
     {{#each periods}}
     <li {{bind-attr class="active updated :list-group-item" id=id}}>
-      {{party-list-nav-item parsable=parsable id=id name=partyName primary=primary delete="delete" open="open"}}  
+      {{party-list-nav-item parsable=parsable id=id name=partyName primary=primary direct=direct_transfer toggle_transfer="toggle_transfer" delete="delete" open="open"}}  
     </li>
     {{/each}}
   </ul>

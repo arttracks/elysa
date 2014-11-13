@@ -51,6 +51,10 @@ App.PeriodController = Ember.ObjectController.extend( Ember.Evented, App.HelpTex
         });
     },
   },
+  betterTabHeight: function() {
+    return  "min-height: "+ this.get('navHeight') + "px";
+  }.property('navHeight'),
 
-  showExtendedBinding: Ember.Binding.oneWay("controllers.artwork.showExtended")
+  showExtendedBinding: Ember.Binding.oneWay("controllers.artwork.showExtended"),
+  navHeightBinding: Ember.Binding.oneWay("controllers.artwork.navHeight")
 });

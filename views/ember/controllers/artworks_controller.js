@@ -9,6 +9,4 @@ App.ArtworksController = Ember.ObjectController.extend(App.HelpText, {
       this.transitionTo('artwork',val);
     },
   },
-
-  showExtendedBinding: Ember.Binding.oneWay("controllers.artwork.showExtended")
 });

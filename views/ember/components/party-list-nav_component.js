@@ -20,9 +20,11 @@ App.PartyListNavComponent  = Ember.Component.extend(App.HelpText, {
 
   didInsertElement: function() {
     var self = this;
+    this.sendAction('initNav');
     Ember.$("#party-list").sortable({
       containment: "parent",
       tolerance: "pointer",
+      axis: "y",
       update: function(event, ui) {
         var indexes = {};
 

@@ -2,6 +2,10 @@ App.ArtworkController = Ember.ObjectController.extend(Ember.Evented, {
   showExtended: false,
 
   actions: {
+    resizeNav: function() {
+      console.log("navRes");
+      this.notifyPropertyChange('navHeight');
+    },
     gotoParty: function(id) {
       this.transitionToRoute('period',id);
     },
@@ -25,6 +29,7 @@ App.ArtworkController = Ember.ObjectController.extend(Ember.Evented, {
             var firstId = self.get('periods').objectAt(0).get('id');
             self.transitionTo("period",firstId)
           }
+          self.notifyPropertyChange('navHeight');
         }
         var onFail = function(e) {
           console.log("Error",e);
@@ -38,6 +43,12 @@ App.ArtworkController = Ember.ObjectController.extend(Ember.Evented, {
       this.set('showExtended',!current_state);
     }
   },
+
+  navHeight: function() {
+    var h =  $('#party-list').height() || 310;
+    console.log ("h",h);
+    return Math.max(h,310);
+  }.property("periods.@each.updated"),
 
   // Computed property for artwork display
   creation_label: function(){

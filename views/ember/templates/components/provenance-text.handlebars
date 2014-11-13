@@ -2,7 +2,7 @@
   <button class="btn pull-right btn-xs" id="provenance-text-copy">copy&nbsp;</button>
 
   {{#each periods}}
-    {{#link-to 'period' id classNameBindings=':provenance_line party_is_blank'}}
+    {{#link-to 'period' id classNameBindings=':provenance_line party_is_blank parsable::unparsable updated'}}
       {{provenance_with_footnote~}}
       {{~transfer_type direct_transfer}}
     {{/link-to}}

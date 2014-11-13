@@ -18,7 +18,7 @@
 
 {{!-- ARTWORK HEADER   --}}
 <div class="row well">
-    {{party-list-nav periods=sortedPeriods delete='deleteParty' reorder='reorderParties' add='addParty' open="openPrimary"}}
+    {{party-list-nav periods=sortedPeriods delete='deleteParty' reorder='reorderParties' add='addParty' open="openPrimary" initNav='resizeNav'}}
     <div class="col-md-9">
       {{#unless periods}} There is no provenance record for this artwork. {{/unless}}
       {{outlet}}

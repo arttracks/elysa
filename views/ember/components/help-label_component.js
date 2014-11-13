@@ -8,9 +8,10 @@ App.HelpLabelComponent  = Ember.Component.extend({
         content: c.text,
         title: this.get("label"),
         trigger: "focus",
-        placement: "auto",
+        placement: (c.side || "auto"),
         html: true,
         delay: {hide: 50},
+        container: 'body'
       }
       var self = $(this.get('element'));
       var el = self.find('.inline-editor-label');

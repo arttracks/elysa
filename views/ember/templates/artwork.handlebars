@@ -1,32 +1,61 @@
 <div id="artwork_holder">
 
-{{!-- ARTWORK HEADER   --}}
-<div class='row'>
-  <div class ='col-md-8'>
-    {{#if hasImage}}
-    <img {{bind-attr src=firstImage }} class="img-rounded pull-left artwork-thumbnail">
-    {{/if}}
-    <h3 class='compact'> {{title}} {{creation_label}}</h3>
-    <h4> {{artist}}</h4>
-    {{!-- <p> Last Updated: (date goes here) by (name)</p> --}}
+  {{!-- ARTWORK HEADER   --}}
+  <div class='row'>
+    <div class ='col-md-8'>
+      {{#if hasImage}}
+      <img {{bind-attr src=firstImage }} class="img-rounded pull-left artwork-thumbnail">
+      {{/if}}
+      <h3 class='compact'> {{title}} {{creation_label}}</h3>
+      <h4> {{artist}}</h4>
+      {{!-- <p> Last Updated: (date goes here) by (name)</p> --}}
+    </div>
   </div>
-</div>
 
 
-{{provenance-text periods=sortedPeriods}}
+  {{provenance-text periods=sortedPeriods}}
 
 
-{{!-- ARTWORK HEADER   --}}
-<div class="row well">
-    {{party-list-nav periods=sortedPeriods delete='deleteParty' reorder='reorderParties' add='addParty' open="openPrimary" initNav='resizeNav'}}
-    <div class="col-md-9">
-      {{#unless periods}} There is no provenance record for this artwork. {{/unless}}
-      {{outlet}}
+  {{!-- ARTWORK HEADER   --}}
+  <div class="row well">
+      {{party-list-nav periods=sortedPeriods delete='deleteParty' reorder='reorderParties' add='addParty' open="openPrimary" initNav='resizeNav'}}
+      <div class="col-md-9">
+       
+
+        <div role="tabpanel" class='better-tab'>
+          <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active"><a href="#period-fields" aria-controls="period-fields" role="tab" data-toggle="tab">Current Period</a></li>
+            <li role="presentation"><a href="#fulltext" aria-controls="fulltext" role="tab" data-toggle="tab">Original Text</a></li>
+            <li role="presentation">
+              <a href="#exhibitions" aria-controls="exhibitions" role="tab" data-toggle="tab">Exhibition History</a>
+            </li>
+          </ul>
+          <div class="tab-content ">
+            <div class="tab-pane " id="fulltext" {{bind-attr style=betterTabHeight}}>
+              <div class="row">
+                <div class="col-md-12">
+                  <p  class="panel well compact"> {{provenance}} </p>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane" id="exhibitions" {{bind-attr style=betterTabHeight}}>
+              <div class="row">
+                <div class="col-md-12">
+                  Exhibition History Will Go Here
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane active" id="period-fields" {{bind-attr style=betterTabHeight}}>
+              {{#unless periods}} There is no provenance record for this artwork. {{/unless}}
+              {{outlet}}
+            </div>
+          </div>
+        </div>
         <button class="btn-link btn btn-xs pull-right" {{action 'toggle_extended'}}>
          {{#if showExtended}}Hide{{else}}Show{{/if}} Extended Fields
         </button>
       </div>
-    </div>
+  </div>
 </div>
 
 <div class="row">

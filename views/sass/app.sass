@@ -64,7 +64,9 @@ body
     border-top: none
     border-radius:  5px
     padding: 0 5px 20px 5px
-
+    &#fulltext, &#exhibitions
+      .row
+        padding: 10px
 
 // HELP POPOVERS
 .popover-title
@@ -135,10 +137,15 @@ hr.compact
 
 #party-list
   min-height: 265px
+  .ui-sortable-helper
+    background-color: lighten($BOOTSTRAP_BLUE,40%)
+    .direct-transfer-arrow, .badge
+      display: none
 .party-list-nav
   a
     color: #888
   .provenance_party
+
     display: inline-block
     width: 100%
     padding-right: 12px

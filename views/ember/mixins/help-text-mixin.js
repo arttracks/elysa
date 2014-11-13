@@ -24,6 +24,7 @@ App.HelpText = Ember.Mixin.create({
     text: "<p>This is the text of the provenance record as originally written. It is for comparison and cannot be edited.</p> <p>It will only appear if there is a difference between the current text and this text.</p>"
   },
   provenance_nav_help: {
-    text: "<p>This is a list of all of the parties in the current provenance text, sorted earliest to most recent. Clicking on any of the party names will select that party and allow you to edit that record.</p> <p>You can adjust the order of the records by dragging the boxes up and down.</p> <p>Clicking on the X will delete the record.  You can add a new record by clicking on the \"Add a Party\" button at the bottom.</p>"
+    side: "right",
+    text: "<p>This is a list of all of the parties in the current provenance text, from the earliest party to most recent. Clicking on any of the party names will select that party and allow you to edit that record.</p> <p>You can adjust the order of the records by dragging the boxes up and down.</p> <p>The arrow on the left indicates that the work was directly transferred from one party to another—click to toggle.</p> <p>Clicking on the X will delete the record.</p> <p>You can add a new record by clicking on the \"Add a Party\" button at the bottom.</p>"
   }
 });

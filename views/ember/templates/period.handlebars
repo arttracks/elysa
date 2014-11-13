@@ -1,20 +1,3 @@
-<div role="tabpanel" class='better-tab'>
-
-  <!-- Nav tabs -->
-  <ul class="nav nav-tabs" role="tablist">
-    <li role="presentation" class="active"><a href="#period-fields" aria-controls="period-fields" role="tab" data-toggle="tab">Current Period</a></li>
-    <li role="presentation"><a href="#fulltext" aria-controls="fulltext" role="tab" data-toggle="tab">Full Text</a></li>
-    <li role="presentation"><a href="#exhibitions" aria-controls="exhibitions" role="tab" data-toggle="tab">Exhibition History</a></li>
-  </ul>
-
- <div class="tab-content">
- <div class="tab-pane " id="fulltext">
-    Fulltext Goes Here
- </div>
-  <div class="tab-pane better-tab" id="exhibitions">
-    Exhibition History Goes Here
- </div>
- <div class="tab-pane active better-tab" id="period-fields" {{bind-attr style=betterTabHeight}}>
   {{#unless parsable}}
   <div class="row">
   <div class="form-group compact">
@@ -125,6 +108,4 @@
       {{!-- {{precision-select label="EOTE Precision" val=eote_precision     action="updateRecord" }} --}}
     </form>
   </div>
-</div>
-</div>
-</div>
+

@@ -48,6 +48,10 @@ App.ArtworkController = Ember.ObjectController.extend(Ember.Evented, {
     return Math.max(h,310);
   }.property("periods.@each.updated"),
 
+  betterTabHeight: function() {
+    return  "min-height: "+ this.get('navHeight') + "px";
+  }.property('navHeight'),
+
   // Computed property for artwork display
   creation_label: function(){
     var earliest = this.get("creation_earliest").getFullYear();

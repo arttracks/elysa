@@ -1,53 +1,37 @@
 <div id="artwork_holder">
+
+{{!-- ARTWORK HEADER   --}}
 <div class='row'>
   <div class ='col-md-8'>
     {{#if hasImage}}
-    <img {{bind-attr src=firstImage }} class="img-thumbnail pull-left artwork-thumbnail">
+    <img {{bind-attr src=firstImage }} class="img-rounded pull-left artwork-thumbnail">
     {{/if}}
     <h3 class='compact'> {{title}} {{creation_label}}</h3>
     <h4> {{artist}}</h4>
     {{!-- <p> Last Updated: (date goes here) by (name)</p> --}}
   </div>
-  
-  <div class="interface col-md-4">
-    <div class="btn-toolbar pull-right">
-      <div class="btn-group btn-group-xs">
-        <button class="btn btn-info" {{action 'toggle_extended'}}>
-         {{#if showExtended}}
-            Hide Extended Fields
-         {{else}}
-            Show Extended Fields
-         {{/if}}
+</div>
+
+
+{{provenance-text periods=sortedPeriods}}
+
+
+{{!-- ARTWORK HEADER   --}}
+<div class="row well">
+    {{party-list-nav periods=sortedPeriods delete='deleteParty' reorder='reorderParties' add='addParty' open="openPrimary"}}
+    <div class="col-md-9">
+      {{#unless periods}} There is no provenance record for this artwork. {{/unless}}
+      {{outlet}}
+        <button class="btn-link btn btn-xs pull-right" {{action 'toggle_extended'}}>
+         {{#if showExtended}}Hide{{else}}Show{{/if}} Extended Fields
         </button>
       </div>
     </div>
-  </div>
+</div>
 
-</div>
-<hr class='compact'/>
-
-<div class="row">
-  <div class="col-md-3">
-    {{party-list-nav periods=sortedPeriods delete='deleteParty' reorder='reorderParties' add='addParty' open="openPrimary"}}
-  </div>
-  <div class="col-md-9">
-     {{outlet}}
-   {{#unless periods}}  
-      There is no provenance record for this artwork.
-   {{/unless}}
-  </div>
-</div>
-<div class="row">
-  {{provenance-text periods=sortedPeriods}}
-</div>
 <div class="row">
   <div class='col-md-12 timeline-holder'>
     {{provenance-timeline creationDate=creation_latest timeline_data=timeline_data action="gotoParty"}}
-  </div>
-</div>
-<div class="row">
-  <div class="col-md-3" id='provenance_map'>
-    {{!-- {{view "provenance_map"}} --}}
   </div>
 </div>
 <hr>
@@ -63,6 +47,5 @@
   </div>
 </div>
 </div>
-<hr>
 </div>
 

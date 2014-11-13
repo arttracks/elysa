@@ -1,4 +1,6 @@
 App.PartyListNavComponent  = Ember.Component.extend(App.HelpText, {
+  classNames: "col-md-3",
+  
   actions: {
     open: function() {
       this.sendAction('open');

@@ -1,11 +1,61 @@
+// GENERAL THINGS
 body 
   padding-top: 60px
-a
-  color: #88a000
 
+
+// HEADER
+.artwork-thumbnail
+  height: 90px
+  margin-right: .5em
+  margin-bottom: 4px
+  margin-left: -15px
+
+// PROVENANCE TEXT PANEL
+#provenance-text-copy
+  position: absolute
+  right: 0
+  top: 0
+  border-color: #ddd
+  border-right: none
+  border-top: none
+  border-radius: 0px 4px
+  background-color: #f5f5f5
+  min-width: 3.5em
+  outline: transparent
+
+.provenance-text
+  margin-bottom: 10px
+  margin-top: 5px  
+  position: relative
+  .panel-body
+    padding: 10px 3.25em 10px 15px
+  .provenance_line
+    text-decoration: none
+    &:hover, &:focus
+      text-decoration: none
+    color: #888
+    &.active
+      color: black
+      font-weight: bold
+    &.party-is-blank
+      color: red
+
+// TABS
+.better-tab
+  li a
+    padding: 3px 15px  
+  .tab-pane
+    background-color: white
+    border: 1px solid #ddd
+    border-top: none
+    border-radius:  5px
+    padding: 0 5px 20px 5px
+    min-height: 310px
+
+
+// HELP POPOVERS
 .popover-title
   font-weight: bold
-
 .help
   color: white
   background: lightgray
@@ -24,11 +74,11 @@ a
     color: white
     outline: none
 
+#period-fields
+  .inline-editor-label
+    font-size: 95%
+    margin-bottom: 8px    
 
-.artwork-thumbnail
-  height: 90px
-  margin-right: .5em
-  margin-bottom: 4px
 h4.compact
   font-size: 110%
   margin-top: 2px
@@ -41,6 +91,8 @@ hr.compact
   bottom: -16px
   position: relative
 
+
+// Typeahead
 .twitter-typeahead
   width: 100%
 .tt-dropdown-menu
@@ -52,9 +104,9 @@ hr.compact
   background: #ffffff
 .tt-cursor
   background: #aaaaaa
-.provenance_party
-  &:hover
-    text-decoration: none
+
+
+
 .unparsable
   color: red
   font-style: italic
@@ -64,7 +116,12 @@ hr.compact
   color: #88a000
 .active .unparsable 
   color: white
+
+#party-list
+  min-height: 265px
 .party-list-nav
+  a
+    color: #88a000
   .provenance_party
     display: inline-block
     width: 100%
@@ -74,6 +131,8 @@ hr.compact
     &.active
       font-weight: bold
       color: white
+    &:hover
+      text-decoration: none
   .badge
     display: none
     font-size: 70%
@@ -83,36 +142,23 @@ hr.compact
     position: absolute
     right: 4px
     top: 4px
-  .list-group-item, .panel-heading
+  .list-group-item
     padding: 3px 15px
+  .panel-heading
+    padding: 3px 15px 0px
+  
   .list-group-item:hover
     .badge
       display: block
+
 .extended_fields
   display: none
   &.visible
     display: block
+
 #full_results
   display: none
-.provenance_line
-  text-decoration: none
-  &:hover, &:focus
-    text-decoration: none
-  color: #888
-  &.active
-    color: black
-    font-weight: bold
-  &.party-is-blank
-    color: red
-  .provenance_original_text
-    display: none
-    color: red
-    font-style: italic
-  &:hover
-    .provenance_original_text
-      display: inline
-    .provenance_text
-      display: none
+
 #provenance_map
   .leaflet-container
     height: 250px

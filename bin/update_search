@@ -2,14 +2,12 @@
 
 require 'json'
 require 'elasticsearch'
-require 'hashie'
 require 'ruby-progressbar'
 
 
 client = Elasticsearch::Client.new log: false
 
 things =  File.open( "data/thing.json", "r" ) { |f| JSON.load( f )}["thing"]
-vals = Hashie::Mash.new
 vals = things.collect.with_index do |thing, i|
   thing
 end.compact

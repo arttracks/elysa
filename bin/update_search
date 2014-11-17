@@ -1,0 +1,43 @@
+#! /usr/bin/env ruby
+
+require 'json'
+require 'elasticsearch'
+require 'hashie'
+require 'ruby-progressbar'
+
+
+client = Elasticsearch::Client.new log: false
+
+things =  File.open( "data/thing.json", "r" ) { |f| JSON.load( f )}["thing"]
+vals = Hashie::Mash.new
+vals = things.collect.with_index do |thing, i|
+  thing
+end.compact
+
+peeps =  File.open( "data/party.json", "r" ) { |f| JSON.load( f )}["party"]
+lil_peeps = {}
+peeps.each do |p| 
+   id = p["id"]
+   lil_peeps[id] = p
+end
+
+vals.each do |v|
+  next if v["creators"].nil?
+  v["artist"] = v["creators"].collect do |p|
+    lil_peeps[p]['name']
+  end.join(", ")
+end
+
+bar = ProgressBar.create(:title => "Saving Records", :starting_at => 0, :total => vals.count)
+
+vals.each do |val|
+  client.index index: 'cmoa_provenance',
+               type: 'artwork',
+               id: val['id'],
+               body: val
+  bar.increment
+end
+
+
+
+#File.open("thing_index.json", "w") {|f| f.puts JSON.pretty_generate(vals)}

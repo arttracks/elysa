@@ -6,6 +6,9 @@ $LIGHT_GRAY: #ddd
 $LIGHT_GREY: $LIGHT_GRAY
 $RED: red
 $BOOTSTRAP_BLUE:  #428bca 
+$MEDIUM_GRAY: #BBB
+$MEDIUM_GREY: $MEDIUM_GRAY
+
 // GENERAL THINGS
 body 
   padding-top: 60px
@@ -57,14 +60,17 @@ body
 // TABS
 .better-tab
   li a
+    color: $MEDIUM_GREY
     padding: 3px 15px  
+    &.active
+      color: inherit
   .tab-pane
     background-color: white
     border: 1px solid $LIGHT_GRAY
     border-top: none
     border-radius:  5px
     padding: 0 5px 20px 5px
-    &#fulltext, &#exhibitions
+    &#fulltext, &#exhibitions, &#location-lookup, &#party-lookup
       .row
         padding: 10px
 
@@ -119,8 +125,6 @@ hr.compact
   background: #ffffff
 .tt-cursor
   background: #aaaaaa
-
-
 
 .unparsable
   color: red

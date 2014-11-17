@@ -3,12 +3,82 @@
 require 'json'
 require 'elasticsearch'
 require 'ruby-progressbar'
+require 'hashie'
 
+prov_settings = Hashie::Mash.new
+
+prov_settings.mappings!.artwork!.include_in_all = false
+prov_settings.mappings!.artwork!.properties = {
+  title: {
+    type: "string",
+    analyzer: "english",
+    include_in_all: true
+  },
+  artist: {
+    type: "string",
+    analyzer: "english",
+    include_in_all: true
+  },
+  accession_number: {
+    type: "string",
+    index: "not_analyzed",
+    include_in_all: true
+  },
+  medium: {
+    type: "string",
+    index: "not_analyzed",
+    include_in_all: true
+  },
+  acqisition_method: {
+    type: "string",
+    index: "not_analyzed",
+  },
+  images: {
+    type: "string",
+    index: "no"
+  },
+  provenance: {
+    type: "string",
+    index: "no",
+    include_in_all: true
+  },
+}
+
+
+    # {
+    #   "title": "Cylinder",
+    #   "id": 1024528,
+    #   "accession_number": "84.12.1",
+    #   "creators": [
+    #     1001131
+    #   ],
+    #   "creation_earliest": "1984-01-01",
+    #   "creation_latest": "1984-01-01",
+    #   "creation_address": "",
+    #   "provenance": "Dale Chihuly, Seattle, WA",
+    #   "medium": "Glass",
+    #   "acquisition_id": 1000352,
+    #   "credit_line": "Decorative Arts Purchase Fund",
+    #   "acqisition_method": "Purchase",
+    #   "acquisition_date": "1984-04-05",
+    #   "images": [
+    #     "http://www.cmoa.org/CollectionImage.aspx?irn=1526&size=Medium"
+    #   ]
+    # },
 
 client = Elasticsearch::Client.new log: false
 
+if client.indices.exists index: 'cmoa_provenance'
+  client.indices.delete index: 'cmoa_provenance'
+end
+client.indices.create index: 'cmoa_provenance', body: prov_settings.to_h
+
+
+
+
 things =  File.open( "data/thing.json", "r" ) { |f| JSON.load( f )}["thing"]
 vals = things.collect.with_index do |thing, i|
+  #next if i > 100
   thing
 end.compact
 
@@ -26,7 +96,7 @@ vals.each do |v|
   end.join(", ")
 end
 
-bar = ProgressBar.create(:title => "Saving Records", :starting_at => 0, :total => vals.count)
+bar = ProgressBar.create(:title => "Generating Search", :starting_at => 0, :total => vals.count)
 
 vals.each do |val|
   client.index index: 'cmoa_provenance',

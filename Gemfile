@@ -11,6 +11,7 @@ gem "bootstrap-sass"
 
 # Search
 gem 'elasticsearch'
+gem 'hashie'
 
 
 gem 'date_time_precision', :git => 'https://github.com/Spokeo/date_time_precision'

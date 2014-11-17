@@ -6,18 +6,6 @@ App.ArtworksController = Ember.ObjectController.extend(App.HelpText, {
   results: [],
   currentPage: 1,
 
-  availablePages: function() {
-    var l = this.get('resultLength');
-    var c = this.get('currentPage');
-    pages = []
-    while (l > 0) {
-      var val = Math.ceil(l/10);
-      pages.push({pageNumber: val, isCurrent: (c === val)});
-      l = l - 10;
-    }
-    return pages.reverse()
-  }.property('resultLength','currentPage'),
-
   actions: {
     gotoPage: function(page) {
       this.set("currentPage",page);

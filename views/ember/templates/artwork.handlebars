@@ -24,8 +24,19 @@
 
         <div role="tabpanel" class='better-tab'>
           <ul class="nav nav-tabs" role="tablist">
+          <li role="presentation"><a href="#fulltext" aria-controls="fulltext" role="tab" data-toggle="tab">Original Record</a></li>
             <li role="presentation" class="active"><a href="#period-fields" aria-controls="period-fields" role="tab" data-toggle="tab">Current Period</a></li>
-            <li role="presentation"><a href="#fulltext" aria-controls="fulltext" role="tab" data-toggle="tab">Original Record</a></li>
+
+
+            <li role="presentation">
+              <a href="#party-lookup" aria-controls="party-lookup" role="tab" data-toggle="tab">Party Lookup</a>
+            </li>
+
+            <li role="presentation">
+              <a href="#location-lookup" aria-controls="location-lookup" role="tab" data-toggle="tab">Location Lookup</a>
+            </li>
+
+
             <li role="presentation">
               <a href="#exhibitions" aria-controls="exhibitions" role="tab" data-toggle="tab">Exhibition History</a>
             </li>
@@ -41,19 +52,38 @@
             <div class="tab-pane" id="exhibitions" {{bind-attr style=betterTabHeight}}>
               <div class="row">
                 <div class="col-md-12">
-                  Exhibition History Will Go Here
+                  Exhibition History will go here.
                 </div>
               </div>
             </div>
+
+            <div class="tab-pane" id="party-lookup" {{bind-attr style=betterTabHeight}}>
+              <div class="row">
+                <div class="col-md-12">
+                  Party disambiguation will go here.
+                </div>
+              </div>
+            </div>
+
+            <div class="tab-pane" id="location-lookup" {{bind-attr style=betterTabHeight}}>
+              <div class="row">
+                <div class="col-md-12">
+                  Location disambiguation will go here.
+                </div>
+              </div>
+            </div>
+
+
             <div class="tab-pane active" id="period-fields" {{bind-attr style=betterTabHeight}}>
               {{#unless periods}} There is no provenance record for this artwork. {{/unless}}
               {{outlet}}
+              <button class="btn-link btn btn-xs pull-right show-extended" {{action 'toggle_extended'}}>
+               {{#if showExtended}}Hide{{else}}Show{{/if}} Extended Fields
+              </button>
             </div>
           </div>
         </div>
-        <button class="btn-link btn btn-xs pull-right" {{action 'toggle_extended'}}>
-         {{#if showExtended}}Hide{{else}}Show{{/if}} Extended Fields
-        </button>
+
       </div>
   </div>
 </div>

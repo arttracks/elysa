@@ -65,7 +65,7 @@ module CMOA
               query: 
                 {
                   match_phrase_prefix: {
-                    title: {
+                    _all: {
                       query:  params[:query],
                       slop: 10
                     }

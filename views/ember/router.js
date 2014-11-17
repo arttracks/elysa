@@ -1,5 +1,5 @@
 App.Router.map(function() {
-  this.resource("artworks");
+  this.resource("artworks"),
   this.resource("artwork", {path: 'artworks/:artwork_id'}, function() {
     this.resource("period", { path: '/:period_id' });      
   });

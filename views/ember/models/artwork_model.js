@@ -8,11 +8,14 @@ App.Artwork = DS.Model.extend({
   images: DS.attr('raw'),
   
   hasImage: function() {
-    return this.get('images').length;
+    i = this.get('images');
+    return (i !== undefined);
   }.property('images'),
 
   firstImage: function() {
-    return this.get('images')[0]
+    if (this.get('hasImage')) {
+      return this.get('images')[0]
+    }
   }.property("images"),
 
   sortedPeriods: function() {

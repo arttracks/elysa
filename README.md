@@ -21,3 +21,10 @@ CMOA Provenance entry tool
   Or, if you don't want/need launchctl, you can just run:
       elasticsearch --config=/usr/local/opt/elasticsearch/config/elasticsearch.yml
 
+### Installing Marvel
+
+  cd /usr/local/var/lib/elasticsearch/plugins/
+  ./bin/plugin -i elasticsearch/marvel/latest
+  cd $CMOA_ROOT/provenance_tool
+  echo 'marvel.agent.enabled: false' >> ./elasticsearch.yml
+  

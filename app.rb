@@ -5,6 +5,7 @@ require "tilt"
 require 'sass'
 require 'json'
 require 'museum_provenance'
+require 'elasticsearch'
 
 $stdout.sync = true # for foreman logging
 
@@ -19,7 +20,7 @@ module CMOA
     configure do
       set :things, File.open( "data/thing.json", "r" ) { |f| JSON.load( f )}["thing"]
       set :parties, File.open( "data/party.json", "r" ) { |f| JSON.load( f )}["party"]
-
+      set :elasticsearch, Elasticsearch::Client.new(log: false)
     end
 
     helpers do
@@ -57,19 +58,30 @@ module CMOA
       {}.to_json
     end
 
+    get '/search' do
+      content_type :json
+      body =  {
+              from: ((params[:page].to_i-1)*10),
+              query: 
+                {
+                  match_phrase_prefix: {
+                    title: {
+                      query:  params[:query],
+                      slop: 10
+                    }
+                  }
+                }
+              }
+
+      results = settings.elasticsearch.search index: 'cmoa_provenance', body: body
+      return results.to_json
+    end
 
     get '/artworks/:id' do
       content_type :json
-      record = settings.things.find{|record| record["id"] == params[:id].to_i}
-      creators = record['creators']
-      if creators
-        record[:artist] = record['creators'].collect do |creator|
-          settings.parties.find{|record| record["id"] == creator.to_i}["name"]
-        end.join(", ")
-        
-      end
-      return nil if record.nil?
-      return {artwork: record}.to_json
+      results = settings.elasticsearch.get index: 'cmoa_provenance', type:'artwork', id: params[:id]
+      return nil if results.nil?
+      return {artwork: results['_source']}.to_json
     end
 
     post "/parse_provenance_line" do

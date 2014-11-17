@@ -8,9 +8,10 @@ gem "thin", "~>1.6"
 gem "tilt", "~>1.4"
 gem "sinatra-contrib"
 gem "bootstrap-sass"
-#gem "sinatra-handlebars"
-gem "rerun"
-gem "rb-fsevent"
+
+# Search
+gem 'elasticsearch'
+
 
 gem 'date_time_precision', :git => 'https://github.com/Spokeo/date_time_precision'
 gem 'museum_provenance', :path => "../museum_provenance"
@@ -32,4 +33,6 @@ group :development do
   gem 'rake'
   gem 'uglifier'
   gem 'guard-sprockets'
+  gem "rerun"
+  gem "rb-fsevent"
 end

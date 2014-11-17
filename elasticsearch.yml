@@ -383,3 +383,4 @@ network.host: 127.0.0.1
 # it unless you need it is recommended.
 #
 #http.jsonp.enable: false
+marvel.agent.enabled: false

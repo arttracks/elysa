@@ -90,11 +90,16 @@ App.Period = DS.Model.extend({
 
   partyName: function() {
     var party = this.get("party");
-    if (party == "")
+    if (party == ""){
       return "unknown party";
-    else
+    }
+    else if (this.get('acquisition_method') == "In Sale") {
+      return party + " sale"
+    }
+    else{
       return party;
-  }.property('party'),
+    }
+  }.property('party', 'acquisition_method'),
 
   party_with_certainty: function() {
     var str = this.get("party");

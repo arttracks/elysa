@@ -54,8 +54,24 @@ App.ArtworkController = Ember.ObjectController.extend(Ember.Evented, {
 
   // Computed property for artwork display
   creation_label: function(){
-    var earliest = this.get("creation_earliest").getFullYear();
-    var latest = this.get("creation_latest").getFullYear();
+    var earliest, latest;
+    var e =  this.get("creation_earliest");
+    if (e) {
+      earliest = e.getFullYear();
+    }
+    var l = this.get("creation_latest");
+    if (l) {
+      latest = l.getFullYear();
+    }
+    if (!earliest && !latest) {
+      return "";
+    }
+    if (!earliest && latest) {
+      return "[" + latest + "]";
+    }
+    if (earliest && !latest) {
+      return "[" + earliest + "]";      
+    }
     if (earliest == latest) {
       return "[" + earliest + "]";
     }

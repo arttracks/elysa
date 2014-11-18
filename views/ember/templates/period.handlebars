@@ -1,15 +1,15 @@
   {{#unless parsable}}
-  <div class="row">
+  <div class="row original-text">
   <div class="form-group compact">
     {{help-label size="col-sm-2" label='Original Text' help=original_text_help}}
     <div class='col-sm-10'>
-      <span class=' disabled'>{{original_text}}</span>
+      <span class='disabled'>{{{ diffed_original_text }}}</span>
     </div>
   </div>
   </div>
   {{/unless}}
-  <div class="row">
-  {{inline-editor  tabstop="1"   label="Current Text" val=provenance  action="updateProvenance" singleLine=true primary=true help=current_text_help}}
+  <div class="row original-text">
+  {{inline-editor  tabstop="1"   label="Current Text" val=provenance displayVal=diffed_provenance action="updateProvenance" singleLine=true primary=true help=current_text_help}}
   </div>
   <hr class='compact'/>
   <div class="row">

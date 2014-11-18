@@ -6,8 +6,8 @@
     {{else}}
       <span {{action "beginEditing" on="focusIn"}}  {{bind-attr tabindex='tabstop'}}>
       <span {{action "beginEditing" on "click"}}>
-        {{#if val}}
-           <span class='click_to_edit' > {{val}} {{ques possibly}}</span>
+        {{#if displayText}}
+           <span class='click_to_edit' > {{{displayText}}} {{ques possibly}}</span>
         {{else}}
           <span class='click_to_edit disabled'> click to edit </span>
         {{/if}}

@@ -41,6 +41,47 @@ App.Period = DS.Model.extend({
   active: false,
   updated: false,
 
+  diffed_original_text: function() {
+     var original = this.get('original_text');
+     var modified = this.get('provenance');
+     var diff = JsDiff.diffWords(original, modified);
+
+     str = ""
+      diff.forEach(function(part){
+       if (part.removed) {
+        str += "<span class='removed'>"
+       }
+       else if (part.added) {
+        return;
+       }
+       str += part.value;
+       if (part.removed) {
+          str += "</span>"
+       }
+     });
+     return str;
+  }.property("original_text","provenance"),
+
+  diffed_provenance: function() {
+     var original = this.get('original_text');
+     var modified = this.get('provenance');
+     var diff = JsDiff.diffWords(original, modified);
+
+     console.log("diff",diff);
+     str = ""
+      diff.forEach(function(part){
+       if (part.added) {
+        str += "<span class='added'>" + part.value + "</span>"
+       }
+       else if (part.removed) {
+        return;
+       }
+       else {
+         str += part.value;
+       }
+     });
+     return str;
+  }.property("original_text","provenance"),
 
   party_is_blank: function() {
     var party = this.get("party");

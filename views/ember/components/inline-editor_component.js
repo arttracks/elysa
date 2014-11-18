@@ -3,7 +3,7 @@ App.InlineEditorComponent = Ember.Component.extend({
   isEditing: false,
   singleLine: false,
   primary: false,
-
+ 
   init: function() {
     this._super();
     
@@ -39,6 +39,16 @@ App.InlineEditorComponent = Ember.Component.extend({
   fieldRowClass: function() {
     return this.get('singleLine')  ? "col-sm-10" : "col-sm-8"
   }.property('singleLine'),
+
+  displayText: function() {
+    var dval = this.get("displayVal");
+    if (dval !== false) {
+      return dval; 
+    }
+    else {
+      return this.get("val");
+    }
+  }.property('displayVal'),
 });
 
 App.InlineInputComponent = Ember.TextField.extend({

@@ -68,20 +68,22 @@ prov_settings.mappings!.artwork!.properties = {
 
 client = Elasticsearch::Client.new log: false
 
+# Delete current DB
 if client.indices.exists index: 'cmoa_provenance'
   client.indices.delete index: 'cmoa_provenance'
 end
+
+## Recreate DB
 client.indices.create index: 'cmoa_provenance', body: prov_settings.to_h
 
-
-
-
+# Find all the things
 things =  File.open( "data/thing.json", "r" ) { |f| JSON.load( f )}["thing"]
 vals = things.collect.with_index do |thing, i|
   #next if i > 100
   thing
 end.compact
 
+# Find all the people
 peeps =  File.open( "data/party.json", "r" ) { |f| JSON.load( f )}["party"]
 lil_peeps = {}
 peeps.each do |p| 
@@ -89,6 +91,7 @@ peeps.each do |p|
    lil_peeps[id] = p
 end
 
+# Denormalize people's names
 vals.each do |v|
   next if v["creators"].nil?
   v["artist"] = v["creators"].collect do |p|
@@ -96,8 +99,9 @@ vals.each do |v|
   end.join(", ")
 end
 
-bar = ProgressBar.create(:title => "Generating Search", :starting_at => 0, :total => vals.count)
 
+# Load 'em up.
+bar = ProgressBar.create(:title => "Generating Search", :starting_at => 0, :total => vals.count)
 vals.each do |val|
   client.index index: 'cmoa_provenance',
                type: 'artwork',

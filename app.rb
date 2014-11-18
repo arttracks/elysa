@@ -1,5 +1,4 @@
 require "sinatra/base"
-#require 'sinatra/handlebars'
 require 'haml'
 require "tilt"
 require 'sass'
@@ -11,15 +10,8 @@ $stdout.sync = true # for foreman logging
 
 module CMOA
   class App < Sinatra::Base
-    #  register Sinatra::Handlebars
-
-    # handlebars {
-    #   templates '/js/templates.js', ['views/templates/*']
-    # }
 
     configure do
-      set :things, File.open( "data/thing.json", "r" ) { |f| JSON.load( f )}["thing"]
-      set :parties, File.open( "data/party.json", "r" ) { |f| JSON.load( f )}["party"]
       set :elasticsearch, Elasticsearch::Client.new(log: false)
     end
 
@@ -38,6 +30,7 @@ module CMOA
           result
         }
       end
+
       def maintain_history(data,results)
         results[:id] = data[:id]
         if data[:original_text] != results["original_text"] 
@@ -51,7 +44,6 @@ module CMOA
     get '/' do
       haml :index
     end
-
 
     delete '/periods/:id' do
       content_type :json
@@ -89,6 +81,7 @@ module CMOA
       p = MuseumProvenance::Provenance.extract params[:str]
       p.to_json
     end
+    
     post '/parse_timestring' do
       content_type :json
       p = MuseumProvenance::Period.new("test ")

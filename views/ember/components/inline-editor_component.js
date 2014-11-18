@@ -42,13 +42,13 @@ App.InlineEditorComponent = Ember.Component.extend({
 
   displayText: function() {
     var dval = this.get("displayVal");
-    if (dval !== false) {
+    if (dval !== undefined) {
       return dval; 
     }
     else {
       return this.get("val");
     }
-  }.property('displayVal'),
+  }.property('displayVal', 'val'),
 });
 
 App.InlineInputComponent = Ember.TextField.extend({

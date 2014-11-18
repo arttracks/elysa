@@ -22,9 +22,25 @@ App.PartyListNavComponent  = Ember.Component.extend(App.HelpText, {
     this.rerender();
   },
 
+  gotoNext: function() {
+    var current = $('.list-group .active');
+    current.next().find('a').trigger("click");
+    return false;
+  },
+
+  gotoPrev: function() {
+    var current = $('.list-group .active');
+    current.prev().find('a').trigger("click");
+    return false;
+  },
+
   didInsertElement: function() {
     var self = this;
     this.sendAction('initNav');
+
+    Mousetrap.bind('command+down', this.gotoNext);
+    Mousetrap.bind('command+up', this.gotoPrev);
+
     Ember.$("#party-list").sortable({
       containment: "parent",
       tolerance: "pointer",

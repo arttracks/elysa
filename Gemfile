@@ -7,15 +7,19 @@ gem "sass"
 gem "thin", "~>1.6"
 gem "tilt", "~>1.4"
 gem "sinatra-contrib"
-gem "bootstrap-sass"
+#gem "bootstrap-sass"
 
 # Search
 gem 'elasticsearch'
 gem 'hashie'
 
+# Background Jobs
+gem 'backburner'
 
+# Custom Gems
 gem 'date_time_precision', :git => 'https://github.com/Spokeo/date_time_precision'
 gem 'museum_provenance', :path => "../museum_provenance"
+
 
 group :documentation do
   gem 'rack-jekyll', :git => 'https://github.com/adaoraul/rack-jekyll.git'

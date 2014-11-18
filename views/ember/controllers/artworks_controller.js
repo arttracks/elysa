@@ -18,9 +18,14 @@ App.ArtworksController = Ember.ObjectController.extend(App.HelpText, {
   }.observes('query','currentPage'),
   
   actuallySearch: function() {
+    var q = this.get('query');
+    if (q=="") {
+      this.set('searching',false);
+      return;
+    }
     var self = this;
     this.set('searching',true);
-    Ember.$.getJSON("/search",{query: this.get('query'), page: (this.get('currentPage')) }).then(function(data) {
+    Ember.$.getJSON("/search",{query: q, page: (this.get('currentPage')) }).then(function(data) {
       self.set('resultLength',data.hits.total);
       self.set('results',data.hits.hits)
     });

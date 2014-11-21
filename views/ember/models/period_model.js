@@ -1,51 +1,51 @@
 App.Period = DS.Model.extend({
-  artwork:            DS.belongsTo('artwork'),
-  order:              DS.attr("number"),
-  primary_owner:      DS.attr("boolean"),
-  period_certainty:   DS.attr('boolean', {defaultValue: true}),
-  acquisition_method: DS.attr('string'),
-  party:              DS.attr('string'),
-  party_certainty:    DS.attr('boolean', {defaultValue: true}),
-  birth:              DS.attr('epoch'),
-  birth_certainty:    DS.attr('boolean', {defaultValue: true}),
-  death:              DS.attr('epoch'),
-  death_certainty:    DS.attr('boolean', {defaultValue: true}),
-  location:           DS.attr('string'),
-  location_certainty: DS.attr('boolean', {defaultValue: true}),
-  botb:               DS.attr('epoch'),
-  botb_certainty:     DS.attr('boolean', {defaultValue: true}),
-  botb_precision:     DS.attr('number'),
-  eotb:               DS.attr('epoch'),
-  eotb_certainty:     DS.attr('boolean', {defaultValue: true}),
-  eotb_precision:     DS.attr('number'),
-  bote:               DS.attr('epoch'),
-  bote_certainty:     DS.attr('boolean', {defaultValue: true}),
-  bote_precision:     DS.attr('number'),
-  eote:               DS.attr('epoch'),
-  eote_certainty:     DS.attr('boolean', {defaultValue: true}),
-  eote_precision:     DS.attr('number'),
-  original_text:      DS.attr('string'),
-  provenance:         DS.attr('string'),
-  parsable:           DS.attr('boolean'),
-  direct_transfer:    DS.attr('boolean'),
-  stock_number:       DS.attr('string'),
-  footnote:           DS.attr('string'),
-  earliest_possible:  DS.attr('epoch'),
-  latest_possible:    DS.attr('epoch'),
-  earliest_definite:  DS.attr('epoch'),
-  latest_definite:    DS.attr('epoch'),
-  acquisition_time_span: DS.attr("string"),
+  artwork:                 DS.belongsTo('artwork'),
+  order:                   DS.attr("number"),
+  primary_owner:           DS.attr("boolean"),
+  period_certainty:        DS.attr('boolean', {defaultValue: true}),
+  acquisition_method:      DS.attr('string'),
+  party:                   DS.attr('string'),
+  party_certainty:         DS.attr('boolean', {defaultValue: true}),
+  birth:                   DS.attr('epoch'),
+  birth_certainty:         DS.attr('boolean', {defaultValue: true}),
+  death:                   DS.attr('epoch'),
+  death_certainty:         DS.attr('boolean', {defaultValue: true}),
+  location:                DS.attr('string'),
+  location_certainty:      DS.attr('boolean', {defaultValue: true}),
+  botb:                    DS.attr('epoch'),
+  botb_certainty:          DS.attr('boolean', {defaultValue: true}),
+  botb_precision:          DS.attr('number'),
+  eotb:                    DS.attr('epoch'),
+  eotb_certainty:          DS.attr('boolean', {defaultValue: true}),
+  eotb_precision:          DS.attr('number'),
+  bote:                    DS.attr('epoch'),
+  bote_certainty:          DS.attr('boolean', {defaultValue: true}),
+  bote_precision:          DS.attr('number'),
+  eote:                    DS.attr('epoch'),
+  eote_certainty:          DS.attr('boolean', {defaultValue: true}),
+  eote_precision:          DS.attr('number'),
+  original_text:           DS.attr('string'),
+  provenance:              DS.attr('string'),
+  parsable:                DS.attr('boolean'),
+  direct_transfer:         DS.attr('boolean'),
+  stock_number:            DS.attr('string'),
+  footnote:                DS.attr('string'),
+  earliest_possible:       DS.attr('epoch'),
+  latest_possible:         DS.attr('epoch'),
+  earliest_definite:       DS.attr('epoch'),
+  latest_definite:         DS.attr('epoch'),
+  acquisition_time_span:   DS.attr("string"),
   deacquisition_time_span: DS.attr("string"),
-  timestring:        DS.attr("string"),
+  timestring:              DS.attr("string"),
 
   active: false,
   updated: false,
 
+  // Calculate a version of the text with removed text highlighted
   diffed_original_text: function() {
      var original = this.get('original_text');
      var modified = this.get('provenance');
      var diff = JsDiff.diffWords(original, modified);
-
      str = ""
       diff.forEach(function(part){
        if (part.removed) {
@@ -62,6 +62,7 @@ App.Period = DS.Model.extend({
      return str;
   }.property("original_text","provenance"),
 
+  // Calculate a version of the provenance with added text highlighted
   diffed_provenance: function() {
      var original = this.get('original_text');
      var modified = this.get('provenance');
@@ -83,11 +84,6 @@ App.Period = DS.Model.extend({
      return str;
   }.property("original_text","provenance"),
 
-  party_is_blank: function() {
-    var party = this.get("party");
-    return party == "" || party == undefined || party == null;
-  }.property('party'),
-
   partyName: function() {
     var party = this.get("party");
     if (party == ""){
@@ -100,28 +96,6 @@ App.Period = DS.Model.extend({
       return party;
     }
   }.property('party', 'acquisition_method'),
-
-  party_with_certainty: function() {
-    var str = this.get("party");
-    if (!this.get('party_certainty')) {
-      str += "?";
-    }
-    return str;
-  }.property('party','party_certainty'),
-
-  dumbo_time_string: function() {
-    //console.log("timestring",this.get("timestring"))
-  }.observes('timestring'),
-
-  deacquisition_string: function(key,value,previousValue) {
-    if (arguments.length > 1) {
-      if (value == "") {
-        this.set('deacquisition_time_span',null);
-        return "";
-      }
-    }
-    return this.get('deacquisition_time_span');
-  }.property('deacquisition_time_span'),
 
   birth_year: function(key, value, previousValue) {
     if (arguments.length > 1) {
@@ -139,7 +113,6 @@ App.Period = DS.Model.extend({
   }.property('birth'),
 
   death_year: function(key, value, previousValue) {
-
     if (arguments.length > 1) {
       if (value == "") {
         this.set('death',null);

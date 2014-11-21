@@ -2,9 +2,13 @@ window.App = Ember.Application.create({
     LOG_TRANSITIONS: true
 });
 
-// App.Router.reopen({
-//   location: 'history'
-// });
+App.Router.reopen({
+  location: 'history'
+});
+
+App.ApplicationAdapter = DS.RESTAdapter.extend({
+  namespace: 'api/1'
+});
 
 App.RawTransform = DS.Transform.extend({
     deserialize: function(serialized) {

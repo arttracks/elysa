@@ -43,17 +43,15 @@ module CMOA
       end
     end
 
-    get '/' do
-      haml :index
-    end
 
-    namespace '/parse' do
-      
+    namespace '/parsers' do
+
       post "/provenance_line" do
         content_type :json
         p = MuseumProvenance::Provenance.extract params[:str]
         p.to_json
       end
+
       post '/timestring' do
         content_type :json
         p = MuseumProvenance::Period.new("test ")
@@ -69,13 +67,12 @@ module CMOA
         hash[:eote_precision] = p.ending.latest_raw.precision rescue nil
         hash.to_json
       end
-
     end
 
 
-    #namespace '/api' do
+    namespace '/api/1' do
       
-      # Fake endpoint.   Should not be gere.
+      # Fake endpoint.   Should not be here.
       delete '/periods/:id' do
         content_type :json
         {}.to_json
@@ -89,7 +86,7 @@ module CMOA
         return {artwork: results['_source']}.to_json
       end
     
-    #end
+    end
     # END API ENDSPACE
 
     get '/search' do
@@ -110,12 +107,6 @@ module CMOA
       results = settings.elasticsearch.search index: 'cmoa_provenance', body: body
       return results.to_json
     end
-
-   
-
-
-    
-
 
     post '/add_party' do
       content_type :json
@@ -161,6 +152,10 @@ module CMOA
       content_type :json
       p = params[:provenance]
       MuseumProvenance::Provenance.extract(p).to_json
+    end
+    
+    get '/*' do
+      haml :index
     end
   end
 end

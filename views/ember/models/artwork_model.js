@@ -6,7 +6,18 @@ App.Artwork = DS.Model.extend({
   creation_latest: DS.attr('date'),
   provenance: DS.attr('string'),
   images: DS.attr('raw'),
-  
+  exhibitions: DS.attr('string'),
+  exhibition_details: DS.attr('json'),
+  artist_details: DS.attr('json'),
+
+
+  sorted_exhibition_details: function() {
+    var e = this.get("exhibition_details");
+    if (e){
+      return e.sortBy("commencement") 
+    }
+  }.property(),
+
   hasImage: function() {
     i = this.get('images');
     return (i !== undefined);
@@ -25,7 +36,10 @@ App.Artwork = DS.Model.extend({
   footnotes_updated: function(){}.property('periods.@each.footnote'),
   
   timeline_data: function() {
-    return this.get('sortedPeriods').map(function(item){return item})
+    return {
+      "periods": this.get('sortedPeriods').map(function(item){return item}),
+      "exhibitions": this.get('sorted_exhibition_details')
+    }
   }.property('periods.@each.party','periods.@each.active','periods.@each.order'),
 
   serializedPeriods: function() {

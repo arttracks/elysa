@@ -10,7 +10,7 @@ App.PeriodController = Ember.ObjectController.extend( Ember.Evented, App.HelpTex
       this.model.rollback();
       var self = this;
       var id = this.model.get('id');
-      Ember.$.post('/parse_provenance_line', {str: val})
+      Ember.$.post('/parse/provenance_line', {str: val})
         .then(function(data){
           // Normalize the data
           var p = self.store.normalize('period',data.period[0])
@@ -36,7 +36,7 @@ App.PeriodController = Ember.ObjectController.extend( Ember.Evented, App.HelpTex
     updateDate: function(val) {
       var self = this;
       this.model.rollback();
-      Ember.$.post('/parse_timestring', {str: val})
+      Ember.$.post('/parse/timestring', {str: val})
         .then(function(data){
           self.model.set('botb',moment.unix(data.botb))
           self.model.set('eotb',moment.unix(data.eotb))

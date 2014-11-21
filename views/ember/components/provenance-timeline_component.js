@@ -1,13 +1,14 @@
 App.ProvenanceTimelineComponent = Ember.Component.extend({
   tagName: 'svg',
   attributeBindings: 'width height class'.w(),
-  margin: {top: 20, right: 20, bottom: 30, left: 40},  
+  margin: {top: 20, right: 110, bottom: 30, left: 40},  
   width: 1200,
   elementHeight: 28,
+  textSpacing: 200,
   class: "timeline-svg",
 
   height: function() {
-    return  this.get('timeline_data').length * this.get("elementHeight") +  this.get('margin.top') + this.get('margin.bottom');
+    return  this.get('timeline_data').periods.length * this.get("elementHeight") +  this.get('margin.top') + this.get('margin.bottom') + this.get('textSpacing');
   }.property('timeline_data'),
 
   w: function(){
@@ -15,7 +16,7 @@ App.ProvenanceTimelineComponent = Ember.Component.extend({
   }.property('width'),
   
   h: function(){
-    return this.get('height') - this.get('margin.top') - this.get('margin.bottom');
+    return this.get('height') - this.get('margin.top') - this.get('margin.bottom') - this.get('textSpacing');
   }.property('height'),  
 
   transformG: function(){
@@ -45,7 +46,7 @@ App.ProvenanceTimelineComponent = Ember.Component.extend({
     var self = this;
     var svg = d3.select('#'+this.get('elementId'));
     var creationDate = self.get('creationDate');
-    var data = this.get('timeline_data').map(function(el){
+    var data = this.get('timeline_data').periods.map(function(el){
       var id = el.get('id');
       var d = el.serialize();
       d.id = id;
@@ -67,6 +68,23 @@ App.ProvenanceTimelineComponent = Ember.Component.extend({
     var key = function(d) { 
       return d.id + "-" + d.order;
     };
+
+    if (this.get('timeline_data').exhibitions) {
+      var exhibit_data = this.get('timeline_data').exhibitions.map(function(el){
+        var obj = {} 
+        obj.commencement = moment(el.commencement);
+        obj.completion = moment(el.completion);
+
+        obj.title = el.title.substr(0,40)
+        if  (el.title.length > 40) obj.title += "...";
+        obj.external = el.external;
+        return obj;
+      });
+      var exhibit_key = function(d) {
+        return d.title;
+      }
+    }
+    
 
     var width = this.get('w');
     var height = this.get('h');
@@ -90,6 +108,80 @@ App.ProvenanceTimelineComponent = Ember.Component.extend({
       .attr('x2',x(creationDate)-.5)
       .attr('y1',height)
       .attr('y2',0)
+
+
+    if (this.get('timeline_data').exhibitions) {
+    // Create exhibitons
+    var exhibits = svg.select('.exhibitions').selectAll(".exhibition-holder").data(exhibit_data,exhibit_key);
+    exhibits.exit().remove();
+
+    var exhibits_create = exhibits.enter().append('g').attr('class',"exhibition-holder");
+
+    exhibits_create.append('rect').attr("class","exhibition")
+    exhibits_create.append('g').attr('class','exhibition-text-holder').append('text').attr("class","exhibition_text")
+
+
+    exhibits.selectAll(".exhibition-text-holder")
+      .attr('transform',function(d){
+        return "translate("+x(d.commencement)+","+(height-y.rangeBand())+")" 
+      })
+   
+    var texts = exhibits.selectAll(".exhibition_text")
+        .text(function(d) {return d.title})
+        .attr('transform',"rotate(45)")
+        .attr('x',35)
+        .attr('y',35)
+
+    var overlaps = true;
+    var spacing = 12;
+    var offsetAmount = .5;
+    var currentItem,currentItemD3,currentY,sampleY,sampleItemD3,sampleItem,deltaY;
+    while(overlaps) {
+      overlaps = false;
+      texts.each(function(d,index) {
+        currentItem = this;
+        currentItemD3 = d3.select(currentItem);
+        var ccc = (+x(d.commencement));
+        currentY =  ccc - (+currentItemD3.attr('y'));
+        texts.each(function(dd,index2) {
+          var sss = (+x(dd.commencement));
+          if (ccc < sss && Math.abs((ccc - sss)) <=spacing) {
+            sampleItem = this;
+            sampleItemD3 = d3.select(sampleItem);    
+            sampleY = sss - (+sampleItemD3.attr("y"));
+
+            deltaY = Math.abs(currentY - sampleY);
+            if (Math.abs(deltaY) <= spacing) { 
+              console.log(deltaY,d.title,dd.title)
+              overlaps = true;
+              currentItemD3.attr("y",+currentItemD3.attr('y') + .5);
+              currentItemD3.attr("x",+currentItemD3.attr('x') - .5);
+              sampleItemD3.attr("y", +sampleItemD3.attr('y')  - .5);
+              sampleItemD3.attr("x", +sampleItemD3.attr('x')  + .5);
+            }
+          }
+        });
+      });
+    }
+
+
+    exhibits.selectAll(".exhibition")
+      .attr("x",function(d){return x(d.commencement)})
+      .attr("y",height)
+      .attr("width", function(d) { 
+        if (d.completion){
+         return Math.max(x(d.completion) - x(d.commencement),2); 
+        }
+        else {
+          return 2
+        }
+      })  
+      .attr("height",6)
+      .classed("external",function(d) {return d.external})
+  }
+
+
+
 
 
     var elements = svg.select(".periods").selectAll("g").data(data,key)
@@ -118,10 +210,8 @@ App.ProvenanceTimelineComponent = Ember.Component.extend({
 
     elements.exit().remove()
   
-    // Update all elements
-    
-   
 
+    // Update all elements
     elements.selectAll(".lifespan").data(data,key)
       .attr("transform", function(d){
         if (!d.birth) return ""
@@ -197,6 +287,5 @@ App.ProvenanceTimelineComponent = Ember.Component.extend({
       .text(function(d){return d.party})
       .transition()
         .attr("x", function(d) { return x(d.earliest_possible);})  
-
   },  
 });

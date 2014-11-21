@@ -100,7 +100,7 @@ App.ArtworkRoute = Ember.Route.extend({
         });
     }).then(function() {
       if (artwork.get('periods.length')) {
-        self.gotoFirstRecord(artwork);
+        self.transitionTo('period', artwork.get('sortedPeriods.firstObject'));
       }
     });
   },

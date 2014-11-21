@@ -13,7 +13,12 @@ $MEDIUM_GREY: $MEDIUM_GRAY
 body 
   padding-top: 60px
 
-
+.no-content
+  text-align: center
+  margin-top: 7%
+  color: grey
+  font-size: 90%
+  
 // HEADER
 .artwork-thumbnail
   height: 90px
@@ -74,9 +79,24 @@ body
     border-top: none
     border-radius:  5px
     padding: 0 5px 20px 5px
-    &#fulltext, &#exhibitions, &#location-lookup, &#party-lookup
-      .row
-        padding: 10px
+    &#fulltext, &#exhibitions, &#location-lookup, &#party-lookup > .row
+      padding: 10px
+
+// Exhibition Detail
+#exhibitions > .row
+  max-height: 290px
+  overflow-y: scroll
+
+.exhibition-detail
+  border-bottom: 1px solid $MEDIUM_GREY
+  margin: 0 10px
+  padding: 0
+  &.external
+    background-color: $PALE_GRAY
+  .title
+    font-weight: bold
+    font-size: 90%
+
 
 // HELP POPOVERS
 .popover-title

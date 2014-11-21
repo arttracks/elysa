@@ -1,0 +1,13 @@
+<div class='col-md-12'>
+  <span class='title'>{{exhibition.title}}</span>
+</div>
+<div class='col-md-12'>
+  <ul class="list-unstyled">
+  {{#each venue in exhibition.venues}}
+    <li class='venue'>
+     {{venue.name}}
+     <span class='dates'> ({{venue.formatted_date}})</span>
+    </li>
+    {{/each}}
+  </ul>
+</div>

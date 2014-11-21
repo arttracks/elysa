@@ -4,10 +4,22 @@ require 'json'
 require 'elasticsearch'
 require 'ruby-progressbar'
 require 'hashie'
+require 'museum_provenance'
 
 prov_settings = Hashie::Mash.new
 
 prov_settings.mappings!.artwork!.include_in_all = false
+
+# prov_settings.analysis!.analyzer = {
+#   "goodly_text": {
+#     "tokenizer": "standard",
+#     "filter":  [ "lowercase", "asciifolding"]
+#   }
+# }
+
+
+
+
 prov_settings.mappings!.artwork!.properties = {
   title: {
     type: "string",
@@ -42,6 +54,28 @@ prov_settings.mappings!.artwork!.properties = {
     index: "no",
     include_in_all: true
   },
+  creation_earliest: {
+    type: "date",
+    format: "dateOptionalTime"
+  },
+  creation_latest: {
+    type: "date",
+    format: "dateOptionalTime"
+  },
+  exhibitions: {
+    type: "string",
+    analyzer: "english",
+    include_in_all: true
+  },
+  exhibition_details: {
+    type: "string",
+    index: "no"
+  },
+  artist_details: {
+    type: "string",
+    index: "no"
+  }
+
 }
 
 
@@ -78,31 +112,83 @@ client.indices.create index: 'cmoa_provenance', body: prov_settings.to_h
 
 # Find all the things
 things =  File.open( "data/thing.json", "r" ) { |f| JSON.load( f )}["thing"]
-vals = things.collect.with_index do |thing, i|
-  #next if i > 100
+bar = ProgressBar.create(:title => "Parsing Things", :starting_at => 0, :total => things.count)
+things = things.collect.with_index do |thing, i|
+  bar.increment
   thing
 end.compact
 
 # Find all the people
-peeps =  File.open( "data/party.json", "r" ) { |f| JSON.load( f )}["party"]
-lil_peeps = {}
-peeps.each do |p| 
+parties =  File.open( "data/party.json", "r" ) { |f| JSON.load( f )}["party"]
+bar = ProgressBar.create(:title => "Parsing Parties", :starting_at => 0, :total => parties.count)
+party_index = {}
+parties.each do |p| 
    id = p["id"]
-   lil_peeps[id] = p
+   party_index[id] = p
+   bar.increment
+
 end
 
-# Denormalize people's names
-vals.each do |v|
-  next if v["creators"].nil?
-  v["artist"] = v["creators"].collect do |p|
-    lil_peeps[p]['name']
-  end.join(", ")
+# Find all the events
+events =  File.open( "data/event.json", "r" ) { |f| JSON.load( f )}["event"]
+bar = ProgressBar.create(:title => "Parsing Events", :starting_at => 0, :total => events.count)
+event_thing_index = {}
+event_index = {}
+events.each do |event| 
+  id = event["id"]
+  event["formatted_date"] = MuseumProvenance::TimeSpan.new(event["commencement"],event["completion"]).to_s
+  # Link venues to parties
+  if event["venues"]
+    event['venues'] = event['venues'].collect do |v|
+      v["name"] = party_index[v["id"]]["name"] #if party_index[v["id"]]
+      v["formatted_date"] = MuseumProvenance::TimeSpan.new(v["commencement"],v["completion"]).to_s
+      v
+    end
+  end
+  # link organizers to parties
+  if event['organizers'] 
+    event['organizers'] = event['organizers'].collect do |organizer_id|
+      obj = {id: organizer_id}
+      obj["name"] = party_index[organizer_id]["name"]# if party_index[organizer_id]
+      obj
+    end
+  end
+  # index the events by object
+  if  event["things"]
+    event["things"].each do |thing|
+      event_thing_index[thing["id"]] ||= []
+      event_thing_index[thing["id"]].push id
+    end
+  end
+  event_index[id] = event
+  bar.increment
+end
+
+# Denormalize people's names, exhibitions
+bar = ProgressBar.create(:title => "Denormalizing", :starting_at => 0, :total => things.count)
+things.each do |v|
+  unless v["creators"].nil?
+    v["artist"] = v["creators"].collect do |p|
+      party_index[p]['name']
+    end.join(", ")
+     v["artist_details"] = party_index[p].to_json
+  end
+  exhibitions = event_thing_index[v["id"]]
+  if exhibitions
+    v["exhibitions"]        = exhibitions.collect{ |e| event_index[e]["title"] }.join(", ")
+    begin
+      v['exhibition_details'] = exhibitions.collect{ |e| event_index[e]}.compact.to_json
+    rescue TypeError
+      puts exhibitions.collect{ |e| event_index[e]}
+    end
+  end
+  bar.increment
 end
 
 
 # Load 'em up.
-bar = ProgressBar.create(:title => "Generating Search", :starting_at => 0, :total => vals.count)
-vals.each do |val|
+bar = ProgressBar.create(:title => "Generating Search", :starting_at => 0, :total => things.count)
+things.each do |val|
   client.index index: 'cmoa_provenance',
                type: 'artwork',
                id: val['id'],
@@ -112,4 +198,4 @@ end
 
 
 
-#File.open("thing_index.json", "w") {|f| f.puts JSON.pretty_generate(vals)}
+#File.open("thing_index.json", "w") {|f| f.puts JSON.pretty_generate(things)}

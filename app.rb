@@ -1,4 +1,5 @@
 require "sinatra/base"
+require "sinatra/namespace"
 require 'haml'
 require "tilt"
 require 'sass'
@@ -10,6 +11,7 @@ $stdout.sync = true # for foreman logging
 
 module CMOA
   class App < Sinatra::Base
+    register Sinatra::Namespace
 
     configure do
       set :elasticsearch, Elasticsearch::Client.new(log: false)
@@ -45,10 +47,50 @@ module CMOA
       haml :index
     end
 
-    delete '/periods/:id' do
-      content_type :json
-      {}.to_json
+    namespace '/parse' do
+      
+      post "/provenance_line" do
+        content_type :json
+        p = MuseumProvenance::Provenance.extract params[:str]
+        p.to_json
+      end
+      post '/timestring' do
+        content_type :json
+        p = MuseumProvenance::Period.new("test ")
+        p.parse_time_string(params[:str])      
+        hash = {}
+        hash[:eotb] = p.eotb ? p.eotb.to_time.to_i : nil    
+        hash[:eote] = p.eote ? p.eote.to_time.to_i : nil   
+        hash[:botb] = p.botb ? p.botb.to_time.to_i : nil
+        hash[:bote] = p.bote ? p.bote.to_time.to_i : nil      
+        hash[:botb_precision] = p.beginning.earliest_raw.precision rescue nil 
+        hash[:eotb_precision] = p.beginning.latest_raw.precision rescue nil
+        hash[:bote_precision] = p.ending.earliest_raw.precision  rescue nil
+        hash[:eote_precision] = p.ending.latest_raw.precision rescue nil
+        hash.to_json
+      end
+
     end
+
+
+    #namespace '/api' do
+      
+      # Fake endpoint.   Should not be gere.
+      delete '/periods/:id' do
+        content_type :json
+        {}.to_json
+      end
+
+      # Get a particular artwork
+      get '/artworks/:id' do
+        content_type :json
+        results = settings.elasticsearch.get index: 'cmoa_provenance', type:'artwork', id: params[:id]
+        return nil if results.nil?
+        return {artwork: results['_source']}.to_json
+      end
+    
+    #end
+    # END API ENDSPACE
 
     get '/search' do
       content_type :json
@@ -69,34 +111,11 @@ module CMOA
       return results.to_json
     end
 
-    get '/artworks/:id' do
-      content_type :json
-      results = settings.elasticsearch.get index: 'cmoa_provenance', type:'artwork', id: params[:id]
-      return nil if results.nil?
-      return {artwork: results['_source']}.to_json
-    end
+   
 
-    post "/parse_provenance_line" do
-      content_type :json
-      p = MuseumProvenance::Provenance.extract params[:str]
-      p.to_json
-    end
+
     
-    post '/parse_timestring' do
-      content_type :json
-      p = MuseumProvenance::Period.new("test ")
-      p.parse_time_string(params[:str])      
-      hash = {}
-      hash[:eotb] = p.eotb ? p.eotb.to_time.to_i : nil    
-      hash[:eote] = p.eote ? p.eote.to_time.to_i : nil   
-      hash[:botb] = p.botb ? p.botb.to_time.to_i : nil
-      hash[:bote] = p.bote ? p.bote.to_time.to_i : nil      
-      hash[:eotb_precision] = p.beginning.latest_raw.precision rescue nil
-      hash[:eote_precision] = p.ending.latest_raw.precision rescue nil
-      hash[:botb_precision] = p.beginning.earliest_raw.precision rescue nil 
-      hash[:bote_precision] = p.ending.earliest_raw.precision  rescue nil
-      hash.to_json
-    end
+
 
     post '/add_party' do
       content_type :json

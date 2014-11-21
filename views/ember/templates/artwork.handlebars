@@ -52,7 +52,11 @@
             <div class="tab-pane" id="exhibitions" {{bind-attr style=betterTabHeight}}>
               <div class="row">
                 <div class="col-md-12">
-                  Exhibition History will go here.
+                  {{#each exhibition in sorted_exhibition_details}}
+                    {{exhibition-details exhibition=exhibition}}
+                  {{else}}
+                    <div class='no-content'>This work has no exhibition history.</div>
+                  {{/each}}
                 </div>
               </div>
             </div>
@@ -60,7 +64,7 @@
             <div class="tab-pane" id="party-lookup" {{bind-attr style=betterTabHeight}}>
               <div class="row">
                 <div class="col-md-12">
-                  Party disambiguation will go here.
+                  <div class='no-content'>Party disambiguation will go here.</div>
                 </div>
               </div>
             </div>
@@ -68,14 +72,14 @@
             <div class="tab-pane" id="location-lookup" {{bind-attr style=betterTabHeight}}>
               <div class="row">
                 <div class="col-md-12">
-                  Location disambiguation will go here.
+                  <div class='no-content'>Location disambiguation will go here.</div>
                 </div>
               </div>
             </div>
 
 
             <div class="tab-pane active" id="period-fields" {{bind-attr style=betterTabHeight}}>
-              {{#unless periods}} There is no provenance record for this artwork. {{/unless}}
+              {{#unless periods}} <div class='no-content'>There is no provenance record for this artwork.</div> {{/unless}}
               {{outlet}}
               <button class="btn-link btn btn-xs pull-right show-extended" {{action 'toggle_extended'}}>
                {{#if showExtended}}Hide{{else}}Show{{/if}} Extended Fields

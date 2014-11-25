@@ -1,6 +1,7 @@
 App.PeriodController = Ember.ObjectController.extend( Ember.Evented, App.HelpText, {
   needs: ['artwork'],
-
+  
+  
   actions: {
     updateRecord: function(val) {
       this.model.set('updated',true);

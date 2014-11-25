@@ -52,12 +52,7 @@ App.ProvenanceTimelineComponent = Ember.Component.extend({
       d.id = id;
       d.active = el.get("active");
       d.earliest_definite = moment.unix(d.earliest_definite);
-      if (d.earliest_possible) {
-        d.earliest_possible = Math.max(moment.unix(d.earliest_possible),creationDate);
-      }
-      else {
-        d.earliest_possible = creationDate;
-      }
+      d.earliest_possible = el.get("computed_earliest_possible");     
       d.latest_possible = moment.unix(d.latest_possible);
       d.latest_definite = moment.unix(d.latest_definite);
       if (d.birth) d.birth = moment.unix(d.birth);
@@ -253,7 +248,11 @@ App.ProvenanceTimelineComponent = Ember.Component.extend({
           var val =  x(d.latest_definite) - x(d.earliest_definite);
           return Math.abs(val) || 0;
         })
-        .attr("x", function(d) {  return x( Math.min(d.earliest_definite,d.latest_definite)) || -1000 ;})   
+        .attr("x", function(d) { 
+          var date = Math.min(d.earliest_definite,d.latest_definite);
+          if (date == undefined) return -1000;
+          return x(date);
+        })   
 
     // update possible range
     elements.selectAll(".possible_bounds").data(data,key)

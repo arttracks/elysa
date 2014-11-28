@@ -9,6 +9,7 @@ App.Artwork = DS.Model.extend({
   exhibitions: DS.attr('string'),
   exhibition_details: DS.attr('json'),
   artist_details: DS.attr('json'),
+  accession_number: DS.attr('string'),
 
 
   sorted_exhibition_details: function() {

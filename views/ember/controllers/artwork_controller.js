@@ -57,11 +57,11 @@ App.ArtworkController = Ember.ObjectController.extend(Ember.Evented, {
     var earliest, latest;
     var e =  this.get("creation_earliest");
     if (e) {
-      earliest = e.getFullYear();
+      earliest = e.year();
     }
     var l = this.get("creation_latest");
     if (l) {
-      latest = l.getFullYear();
+      latest = l.year();
     }
     if (!earliest && !latest) {
       return "";

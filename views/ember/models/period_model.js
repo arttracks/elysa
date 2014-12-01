@@ -90,7 +90,7 @@ App.Period = DS.Model.extend({
       return "unknown party";
     }
     else if (this.get('acquisition_method') == "In Sale") {
-      return party + " sale"
+      return party;// + " sale"
     }
     else{
       return party;

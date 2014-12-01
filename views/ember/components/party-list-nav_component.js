@@ -38,8 +38,8 @@ App.PartyListNavComponent  = Ember.Component.extend(App.HelpText, {
     var self = this;
     this.sendAction('initNav');
 
-    Mousetrap.bind('command+down', this.gotoNext);
-    Mousetrap.bind('command+up', this.gotoPrev);
+    Mousetrap.bind(['command+down','ctrl+down'], this.gotoNext);
+    Mousetrap.bind(['command+up'  ,'ctrl+up'  ], this.gotoPrev);
 
     Ember.$("#party-list").sortable({
       containment: "parent",

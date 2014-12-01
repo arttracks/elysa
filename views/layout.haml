@@ -11,19 +11,7 @@
     %link{:rel => :stylesheet, :type => :"text/css", :href => "/css/animations.css"}
 
   %body
-    .navbar.navbar-inverse.navbar-fixed-top
-      .container
-        .navbar-header
-          %a.navbar-brand{href: "/"} Museum Provenance
-         
-        .collapse.navbar-collapse
-          %ul.nav.navbar-nav.navbar-right
-            %li
-              %a{href: "/docs"} Documentation
-    .container
-      .row
-        .col-md-12
-          =yield
+    =yield
 
   %script{src: "/js/libraries/jquery/jquery.js"}
   %script{src: "/js/libraries/jquery-ui/jquery-ui.js"}

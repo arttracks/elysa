@@ -9,9 +9,33 @@ $BOOTSTRAP_BLUE:  #428bca
 $MEDIUM_GRAY: #BBB
 $MEDIUM_GREY: $MEDIUM_GRAY
 
+// SIZES
+
+$FOOTER_SIZE: 30px
+
 // GENERAL THINGS
+html
+  min-height: 100%
+  position: relative
 body 
   padding-top: 60px
+  margin-bottom: $FOOTER_SIZE
+
+#main_content
+  padding-bottom: 60px
+
+#fixed_footer
+  position: absolute
+  bottom: 0
+  width: 100%
+  height: $FOOTER_SIZE
+  background: $MEDIUM_GREY
+  margin-left: 0
+  margin-right: 0
+  p
+    margin-top: 8px
+    font-size: 80%
+    text-align: center
 
 .no-content
   text-align: center

@@ -169,8 +169,8 @@ bar = ProgressBar.create(:title => "Denormalizing", :starting_at => 0, :total =>
 things.each do |v|
   unless v["creators"].nil?
     v["artist"] = v["creators"].collect do |p|
-      party_index[p]['name']
-    end.join(", ")
+      party_index[p]['name'] if party_index[p]
+    end.compact.join(", ")
      v["artist_details"] = party_index[p].to_json
   end
   exhibitions = event_thing_index[v["id"]]

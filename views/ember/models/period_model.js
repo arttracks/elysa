@@ -34,8 +34,8 @@ App.Period = DS.Model.extend({
   latest_possible:         DS.attr('epoch'),
   earliest_definite:       DS.attr('epoch'),
   latest_definite:         DS.attr('epoch'),
-  acquisition_time_span:   DS.attr("string"),
-  deacquisition_time_span: DS.attr("string"),
+  acquisition_timestring:   DS.attr("string"),
+  deacquisition_timestring: DS.attr("string"),
   timestring:              DS.attr("string"),
 
   active: false,

@@ -70,8 +70,13 @@ App.ProvenanceTimelineComponent = Ember.Component.extend({
         obj.commencement = moment(el.commencement);
         obj.completion = moment(el.completion);
 
-        obj.title = el.title.substr(0,40)
-        if  (el.title.length > 40) obj.title += "...";
+        if (el.title) {
+          obj.title = el.title.substr(0,40)
+          if (el.title.length > 40) {obj.title += "...";}
+        }
+        else { 
+          obj.title = "(untitled exhibition)"
+        }
         obj.external = el.external;
         return obj;
       });

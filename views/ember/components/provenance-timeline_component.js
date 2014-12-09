@@ -152,7 +152,7 @@ App.ProvenanceTimelineComponent = Ember.Component.extend({
 
             deltaY = Math.abs(currentY - sampleY);
             if (Math.abs(deltaY) <= spacing) { 
-              console.log(deltaY,d.title,dd.title)
+              //console.log(deltaY,d.title,dd.title)
               overlaps = true;
               currentItemD3.attr("y",+currentItemD3.attr('y') + .5);
               currentItemD3.attr("x",+currentItemD3.attr('x') - .5);

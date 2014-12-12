@@ -19,6 +19,24 @@ App.RawTransform = DS.Transform.extend({
     }   
 });
 
+App.DefaultTrueBooleanTransform = DS.Transform.extend({
+    deserialize: function(serialized) {
+    var type = typeof serialized;
+
+    if (type === "boolean") {
+      return serialized;
+    } else if (type === "string") {
+      return serialized.match(/^true$|^t$|^1$/i) !== null;
+    } else if (type === "number") {
+      return serialized === 1;
+    } else {
+      return true;
+    }
+  },
+  serialize: function(deserialized) {
+    return Boolean(deserialized);
+  }
+});
 
 App.JsonTransform = DS.Transform.extend({
     deserialize: function(serialized) {

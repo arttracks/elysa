@@ -118,7 +118,7 @@ module CMOA
       else 
         results = MuseumProvenance::Timeline.new()
       end
-      results.insert_earliest(MuseumProvenance::Period.new(""));
+      results.insert_earliest(MuseumProvenance::Period.new("Unknown party"));
       
       vals = JSON.parse(results.to_json)
 

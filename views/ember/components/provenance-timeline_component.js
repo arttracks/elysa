@@ -170,7 +170,9 @@ App.ProvenanceTimelineComponent = Ember.Component.extend({
       .attr("y",height)
       .attr("width", function(d) { 
         if (d.completion){
-         return Math.max(x(d.completion) - x(d.commencement),2); 
+         var n =  Math.max(x(d.completion) - x(d.commencement),2); 
+         if (n == NaN) return 2;
+         return n;
         }
         else {
           return 2

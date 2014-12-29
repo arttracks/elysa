@@ -48,8 +48,7 @@ module CMOA
 
       post "/provenance_line" do
         content_type :json
-        p = MuseumProvenance::Provenance.extract params[:str]
-        p.to_json
+        MuseumProvenance::Provenance.extract(params[:str]).to_json
       end
 
       post '/timestring' do

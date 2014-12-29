@@ -48,7 +48,7 @@ App.ArtworkRoute = Ember.Route.extend({
       Ember.$.post('/add_party', data)
       .then(function(results){
         self.send('reconstructData',results);
-        Ember.run.once(function(){
+        Ember.run.later(function(){
           self.gotoFirstRecord(artwork);
           Ember.run.later(function() {
             self.controllerFor('artwork').notifyPropertyChange('navHeight');

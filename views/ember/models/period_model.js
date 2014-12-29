@@ -68,7 +68,6 @@ App.Period = DS.Model.extend({
      var modified = this.get('provenance');
      var diff = JsDiff.diffWords(original, modified);
 
-     console.log("diff",diff);
      str = ""
       diff.forEach(function(part){
        if (part.added) {

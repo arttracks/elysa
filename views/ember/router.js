@@ -70,6 +70,9 @@ App.ArtworkRoute = Ember.Route.extend({
 
     reconstructData: function(data) {
       var artwork = this.modelFor('artwork').get('id');
+      this.modelFor('artwork').get("periods").forEach(function(item) {
+        item.rollback();
+      }, this);
       data.period.forEach(function(element,index) {
         if (!element.id) {element.id = element.order + "-" + artwork};
         element.artwork = artwork;

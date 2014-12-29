@@ -121,14 +121,21 @@ module CMOA
       
       vals = JSON.parse(results.to_json)
 
+      new_id = 0
+      if data
+        id_numbers = data.collect do |p| 
+          p[:id].split("-").first.to_i
+        end.sort
+        new_id = (id_numbers.last+1).to_s
+      end
+
       vals["period"] = vals["period"].collect.with_index do |r,i|
-        if data.nil?
-          r[:id] = "0-#{params['artwork_id']}"
-        elsif i == 0
-          r[:id] = data[0][:id] + "-" + results.count.to_s
+        if i == 0
+          r[:id] = "#{new_id}-#{params['artwork_id']}"
         else
           r = maintain_history(data[i-1],r)
         end
+        r["order"] = i
         r
       end
       vals.to_json

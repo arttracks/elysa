@@ -72,6 +72,32 @@ App.EpochTransform = DS.Transform.extend({
   }
 });
 
+App.JulianTransform = DS.Transform.extend({
+  deserialize: function(serialized) {
+     if (serialized === undefined || serialized === null) {
+      return undefined;
+    }
+    return jd_to_cal(serialized);
+  },
+  serialize: function(deserialized) {
+    if (deserialized === undefined || deserialized === null) {
+      return undefined;
+    }
+    if (moment.isMoment(deserialized)) { // for a Moment.js date
+      var y = deserialized.year();
+      var m = deserialized.month()+1;
+      var d = deserialized.date();
+      return Math.floor(cal_to_jd(y,m,d));
+    }
+    // if (deserialized.getTime) {  // for a standard date
+    //   return deserialized.getTime()/1000;
+    // }
+    else {
+      console.log("deserialized", deserialized);
+    }
+  }
+});
+
 // MAP STUFFF
 
 App.TileLayer = EmberLeaflet.TileLayer.extend({

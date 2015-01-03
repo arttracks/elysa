@@ -6,3 +6,5 @@
 //= require_tree ./components
 //= require_tree ./controllers
 //= require_tree ./temp/compiled_templates
+//= require_tree ./libs
+

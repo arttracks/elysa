@@ -6,22 +6,22 @@ App.Period = DS.Model.extend({
   acquisition_method:      DS.attr('string'),
   party:                   DS.attr('string'),
   party_certainty:         DS.attr('default_true_boolean'),
-  birth:                   DS.attr('epoch'),
+  birth:                   DS.attr('julian'),
   birth_certainty:         DS.attr('default_true_boolean'),
-  death:                   DS.attr('epoch'),
+  death:                   DS.attr('julian'),
   death_certainty:         DS.attr('default_true_boolean'),
   location:                DS.attr('string'),
   location_certainty:      DS.attr('default_true_boolean'),
-  botb:                    DS.attr('epoch'),
+  botb:                    DS.attr('julian'),
   botb_certainty:          DS.attr('default_true_boolean'),
   botb_precision:          DS.attr('number'),
-  eotb:                    DS.attr('epoch'),
+  eotb:                    DS.attr('julian'),
   eotb_certainty:          DS.attr('default_true_boolean'),
   eotb_precision:          DS.attr('number'),
-  bote:                    DS.attr('epoch'),
+  bote:                    DS.attr('julian'),
   bote_certainty:          DS.attr('default_true_boolean'),
   bote_precision:          DS.attr('number'),
-  eote:                    DS.attr('epoch'),
+  eote:                    DS.attr('julian'),
   eote_certainty:          DS.attr('default_true_boolean'),
   eote_precision:          DS.attr('number'),
   original_text:           DS.attr('string'),
@@ -30,10 +30,10 @@ App.Period = DS.Model.extend({
   direct_transfer:         DS.attr('boolean'),
   stock_number:            DS.attr('string'),
   footnote:                DS.attr('string'),
-  earliest_possible:       DS.attr('epoch'),
-  latest_possible:         DS.attr('epoch'),
-  earliest_definite:       DS.attr('epoch'),
-  latest_definite:         DS.attr('epoch'),
+  earliest_possible:       DS.attr('julian'),
+  latest_possible:         DS.attr('julian'),
+  earliest_definite:       DS.attr('julian'),
+  latest_definite:         DS.attr('julian'),
   acquisition_timestring:   DS.attr("string"),
   deacquisition_timestring: DS.attr("string"),
   timestring:              DS.attr("string"),
@@ -102,13 +102,13 @@ App.Period = DS.Model.extend({
         this.set('birth',null);
         return "";
       }
-      var d =  moment(value, "YYYY")
+      var d =  moment.utc([value,1,1])
       if (d.isValid) {
         this.set('birth',d);
       }
     }   
     var val = this.get('birth');
-    if(val) return val.format("YYYY");
+    if(val) return val.year();
   }.property('birth'),
 
   death_year: function(key, value, previousValue) {
@@ -117,15 +117,17 @@ App.Period = DS.Model.extend({
         this.set('death',null);
         return "";
       }
-      var d =  moment(value+"-12-31")
-      if (d.isValid) {
+      var d =  moment.utc([value,11,31])
+      if (d.isValid()) {
         this.set('death',d);
       }
       else {
+        this.set('death',null);
+        return "";
       }
     }
     var val = this.get('death');
-    if(val) return val.format("YYYY");
+    if(val) return val.year();
   }.property('death'),
 
   computed_earliest_possible: function() {

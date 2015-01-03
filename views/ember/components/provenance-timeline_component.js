@@ -51,12 +51,12 @@ App.ProvenanceTimelineComponent = Ember.Component.extend({
       var d = el.serialize();
       d.id = id;
       d.active = el.get("active");
-      d.earliest_definite = moment.unix(d.earliest_definite);
+      d.earliest_definite = jd_to_cal(d.earliest_definite);
       d.earliest_possible = el.get("computed_earliest_possible");     
-      d.latest_possible = moment.unix(d.latest_possible);
-      d.latest_definite = moment.unix(d.latest_definite);
-      if (d.birth) d.birth = moment.unix(d.birth);
-      if (d.death) d.death = moment.unix(d.death);
+      d.latest_possible = jd_to_cal(d.latest_possible);
+      d.latest_definite = jd_to_cal(d.latest_definite);
+      if (d.birth) d.birth = jd_to_cal(d.birth);
+      if (d.death) d.death = jd_to_cal(d.death);
       d.party = el.get("partyName");
       return d;
     });
@@ -67,8 +67,8 @@ App.ProvenanceTimelineComponent = Ember.Component.extend({
     if (this.get('timeline_data').exhibitions) {
       var exhibit_data = this.get('timeline_data').exhibitions.map(function(el){
         var obj = {} 
-        obj.commencement = moment(el.commencement);
-        obj.completion = moment(el.completion);
+        obj.commencement = moment.utc(el.commencement);
+        obj.completion = moment.utc(el.completion);
 
         if (el.title) {
           obj.title = el.title.substr(0,40)

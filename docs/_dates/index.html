@@ -6,9 +6,19 @@ permalink: /dates/
 <div class="home">
   <h1 class="page-heading">Date Information</h1>
 
-  <p>
-    This is a collection of the information on dates that we've accumulated over time.
-  </p>
+  <p>Provenance timespans are by their nature imprecise.  Rarely if ever is a transfer of ownership known to the minute, and often the uncertainty is much, much greater than that. As such, when representing a date, we have three pieces of information. The date itself, the precision of the date, and the certainty of the date.</p>
+
+  <p>For precision, we have <strong>Century</strong>, <strong>Decade</strong>, <strong>Year</strong>, <strong>Month</strong>, <strong>Day</strong>, and <strong>None</strong>.  This selection of ranges captures most of the variance seen in actual provenance records.</p>
+
+  <p>Currently, we do not have a technical solution for representing dates such as "The early 1900s".  Our suggestion for such dates would be to use an earliest/latest range, such as "Sometime between 1900 and 1950".</p>  
+
+  <p>For certainty, we have <strong>Certain</strong> and <strong>Uncertain</strong>.  It would be possilbe to represent varying levels of uncertainty by using phrases such as "Possibly", "Probably", and "Likely",  but without a strong, controlled vocabulary describing the differences between them, an external reader will assume all of them are merely a marker of uncertainty in general.  Since we lack this vocabulary, we have chosen to treat certainty as a boolean flag.</p>
+
+  <p>Dates are represented as internally be the earliest date within the range dictated by the precision of the date. </p>
+
+  <blockquote>
+  <p><em>For example, <strong>1995</strong> is represented as <strong>January 1, 1995</strong>, with a precision of <strong>YEAR</strong>, and <strong>October 2000</strong> is represented by <strong>October 1, 2000</strong> with a precision of <strong>MONTH</strong>.</em></p>
+  </blockquote>
 
   <ul class="post-list">
     {% for page in site.dates %}

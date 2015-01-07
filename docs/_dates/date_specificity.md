@@ -5,89 +5,59 @@ title: Date Specificity
 
 ## Date Specificity
 
-When writing dates for provenance, it's important to state the level of accuracy desired.  The following phrasings for dates are preferred for each level of specificity:
+When writing dates for provenance, it's important to state the level of accuracy desired.  As such, we have defined specific formats for writing dates with varying levels of precision.  The preferred form is the correct way to write the dates—the alternate forms are supported, but are not recommended and should be converted into the preferred form.
 
-*The gobbledygook is a formal specification of the form as a regular expression, and can be ignored by non-nerds.*
+The following phrasings for dates are preferred for each level of specificity:
 
 ### Known to the Century
 
-**Preferred Form:** 19th century, 1st century CE, 2nd century BCE
+**Preferred Form:** the 19th century, the 1st century CE, the 2nd century BCE  
+**If Uncertain:** the 19th century?, the 8th century BCE?  
+**Alternate Forms:** 19th century, 20th Century ad, 19 Century, 4th century BC
 
-**Alternate Forms:** 20th Century ad, 19 Century, 4th century BC
+Century should always be lowercase.   When referencing centuries before 10th century CE, it is helpful to explicitly include CE.  When referencing centuries BEFORE the first century CE, it is mandatory to include BCE.
 
-    /\b(\d{1,2})(?:st|rd|th|nd)?\s+century(?:\s+(ad|bc|bce|ce))?\b/i
-
-
+Centuries are defined as the years starting with 01 and ending with 00.  For instance, the 18th century is the period between 1801 and 1900.  For BCE centuries, the same holds:  the 8th century BCE is the period between 701 BCE and 800 BCE.
 
 ### Known to the Decade
 
-**Preferred Form:** 1990s, 1520s
+**Preferred Form:** the 1990s  
+**If Uncertain:** the 1990s?  
+**Alternate Forms:** 1990s, 1990s CE, the 1990s AD
 
-    /\b(\d{1,3})0s(?:\s+(?:ad|bc|bce|ce))?\b/i
-
-Avoid using this for dates before 1000 CE.
+Decades are not a common form for dates, but are often used for (relatively) recent dates.  This form is valid for all decades between the 100s CE and the current date. It is not valid to use this form for dates before 100 CE.
 
 ### Known to the Year
 
-**Preferred Form:** 1990, 900 CE, 800 BCE
-
+**Preferred Form:** 1990, 900 CE, 800 BCE  
+**If Uncertain:** 1990?, 900 CE?, 800 BCE?  
 **Alternate Forms:**  10 ad, 1 BC, 6000 BCE, 800
 
-    /
-      (?<!(?:january|febuary|october)\s) # ignore months...
-      (?<!(?:march|april)\s)
-      (?<!(?:june|july|sept)\s)
-      (?<!(?:august)\s)
-      (?<!(?:september)\s)
-      (?<!(?:december|november|february)\s)
-      (?<!(?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)\s)
-      (?<!(?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)\.\s) # ...lots of months, these ones with the dot
-      (?<!\d,\s)  # preceding digit and comma, for jan 1, 2014, to ignore the 1
-      (?<!\d\s)  # preceding digit, for jan 1 2014, to ignore the 1
-      (?<!\d(?:st|rd|th|nd)\s)  # ordinal, for jan 1st 2014, to ignore the 1
-      (?<!\d(?:st|rd|th|nd),\s)  # preceding digit, for jan 1st, 2014, to ignore the 1
-      \b
-      (\d{1,4}) # capture year
-      (?:\s+(ad|bc|bce|ce))? # optionally capture era
-      \b  
-      (?!\scentury) # ignore centuries
-    /ix
-
-BCE is mandatory.  CE is mandatory when other dates within the record are BCE. CE is strongly preferred when the year is before 1000 CE.
+BCE is mandatory.  CE is strongly preferred when the year is earlier than 1000 CE. CE is strongly preferred (mandatory, but not enforced?) when other dates within the record are BCE.
 
 #### Known to the Month
 
-**Preferred Form:** October 1990
-    
-**Alternate Forms:** June 2000 CE, March 880, January 80, aug. 1995, August, 1995
+**Preferred Form:** October 1990, October 990 CE     
+**If Uncertain:** October 1990?  
+**Alternate Forms:** June 2000 CE, March 880, January 80, aug. 1995, 'August, 1995', 'Aug., 1995'
 
-    /\b
-       (?:jan|january|feb|february|febuary|mar|march|apr|april|may|jun|june|jul|july|aug|august|sep|sept|september|oct|october|nov|november|dec|december)
-       \.?,?    # possible punctuation
-       \s       # and a space 
-       \d{1,4}  # the year
-       (?:\s+(ad|bc|bce|ce))?  # the optional era
-       (?!,)       # skip it if it is followed by a comma , which might be a BAD IDEA. 
-       (?!\s\d)    # skip it if it is followed by a digit
-       \b
-     /ix
+CE is strongly preferred when the year is earlier than 1000 CE. BCE is not currently supported.
+
+**TODO:** Does known to the month make sense for dates BCE?
+
+---- 
+
+Done through here
+
+----
 
 #### Known to the Day
 
-**Preferred Form:** June 11, 1995
- 
-**Alternate Forms:**  June 11 1995, Oct. 17, 1980, June 15, 90 BCE
-
-    /\b
-      (?:jan|january|feb|february|febuary|mar|march|apr|april|may|jun|june|jul|july|aug|august|sep|sept|september|oct|october|nov|november|dec|december)
-      \.?,?\s\d{1,2}
-      (?:st|rd|th|nd)?\s?
-      ,?
-      \s\d{1,4}
-      (?:\s+(?:ad|bc|bce|ce))?\b
-    /ix
+**Preferred Form:** June 11, 1995; June 11, 880 CE; June 11, 880 BCE  
+**If Uncertain:** June 11, 1990?  
+**Alternate Forms:**  June 11 1995; Oct. 17, 1980; June 15, 90 BCE; 9 June 1932; 9 June, 1932; 10/17/1980; 1980-17-10
 
 
-#### Known to the Minute
+#### More Precise
 
-*Are you kidding me? No.  We're not doing this.  Enter it to the day.*
+*Specificities more accurate than the day are over-precise for the project, and also might introduce time-zone requirements into the specification.  At this point, we do not support precisions greater than a day.*

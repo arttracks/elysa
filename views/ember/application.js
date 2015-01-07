@@ -58,16 +58,17 @@ App.EpochTransform = DS.Transform.extend({
     if (deserialized === undefined || deserialized === null) {
       return undefined;
     }
-    if (deserialized.unix) { // for a Moment.js date
+    else if (deserialized.unix) { // for a Moment.js date
       var val =  deserialized.unix();
       return val == 0 ? undefined : (+val); 
       
     }
-    if (deserialized.getTime) {  // for a standard date
+    else if (deserialized.getTime) {  // for a standard date
       return deserialized.getTime()/1000;
     }
     else {
-      console.log("deserialized", deserialized);
+      console.log("Epoch Deserialization Failure:", deserialized);
+      return undefined;
     }
   }
 });

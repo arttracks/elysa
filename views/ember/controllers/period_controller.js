@@ -39,12 +39,12 @@ App.PeriodController = Ember.ObjectController.extend( Ember.Evented, App.HelpTex
       this.model.rollback();
       Ember.$.post('/parsers/timestring', {str: val})
         .then(function(data){
-          self.model.set('botb',moment.unix(data.botb))
-          self.model.set('eotb',moment.unix(data.eotb))
+          self.model.set('botb',jd_to_cal(data.botb))
+          self.model.set('eotb',jd_to_cal(data.eotb))
           self.model.set('botb_precision',data.botb_precision)
           self.model.set('eotb_precision',data.eotb_precision)
-          self.model.set('bote',moment.unix(data.bote))
-          self.model.set('eote',moment.unix(data.eote)) 
+          self.model.set('bote',jd_to_cal(data.bote))
+          self.model.set('eote',jd_to_cal(data.eote)) 
           self.model.set('bote_precision',data.bote_precision)
           self.model.set('eote_precision',data.eote_precision)     
           self.model.set('updated',true);     

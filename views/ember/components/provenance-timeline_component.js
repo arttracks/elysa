@@ -252,13 +252,23 @@ App.ProvenanceTimelineComponent = Ember.Component.extend({
       .attr("y", function(d) { return y(+d.order) + y.rangeBand()/2; })  
       .transition()
         .attr("width", function(d) {
-          var val =  x(d.latest_definite) - x(d.earliest_definite);
-          return Math.abs(val) || 0;
+          if (d.earliest_definite && d.latest_definite) {
+            var val =  x(d.latest_definite) - x(d.earliest_definite);
+            return Math.abs(val) || 0;
+          }
+          else {
+            return 0;
+          }
         })
         .attr("x", function(d) { 
-          var date = Math.min(d.earliest_definite,d.latest_definite);
-          if (date == undefined) return -1000;
-          return x(date);
+          if (d.earliest_definite && d.latest_definite) {
+            var date = Math.min(d.earliest_definite,d.latest_definite);
+            if (date == undefined) return -1000;
+            return x(date);
+          }
+          else {
+            return -1000;
+          }
         })   
 
     // update possible range
@@ -277,14 +287,14 @@ App.ProvenanceTimelineComponent = Ember.Component.extend({
       .attr("y", function(d) { return y(+d.order) + y.rangeBand()/2 -1; })  
       .attr("height", y.rangeBand()/2 + 2)
       .transition()
-        .attr("x", function(d) { return x(d.earliest_definite) || -1000; })
+        .attr("x", function(d) { return d.earliest_definite ?  x(d.earliest_definite) : -1000; })
 
     // update end bars
     elements.selectAll(".end_of_definite").data(data,key)
       .attr("height", y.rangeBand()/2 + 2)
       .attr("y", function(d) { return y(+d.order) + y.rangeBand()/2 -1; })  
       .transition()
-        .attr("x", function(d) { return x(d.latest_definite) || -1000;   })
+        .attr("x", function(d) { return d.latest_definite ?  x(d.latest_definite) : -1000;   })
 
     //Update text on change
     elements.selectAll("text").data(data,key)

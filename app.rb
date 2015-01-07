@@ -56,10 +56,10 @@ module CMOA
         p = MuseumProvenance::Period.new("test ")
         p.parse_time_string(params[:str])      
         hash = {}
-        hash[:eotb] = p.eotb ? p.eotb.to_time.to_i : nil    
-        hash[:eote] = p.eote ? p.eote.to_time.to_i : nil   
-        hash[:botb] = p.botb ? p.botb.to_time.to_i : nil
-        hash[:bote] = p.bote ? p.bote.to_time.to_i : nil      
+        hash[:eotb] = p.eotb ? p.eotb.jd : nil    
+        hash[:eote] = p.eote ? p.eote.jd : nil   
+        hash[:botb] = p.botb ? p.botb.jd : nil
+        hash[:bote] = p.bote ? p.bote.jd : nil      
         hash[:botb_precision] = p.beginning.earliest_raw.precision rescue nil 
         hash[:eotb_precision] = p.beginning.latest_raw.precision rescue nil
         hash[:bote_precision] = p.ending.earliest_raw.precision  rescue nil

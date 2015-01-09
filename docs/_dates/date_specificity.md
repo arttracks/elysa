@@ -33,7 +33,7 @@ Decades are not a common form for dates, but are often used for (relatively) rec
 **If Uncertain:** 1990?, 900 CE?, 800 BCE?  
 **Alternate Forms:**  10 ad, 1 BC, 6000 BCE, 800
 
-BCE is mandatory.  CE is strongly preferred when the year is earlier than 1000 CE. CE is strongly preferred (mandatory, but not enforced?) when other dates within the record are BCE.
+BCE is mandatory for years before 1 CE. CE is required when the year is earlier than 1000 CE. CE is strongly preferred (mandatory, but not enforced?) when other dates within the record are BCE.
 
 #### Known to the Month
 

@@ -17,6 +17,7 @@ jekyll_options = {
 run Rack::URLMap.new(
   '/' => CMOA::App.new,                              # Sinatra site
   "/docs" => Rack::Directory.new( "docs/public" ),   # Documentation static content
-  '/docs' => Rack::Jekyll.new( jekyll_options)       # Serve our static content                    
+  '/docs' => Rack::Jekyll.new( jekyll_options),      # Serve our static content   
+  "/apidocs" => Rack::Directory.new( "docs/api" ),       # Documentation static content                 
 )
 

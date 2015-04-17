@@ -3,15 +3,26 @@ layout: default
 ---
 
 <div class="home">
+  <h1 class="page-heading">Documentation for the CMOA Art Tracks project</h1>
 
-  <h1 class="page-heading">Additional Reference Material</h1>
+  <p>
+    Art Tracks is an IMLS funded initiative at the Carnegie Museum of Art that aims to turn provenance in to structured data by building a suite of open source software tools.  These tools transform traditional written provenenance records into searchable data, with an emphasis on existing data standards and a strong focus on building tools that are useful (and usable) across multiple institutions.
+  </p>
+
+  <h3>Getting Started</h3>
+
+  <a href="/cmoa_standard/"> The CMOA provenance Standard</a>  
+
+  <h3>Additional Reference Material</h1>
 
   <ul class="post-list">
+    <li><strong>Dates:</strong><li>
     {% for page in site.dates %}
       <li>
         <a class="post-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
       </li>
     {% endfor %}
+      <li><strong>Acquisitions:</strong><li>
     {% for page in site.acquisitions %}
       <li>
         <a class="post-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>

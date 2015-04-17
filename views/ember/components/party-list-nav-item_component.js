@@ -1,4 +1,5 @@
 App.PartyListNavItemComponent  = Ember.Component.extend({
+  classNames: ["party-list-nav-item"],
   actions: {
     delete: function(id){
       this.sendAction("delete",id);

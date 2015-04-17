@@ -4,7 +4,7 @@ App.ProvenanceTimelineComponent = Ember.Component.extend({
   margin: {top: 20, right: 110, bottom: 30, left: 40},  
   width: 1200,
   elementHeight: 28,
-  textSpacing: 200,
+  textSpacing: 140,
   class: "timeline-svg",
 
   height: function() {

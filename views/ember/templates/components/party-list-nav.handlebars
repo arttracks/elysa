@@ -1,21 +1,15 @@
-<div class="panel panel-default party-list-nav">
 
-  <div class="panel-heading">{{help-label size="" label="Provenance Party Records  " help=provenance_nav_help}}</div>
-  {{!-- <div class="panel-body">
-  </div> --}}
+<div id="provenance-nav-heading">{{help-label size="" label="Provenance Party Records  " help=provenance_nav_help}}</div>
 
-  <ul class="list-group party-list" id="party-list">
-    {{#each periods}}
-    <li {{bind-attr class="active updated :list-group-item" id=id}}>
-      {{party-list-nav-item parsable=parsable id=id name=partyName primary=primary direct=direct_transfer toggle_transfer="toggle_transfer" delete="delete" open="open"}}  
-    </li>
-    {{/each}}
-  </ul>
+<ul class="party-list-nav" id="party-list">
+  {{#each periods}}
+  <li {{bind-attr class="active updated direct_transfer:direct:indirect" id=id}}>
+    {{party-list-nav-item parsable=parsable id=id name=partyName primary=primary direct=direct_transfer toggle_transfer="toggle_transfer" delete="delete" open="open"}}  
+  </li>
+  {{/each}}
+</ul>
 
-  <div class="panel-footer">
-    <button {{action 'addParty'}} class="btn btn-default btn-xs btn-block add_party">
-      Add a Party
-    </button>
-  </div>
-
-</div>
+<button {{action 'addParty'}} class="btn btn-default btn-sm btn-info add_party">
+  <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+  Add a Party
+</button>

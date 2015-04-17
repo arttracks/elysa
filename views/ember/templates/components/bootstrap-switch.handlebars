@@ -1,6 +1,6 @@
 <div class="form-group ">
-  {{help-label label=label help=help}}
-  <div class='col-sm-8'>
+  {{help-label size=labelRowClass label=label help=help}}
+  <div {{bind-attr class="fieldRowClass"}} >
     {{input type="checkbox" tabindex=tabstop name=label checked=status disabled=disabled data-size=size data-on-text=onText data-off-text=offText}}
   </div>
 </div>

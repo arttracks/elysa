@@ -1,24 +1,29 @@
-<div class ="panel-body">
-  <button class="btn pull-right btn-xs" id="provenance-text-copy">copy&nbsp;</button>
-
-  {{#each periods}}
-    {{#link-to 'period' id classNameBindings=':provenance_line party_is_blank parsable::unparsable updated'}}
-      {{provenance_with_footnote~}}
-      {{~transfer_type direct_transfer}}
-    {{/link-to}}
-  {{/each}}
-
-  {{#if notes_exist}}
-    <div>
-      NOTES:
-      {{#each periods}}
-        {{#if footnote}}
-          {{#link-to 'period' id class='provenance_line'}}
-            [{{footnote_number}}] {{footnote}}
-          {{/link-to}}
-          {{/if}}
-      {{/each}}
-    </div>
-  {{/if}}
-
+<div class="row provenance-copy-button-holder">
+  <div class="col-xs-12">
+  <button class="btn pull-right btn-sm btn-info" id="provenance-text-copy">copy provenance</button>
+  </div>
 </div>
+<div class="row">
+  <div class="col-xs-12">
+    {{#each periods}}
+      {{#link-to 'period' id classNameBindings=':provenance_line party_is_blank parsable::unparsable updated'}}
+        {{provenance_with_footnote~}}
+        {{~transfer_type direct_transfer}}
+      {{/link-to}}
+    {{/each}}
+
+    {{#if notes_exist}}
+      <div id="footnote-holder">
+        NOTES:
+        {{#each periods}}
+          {{#if footnote}}
+            {{#link-to 'period' id class='provenance_line'}}
+              [{{footnote_number}}] {{footnote}}
+            {{/link-to}}
+            {{/if}}
+        {{/each}}
+      </div>
+    {{/if}}
+  </div>
+</div>
+

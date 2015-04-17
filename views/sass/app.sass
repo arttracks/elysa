@@ -8,34 +8,54 @@ $RED: red
 $BOOTSTRAP_BLUE:  #428bca 
 $MEDIUM_GRAY: #BBB
 $MEDIUM_GREY: $MEDIUM_GRAY
+$HEADER_COLOR: #2d2d2d
+$BACKGROUND-BLUE: #294866
 
 // SIZES
 
 $FOOTER_SIZE: 30px
 
 // GENERAL THINGS
+
+.navbar-inverse
+  background-color: $HEADER_COLOR
+  padding: 4px 0
+  border-radius: 0
+  .navbar-nav > li > a
+    color: #ddd 
 html
   min-height: 100%
   position: relative
-body 
-  padding-top: 60px
-  margin-bottom: $FOOTER_SIZE
+  background-color: $HEADER_COLOR
+
 
 .navbar-brand img
   margin-top: -14px
   //margin-left: -12px
   //margin-right: 12px
+
 #main_content
+  padding-top: 20px
   padding-bottom: 60px
 
+#primary_content
+  padding-bottom: 20px
+
+#secondary_content
+  padding-top: 40px
+  padding-bottom: 20px
+  background-color: $BACKGROUND-BLUE
+  border-top: 3px solid $BOOTSTRAP_BLUE
+
 #fixed_footer
-  position: absolute
-  bottom: 0
   width: 100%
-  height: $FOOTER_SIZE
-  background: $MEDIUM_GREY
+  background: $HEADER_COLOR
+  border-top: 2px solid #666
   margin-left: 0
   margin-right: 0
+  color: white
+  a
+    color: #ddd
   p
     margin-top: 8px
     font-size: 80%
@@ -49,23 +69,26 @@ body
   
 // HEADER
 .artwork-thumbnail
-  height: 90px
+  width: 100%
   margin-right: .5em
   margin-bottom: 4px
   margin-left: -15px
 
+.provenance-copy-button-holder
+  margin-bottom: 10px
 // PROVENANCE TEXT PANEL
-#provenance-text-copy
-  position: absolute
-  right: 0
-  top: 0
-  border-color: $LIGHT_GRAY
-  border-right: none
-  border-top: none
-  border-radius: 0px 4px
-  background-color: $PALE_GREY
-  min-width: 3.5em
-  outline: transparent
+// #provenance-text-copy
+//   position: absolute
+//   right: 0
+//   top: 0
+//   border-color: $LIGHT_GRAY
+//   border-right: none
+//   border-top: none
+//   border-radius: 0px 4px
+//   background-color: $PALE_GREY
+//   min-width: 3.5em
+//   outline: transparent
+
 
 .provenance-text
   margin-bottom: 10px
@@ -76,28 +99,51 @@ body
   .provenance_line
     text-decoration: none
     padding: 0 2px
+    line-height: 170%
     &:hover, &:focus
       text-decoration: none
     color: #888
     &.active
       color: black
-      background: lighten($BOOTSTRAP_BLUE,40%)
-      padding: 2px 4px
-      margin: -2px
+      background: lighten($BOOTSTRAP_BLUE,30%)
+      padding: 2px
+      margin: -2px 0
       border-radius: 4px
     &.party-is-blank, &.unparsable
       color: $RED
+      font-weight: 600
+
     &.updated.unparsable
       color: $GREEN
+      font-weight: 500
 .original-text
+  .form-group
+    background-color: #333
   .removed 
     color: $RED
   .added
     color: $GREEN
 // TABS
+.nav-tabs > li 
+  margin-right: 2px
+
+.nav-tabs > li > a,
+.nav-tabs > li > a:hover,
+.nav-tabs > li > a:focus 
+  background-color: #679dc4
+  color: white
+  border-bottom: 0px solid
+.nav-tabs > li > a:hover
+  border-color: transparent
+  
 .better-tab
+  margin-bottom: 40px
+  .nav
+    margin: 0 5px
+
+
+
   li a
-    color: $MEDIUM_GREY
     padding: 3px 15px  
     &.active
       color: inherit
@@ -131,7 +177,7 @@ body
   font-weight: bold
 .help
   color: white
-  background: lightgray
+  background: $MEDIUM_GREY
   width: 1em
   height: 1em
   display: inline-block
@@ -139,7 +185,6 @@ body
   line-height: 1em
   text-align: center
   border-radius: 20px
-  margin-left: -0.25em
   top: -.1em
   position: relative
   &:hover, &:active, &:focus
@@ -151,6 +196,8 @@ body
   .inline-editor-label
     font-size: 95%
     margin-bottom: 8px    
+    color: #757575
+    font-weight: 400
 
 h4.compact
   font-size: 110%
@@ -181,57 +228,82 @@ hr.compact
 .unparsable
   color: red
   font-style: italic
+  font-weight: 500
 .disabled
   color: slategrey
 .updated .unparsable, .updated.unparsable
   color: $GREEN
   font-style: normal
+  font-weight: 500
 .active .unparsable 
   color: white
 
 
 
-#party-list
-  min-height: 265px
-  .ui-sortable-helper
-    background-color: lighten($BOOTSTRAP_BLUE,40%)
-    .direct-transfer-arrow, .badge
-      display: none
-.party-list-nav
-  a
-    color: #888
-  .provenance_party
+//-------- LEFT NAV -------------------------
 
+.party-list-nav
+  list-style: none
+  padding-left: 0
+  background-color: lighten($BOOTSTRAP_BLUE,30%)
+  border-radius: 4px
+  li
+    background-color: #fff
+  li:first-child
+    border-radius: 4px 4px 0 0
+  li:last-child
+    border-radius: 0 0 4px 4px
+    border-bottom: 0px transparent !important
+  li:first-child:last-child
+    border-radius: 4px
+  li.ui-sortable-helper
+    background-color: lighten($BOOTSTRAP_BLUE,20%)
+    border-radius: 0
+    .direct-transfer-arrow, &:hover .badge
+      display: none 
+  li.active
+    background-color: $BOOTSTRAP_BLUE
+  li.direct
+    border-bottom: 1px solid lighten($BOOTSTRAP_BLUE,30%)
+
+  li.indirect
+    border-bottom: 4px dashed lighten($BOOTSTRAP_BLUE,20%)
+
+  .party-list-nav-item 
+    padding: 8px 15px
+    display: block
+    position: relative
+  
+  .party-list-nav-item:hover
+    .badge
+      display: block
+  a.provenance_party
+    color: #888
     display: inline-block
     width: 100%
     padding-right: 12px
-    &:focus
+    &:focus, &:hover
       text-decoration: none    
-
     &.active
       font-weight: bold
       color: white
       &:after
         position: absolute
-        width: 32px
-        height: 33%
-        top: 33%
-        background-color: $BOOTSTRAP_BLUE
-        background: linear-gradient(to right, rgba(66,139,202,1) 0%,rgba(125,185,232,0) 100%)
-        background: -webkit-linear-gradient(left, rgba(66,139,202,1) 0%,rgba(125,185,232,0) 100%)
+        width: 0px
+        height: 0px
+        top: 5px 
         left: 100%
         content: ""
-        border-left: 1px darken($BOOTSTRAP_BLUE,20%) dotted
-        opacity: .25
-        border-right: 1px rgba(darken($BOOTSTRAP_BLUE,20%),.5) dotted
+        border-top: 13px transparent solid    
+        border-left: 13px $BOOTSTRAP_BLUE solid
+        border-bottom: 13px transparent solid
 
-    &:hover
-      text-decoration: none
+  // --- ARROWS ----
   .active .direct-transfer-arrow
     border-top-color:  darken($BOOTSTRAP_BLUE,10%)
     &:before
       background-color: darken($BOOTSTRAP_BLUE,10%)
-  .party-list li:last-child .direct-transfer-arrow
+  .party-list-nav li:last-child .direct-transfer-arrow
     display: none
   .direct-transfer-arrow
     &.disabled
@@ -272,13 +344,7 @@ hr.compact
   .active .badge
     background-color: darken($BOOTSTRAP_BLUE,20%)
     color: white
-  .list-group-item
-    padding: 3px 15px
-  .panel-heading
-    padding: 3px 15px 0px  
-  .list-group-item:hover
-    .badge
-      display: block
+
 
 .extended_fields
   display: none
@@ -302,3 +368,33 @@ hr.compact
   margin-bottom: 1.5em
   .form-group
     margin-bottom: 0
+
+
+#artwork-title
+  font-weight: 300
+  margin-bottom: 12px
+
+#artist-name
+  margin-bottom: 8px
+  font-size: 16px
+  font-weight: 400
+
+#accession-number
+  font-style: italic
+  font-size: 16px
+  font-weight: 400
+
+.bottom-buttons
+  padding-top: 20px
+  text-align: center
+
+#footnote-holder
+  padding-top: 8px
+
+#provenance-nav-heading label
+  color: white
+  font-size: 120%
+  font-weight: 400
+  padding-bottom: 0
+  .help
+    display: none

@@ -1,5 +1,5 @@
 App.ProvenanceTextComponent  = Ember.Component.extend({
-  classNames: "row provenance-text panel panel-default".w(),
+  classNames: "provenance-text".w(),
   notes_exist: function() {
     var periods = this.get("periods");
     for (var q1 = 0; q1 < periods.length; q1++) {
@@ -38,7 +38,7 @@ App.ProvenanceTextComponent  = Ember.Component.extend({
     client.on( "aftercopy", function( event ) {
       var btn = event.target;
       $(btn).text("copied")
-      setTimeout(function() {$(btn).text("copy")}, 1500);
+      setTimeout(function() {$(btn).text("copy provenance")}, 1500);
     });
   },
 });

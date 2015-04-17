@@ -13,28 +13,35 @@
   </div>
   <hr class='compact'/>
   <div class="row">
-    <form class="form-horizontal col-md-6 form-compact" onsubmit="return false;">
-      {{inline-editor tabstop="2" label="Party Name"     val=party      action="updateRecord" possibly=party_certainty help=name_help}}
-      {{inline-editor tabstop="3" label="Year of Birth"  val=birth_year action="updateRecord" possibly=birth_certainty  help=birth_year_help}}
-      {{inline-editor tabstop="4" label="Year of Death"  val=death_year action="updateRecord" possibly=death_certainty   help=death_year_help}}
-      {{inline-editor tabstop="5" label="Party Location" val=location   action="updateRecord" possibly=location_certainty help=location_help}}
-      {{acquisition-method  tabstop="6" val=acquisition_method      action="updateRecord" help=aqcuisition_help }}
+    <form class="form-horizontal col-md-7 form-compact" onsubmit="return false;">
+      {{bootstrap-switch  tabstop="2"  label="Text Certain"    status=period_certainty     action="updateRecord" help=period_certainty_help}}
+      {{inline-editor tabstop="3" label="Party Name"     val=party      action="updateRecord" possibly=party_certainty help=name_help}}
+      {{inline-editor tabstop="4" label="Party Location" val=location   action="updateRecord" possibly=location_certainty help=location_help}}
+      {{acquisition-method  tabstop="5" val=acquisition_method      action="updateRecord" help=aqcuisition_help }}
     </form>
-    <form class="form-horizontal col-md-6 form-compact" onsubmit="return false;">
-      {{bootstrap-switch  tabstop="8"  label="Text Certain"    status=period_certainty     action="updateRecord" help=period_certainty_help}}
-      {{bootstrap-switch   tabstop="9" label="Direct Transfer?"   status=direct_transfer      action="updateRecord" }}
-      {{bootstrap-switch   tabstop="10" label="Primary Owner?"   status=primary_owner         action="updateRecord" }}
-      {{inline-editor  tabstop="11"  label="Ownership Dates"  val=timestring                    action="updateDate" }}
-      {{inline-editor  tabstop="12"   label="Stock Number"   val=stock_number                  action="updateRecord" }}
+    <form class="form-horizontal col-md-5 form-compact" onsubmit="return false;">
+      <br>
+      {{inline-editor tabstop="3" label="Year of Birth"  val=birth_year action="updateRecord" possibly=birth_certainty  help=birth_year_help smallCol=true}}
+      {{inline-editor tabstop="4" label="Year of Death"  val=death_year action="updateRecord" possibly=death_certainty   help=death_year_help smallCol=true }}
+
+      {{bootstrap-switch   tabstop="10" label="Direct Transfer?"   status=direct_transfer      action="updateRecord" smallCol=true  }}
+      {{bootstrap-switch   tabstop="11" label="Primary Owner?"   status=primary_owner         action="updateRecord" smallCol=true  }}
+      {{!-- {{inline-editor  tabstop="12"   label="Stock Number"   val=stock_number                  action="updateRecord" }} --}}
     </form>
   </div>
-
+  <hr class='compact'/>
+  <div class="row">
+    <form class="form-horizontal col-md-12 form-compact" onsubmit="return false;">
+      {{inline-editor  tabstop="6"  label="Ownership Dates" val=timestring action="updateDate"  singleLine=true}}
+    </form>
+  </div>
+  <hr class='compact'/>
   <div class="row">
     {{inline-editor   tabstop="7"  label="Footnote" val=footnote      action="updateRecord" singleLine=true }}
   </div>
 
+  <hr {{bind-attr class=" showExtended::hidden"}} />
   <div {{bind-attr class=":row :extended_fields showExtended:visible"}}>
-    <hr/>
     <form class="form-horizontal col-md-6 form-compact" onsubmit="return false;">
       {{bootstrap-switch   label="Party Certain?"    status=party_certainty     action="updateRecord" }}
       {{bootstrap-switch   label="Birth Certain?"    status=birth_certainty     action="updateRecord" }}

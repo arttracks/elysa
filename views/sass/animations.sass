@@ -1,9 +1,17 @@
+.timeline-holder
+  background-color: #fff
+  border-radius: 5px
+  margin-left: 15px
+  margin-right: 15px
+
 .timeline-svg
   width: 100%
 .exhibitions
   .exhibition_text
     font: 10px sans-serif
     font-weight: bold
+    fill: #333
+    stroke: none
   .exhibition
     fill: lightgrey
     opacity: 1
@@ -19,7 +27,7 @@
   color: white
 
 .periods .possible_bounds
-  fill: lightgrey
+  fill: lighten(desaturate(#428bca, 30),10)
 
 .periods .definite_bounds
   fill: black
@@ -28,20 +36,20 @@
   fill: black
 
 .periods text 
-  fill: darkslategrey
+  fill: #444
   font: 10px sans-serif
   text-anchor: front
   &.active
     font-weight: bold
-    font-size: 12px
+    font-size: 13px
     fill: black
 
 .lifespan
   fill: none
-  stroke: cornflowerblue 
+  stroke: #428bca  
 .lifespan-nodeath
   fill: none
-  stroke: cornflowerblue 
+  stroke: #428bca  
   stroke-dasharray: 5,5
 
 .creation-line

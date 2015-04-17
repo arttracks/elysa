@@ -1,39 +1,47 @@
-<div id="artwork_holder">
-
-  {{!-- ARTWORK HEADER   --}}
+<div class='container' id="primary_content">
   <div class='row'>
-    <div class ='col-md-8'>
-      {{#if hasImage}}
-      <img {{bind-attr src=firstImage }} class="img-rounded pull-left artwork-thumbnail">
-      {{/if}}
-      <h3 class='compact'> {{title}} {{creation_label}}</h3>
-      <h4> {{artist}}</h4>
-      <p><i> {{accession_number}}</i></p>
-      {{!-- <p> Last Updated: (date goes here) by (name)</p> --}}
+    <div class= 'col-md-12 artwork_holder'>
+      {{!-- ARTWORK HEADER   --}}
+      <div class='row'>
+        {{#if hasImage}}
+          <div class ='col-md-3'>
+            <img {{bind-attr src=firstImage }} class="img-rounded pull-left artwork-thumbnail">
+          </div>
+        {{/if}}
+        <div class='col-md-9'>
+          <h3 class='compact' id="artwork-title"> {{title}} {{creation_label}}</h3>
+          <h5 id="artist-name"> {{artist}}</h5>
+          <h6 id="accession-number"> {{accession_number}}</h6>
+
+          {{provenance-text periods=sortedPeriods}}
+        </div>
+      </div>
     </div>
   </div>
+</div>
 
-
-  {{provenance-text periods=sortedPeriods}}
+<div class='container-fluid' id="secondary_content">
+  <div class="container">
+  <div class='row'>
+    <div class= 'col-md-12'>
 
 
   {{!-- ARTWORK HEADER   --}}
-  <div class="row well">
       {{party-list-nav periods=sortedPeriods delete='deleteParty' reorder='reorderParties' add='addParty' open="openPrimary" initNav='resizeNav'}}
       <div class="col-md-9">
        
 
         <div role="tabpanel" class='better-tab'>
           <ul class="nav nav-tabs" role="tablist">
-          <li role="presentation"><a href="#fulltext" aria-controls="fulltext" role="tab" data-toggle="tab">Original Record</a></li>
-            <li role="presentation" class="active"><a href="#period-fields" aria-controls="period-fields" role="tab" data-toggle="tab">Current Period</a></li>
+            <li role="presentation" class="active"><a href="#period-fields" aria-controls="period-fields" role="tab" data-toggle="tab">Provenance</a></li>
+            <li role="presentation"><a href="#fulltext" aria-controls="fulltext" role="tab" data-toggle="tab">Original Record</a></li>
+  
 
-
-            <li role="presentation">
+            <li class="hidden" role="presentation">
               <a href="#party-lookup" aria-controls="party-lookup" role="tab" data-toggle="tab">Party Lookup</a>
             </li>
 
-            <li role="presentation">
+            <li class="hidden" role="presentation">
               <a href="#location-lookup" aria-controls="location-lookup" role="tab" data-toggle="tab">Location Lookup</a>
             </li>
 
@@ -82,34 +90,40 @@
             <div class="tab-pane active" id="period-fields" {{bind-attr style=betterTabHeight}}>
               {{#unless periods}} <div class='no-content'>There is no provenance record for this artwork.</div> {{/unless}}
               {{outlet}}
-              <button class="btn-link btn btn-xs pull-right show-extended" {{action 'toggle_extended'}}>
-               {{#if showExtended}}Hide{{else}}Show{{/if}} Extended Fields
-              </button>
+              <hr/>
+              <div class="row">
+                <div class="col-md-12">
+                  <button class="btn-link btn btn-xs show-extended pull-right" {{action 'toggle_extended'}}>
+                   {{#if showExtended}}Hide{{else}}Show{{/if}} Extended Fields
+                   <span {{bind-attr class=":updown :glyphicon showExtended:glyphicon-chevron-up:glyphicon-chevron-down"}}/>
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-
-      </div>
+        </div>
   </div>
 </div>
 
 <div class="row">
-  <div class='col-md-12 timeline-holder'>
-    {{provenance-timeline creationDate=creation_earliest timeline_data=timeline_data action="gotoParty"}}
+  <div class='col-md-12'>
+    <div class="timeline-holder">
+      {{provenance-timeline creationDate=creation_earliest timeline_data=timeline_data action="gotoParty"}}
+    </div>
   </div>
 </div>
-<hr>
 <div class="row">
-  <div class="interface col-md-12">
-    <div class="btn-toolbar pull-right">
-      <div class="btn-group">
-        {{#link-to 'index'}}
-        <button class="btn btn-warning">Start Over</button>
-        {{/link-to}}
-      </div>
+  <div class='col-xs-6 col-xs-offset-3 bottom-buttons'>
+    {{#link-to 'index'}}
+      <button class="btn btn-default btn-info btn-xl btn-block">Start Over</button>
+    {{/link-to}}
     </div>
   </div>
 </div>
 </div>
 </div>
 
+    </div>
+  </div>
+</div>

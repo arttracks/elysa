@@ -3,28 +3,38 @@ Elysa
 
 CMOA Provenance entry tool
 
+WIP.
 
-### Installing ElasticSearch.
+### Installation notes
 
-  brew install elasticsearch
+*( commands to be run in a terminal in the base directory)*
 
-  Data:    /usr/local/var/elasticsearch/elasticsearch_david/
-  Logs:    /usr/local/var/log/elasticsearch/elasticsearch_david.log
-  Plugins: /usr/local/var/lib/elasticsearch/plugins/
+    install git
 
-  ElasticSearch requires Java 7; you will need to install an appropriate JDK.
+    # Install Homebrew if it's not installed:
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-  To have launchd start elasticsearch at login:
-      ln -sfv /usr/local/opt/elasticsearch/*.plist ~/Library/LaunchAgents
-  Then to load elasticsearch now:
-      launchctl load ~/Library/LaunchAgents/homebrew.mxcl.elasticsearch.plist
-  Or, if you don't want/need launchctl, you can just run:
-      elasticsearch --config=/usr/local/opt/elasticsearch/config/elasticsearch.yml
+    INSTALL RVM
+    rvm install 2.1.2
 
-### Installing Marvel
+    # Install Elasticsearch
+    brew install elasticsearch
+ 
+    # Install foreman globally:
+    gem install foreman
 
-  cd /usr/local/var/lib/elasticsearch/plugins/
-  ./bin/plugin -i elasticsearch/marvel/latest
-  cd $CMOA_ROOT/provenance_tool
-  echo 'marvel.agent.enabled: false' >> ./elasticsearch.yml
-  
+    # Update the Ruby Gems
+    gem update --system
+    gem install bundler
+    bundle install
+
+
+Note that this needs a recent version of Ruby installed on your system.  We've been running it on either 2.0 or 2.1—there's a good chance it might not work on 1.9 or earlier.
+
+## Starting up the software: (run in a terminal in the base directory)
+
+    foreman start
+
+## Opening the page:
+
+<http://localhost:5000>

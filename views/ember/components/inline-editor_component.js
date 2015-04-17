@@ -2,6 +2,7 @@ App.InlineEditorComponent = Ember.Component.extend({
   tagName: 'span',
   isEditing: false,
   singleLine: false,
+  smallCol: false,
   primary: false,
  
   init: function() {
@@ -33,12 +34,28 @@ App.InlineEditorComponent = Ember.Component.extend({
   },
 
   labelRowClass: function() {
-    return this.get('singleLine') ? "col-sm-2" : "col-sm-4"
-  }.property('singleLine'),
+    if (this.get('singleLine')) {
+      return  "col-sm-2"
+    }
+    else if( this.get('smallCol')) {
+      return "col-sm-6"
+    }
+    else{
+      return "col-sm-4"
+    }
+  }.property('singleLine', 'smallCol'),
 
   fieldRowClass: function() {
-    return this.get('singleLine')  ? "col-sm-10" : "col-sm-8"
-  }.property('singleLine'),
+    if( this.get('singleLine')) {
+      return "col-sm-10"
+    }
+    else if( this.get('smallCol')) {
+      return "col-sm-6"
+    }
+    else{
+      return "col-sm-8"
+    }
+  }.property('singleLine', 'smallCol'),
 
   displayText: function() {
     var dval = this.get("displayVal");

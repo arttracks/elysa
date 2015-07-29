@@ -26,11 +26,11 @@ group :documentation do
 end
 
 group :development do
-  gem 'guard'
+  gem 'guard', '2.7.3'
   gem 'guard-sass'
   gem 'guard-livereload'
   gem "rack-livereload"
-  gem 'guard-bundler', require: false
+  gem 'guard-bundler', '2.0.0', require: false
   gem 'guard-shell'
   gem 'guard-coffeescript'
   gem 'minitest'
